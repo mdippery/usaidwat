@@ -1,4 +1,6 @@
+require 'fileutils'
 require 'net/http'
+require 'time'
 
 require 'rubygems'
 require 'json'
@@ -20,7 +22,7 @@ module USaidWat
     
     def initialize(username)
       @username = username
-      ensure_cache_dir!
+      self.ensure_cache_dir!
     end
     
     def profile_url
@@ -31,9 +33,16 @@ module USaidWat
       "#{self.profile_url}/comments"
     end
     
+    def last_update
+      return Time.at 0 unless File.exists? self.cache_timestamp_file
+      Time.parse File.open(self.cache_timestamp_file).read.chomp
+    end
+    
     def retrieve_comments(options={})
+      return self.retrieve_comments_from_cache unless Time.now - self.last_update > 300
       count = options[:count] || COMMENT_COUNT
       cache = options[:cache] || true
+      self.destroy_cache!
       comments = self.fetch_comments count
       return nil unless comments
       self.cache_comments comments if cache
@@ -41,6 +50,17 @@ module USaidWat
       comments.each do |comment|
         subreddit = comment['data']['subreddit'].to_sym
         subreddits[subreddit] += 1
+      end
+      subreddits.sort { |a,b| b[1] <=> a[1] }
+    end
+    
+    def retrieve_comments_from_cache
+      subreddits = Hash.new { |h,k| h[k] = 0 }
+      Dir.chdir(self.cache_dir) do
+        Dir['*'].each do |sr|
+          next unless File.directory? sr
+          Dir["#{sr}/*"].each { |f| subreddits[sr] += 1 }
+        end
       end
       subreddits.sort { |a,b| b[1] <=> a[1] }
     end
@@ -78,17 +98,25 @@ module USaidWat
         cache_file = File.join parent_cache_dir, cid
         File.open(cache_file, 'w') { |f| f.write body }
       end
-      cache_ts_path = File.join self.cache_dir, 'updated'
-      File.open(cache_ts_path, 'w') { |f| f.write Time.now }
+      File.open(self.cache_timestamp_file, 'w') { |f| f.write Time.now }
     end
     
     def cache_dir
       File.join USaidWat::BASE_CACHE_DIR, self.username
     end
     
+    def cache_timestamp_file
+      File.join self.cache_dir, 'updated'
+    end
+    
     def ensure_cache_dir!
       Dir.mkdir USaidWat::BASE_CACHE_DIR unless File.exists? USaidWat::BASE_CACHE_DIR
       Dir.mkdir self.cache_dir unless File.exists? self.cache_dir
+    end
+    
+    def destroy_cache!
+      FileUtils.rm_rf self.cache_dir
+      self.ensure_cache_dir!
     end
     
     def to_s
