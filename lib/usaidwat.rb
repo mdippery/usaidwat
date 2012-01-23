@@ -1,5 +1,7 @@
-require "usaidwat/version"
+require 'usaidwat/version'
+require 'usaidwat/reddit'
+
 
 module USaidWat
-  # Your code goes here...
+  BASE_CACHE_DIR = File.join File.expand_path('~'), '.usaidwat'
 end

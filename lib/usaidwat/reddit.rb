@@ -1,0 +1,90 @@
+require 'net/http'
+
+require 'rubygems'
+require 'json'
+
+
+class Hash
+  def to_query
+    data = self.keys.inject([]) { |parts, key| parts << [URI.encode(key.to_s), URI.encode(self[key].to_s)] }
+    data.map{ |t| t.join '=' }.join '&'
+  end
+end
+
+module USaidWat
+  class RedditUser
+    COMMENT_COUNT = 100
+    COMMENTS_PER_PAGE = 25
+    
+    attr_reader :username
+    
+    def initialize(username)
+      @username = username
+      ensure_cache_dir!
+    end
+    
+    def profile_url
+      "http://www.reddit.com/user/#{self.username}"
+    end
+    
+    def comments_url
+      "#{self.profile_url}/comments"
+    end
+    
+    def retrieve_comments(options={})
+      count = options[:count] || COMMENT_COUNT
+      cache = options[:cache] || true
+      comments = self.fetch_comments count
+      return nil unless comments
+      self.cache_comments comments if cache
+      subreddits = Hash.new { |h,k| h[k] = 0 }
+      comments.each do |comment|
+        subreddit = comment['data']['subreddit'].to_sym
+        subreddits[subreddit] += 1
+      end
+      subreddits.sort { |a,b| b[1] <=> a[1] }
+    end
+    
+    def fetch_comments(count)
+      comments = Array.new
+      after = nil
+      last_page = count / COMMENTS_PER_PAGE
+      (1..last_page).each do |i|
+        query = i == 1 ? '' : {:count => COMMENTS_PER_PAGE, :after => after}.to_query
+        url = "#{self.comments_url}.json?#{query}"
+        resp = Net::HTTP.get_response 'www.reddit.com', url
+        unless resp.code.to_i == 200
+          $stderr.puts "Could not retrieve comments: #{resp.message}"
+          return nil
+        end
+        resp = JSON.parse resp.body
+        if resp.key? 'error'
+          $stderr.puts "Could not retrieve comments: #{resp['error'] || 'Unknown error'}"
+          return nil
+        end
+        comments += resp['data']['children']
+        after = resp['data']['after']
+      end
+      comments
+    end
+    
+    def cache_comments(comments)
+      # TODO: Actually cache the comments
+      cache_ts_path = File.join self.cache_dir, 'updated'
+      File.open(cache_ts_path, 'w') { |f| f.write Time.now }
+    end
+    
+    def cache_dir
+      File.join USaidWat::BASE_CACHE_DIR, self.username
+    end
+    
+    def ensure_cache_dir!
+      Dir.mkdir USaidWat::BASE_CACHE_DIR unless File.exists? USaidWat::BASE_CACHE_DIR
+      Dir.mkdir self.cache_dir unless File.exists? self.cache_dir
+    end
+    
+    def to_s
+      "Reddit user: #{self.username}"
+    end
+  end
+end
