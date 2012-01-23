@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'usaidwat'
+
+
+def die(code=1)
+  $stderr.puts "Usage: #{$0} <user>"
+  exit code
+end
+
+die if $*.length != 1
+reddit_user = $*.first
