@@ -54,6 +54,20 @@ module USaidWat
       subreddits.sort { |a,b| b[1] <=> a[1] }
     end
     
+    def comments_for_subreddit(subreddit)
+      self.retrieve_comments
+      comments = []
+      subreddit_dir = File.join self.comments_dir, subreddit
+      Dir.chdir(subreddit_dir) do
+        Dir['*'].each do |f|
+          path = File.join subreddit_dir, f
+          comment = File.open(path).read.chomp
+          comments << comment
+        end
+      end
+      comments
+    end
+    
     def retrieve_comments_from_cache
       subreddits = Hash.new { |h,k| h[k] = 0 }
       Dir.chdir(self.comments_dir) do
