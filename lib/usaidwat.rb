@@ -1,5 +1,5 @@
 require "usaidwat/version"
 
-module Usaidwat
+module USaidWat
   # Your code goes here...
 end

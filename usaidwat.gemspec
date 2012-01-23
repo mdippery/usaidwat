@@ -4,7 +4,7 @@ require "usaidwat/version"
 
 Gem::Specification.new do |s|
   s.name        = "usaidwat"
-  s.version     = Usaidwat::VERSION
+  s.version     = USaidWat::VERSION
   s.authors     = ["Michael Dippery"]
   s.email       = ["michael@monkey-robot.com"]
   s.homepage    = ""
