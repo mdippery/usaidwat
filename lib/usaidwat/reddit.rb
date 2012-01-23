@@ -56,7 +56,7 @@ module USaidWat
     
     def retrieve_comments_from_cache
       subreddits = Hash.new { |h,k| h[k] = 0 }
-      Dir.chdir(self.cache_dir) do
+      Dir.chdir(self.comments_dir) do
         Dir['*'].each do |sr|
           next unless File.directory? sr
           Dir["#{sr}/*"].each { |f| subreddits[sr] += 1 }
@@ -93,8 +93,7 @@ module USaidWat
         cid = c['data']['id']
         sr = c['data']['subreddit']
         body = c['data']['body']
-        parent_cache_dir = File.join self.cache_dir, sr
-        Dir.mkdir parent_cache_dir unless File.exists? parent_cache_dir
+        parent_cache_dir = self.subreddit_directory! sr
         cache_file = File.join parent_cache_dir, cid
         File.open(cache_file, 'w') { |f| f.write body }
       end
@@ -107,6 +106,17 @@ module USaidWat
     
     def cache_timestamp_file
       File.join self.cache_dir, 'updated'
+    end
+    
+    def comments_dir
+      File.join self.cache_dir, 'comments'
+    end
+    
+    def subreddit_directory!(subreddit)
+      Dir.mkdir self.comments_dir unless File.exists? self.comments_dir
+      cache = File.join self.comments_dir, subreddit
+      Dir.mkdir cache unless File.exists? cache
+      cache
     end
     
     def ensure_cache_dir!
