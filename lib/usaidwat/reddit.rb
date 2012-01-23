@@ -69,7 +69,15 @@ module USaidWat
     end
     
     def cache_comments(comments)
-      # TODO: Actually cache the comments
+      comments.each do |c|
+        cid = c['data']['id']
+        sr = c['data']['subreddit']
+        body = c['data']['body']
+        parent_cache_dir = File.join self.cache_dir, sr
+        Dir.mkdir parent_cache_dir unless File.exists? parent_cache_dir
+        cache_file = File.join parent_cache_dir, cid
+        File.open(cache_file, 'w') { |f| f.write body }
+      end
       cache_ts_path = File.join self.cache_dir, 'updated'
       File.open(cache_ts_path, 'w') { |f| f.write Time.now }
     end
