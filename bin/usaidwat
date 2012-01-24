@@ -16,8 +16,6 @@ unless subreddit
   comments = reddit_user.retrieve_comments
   exit 2 unless comments
   max_key = 1
-  puts reddit_user.username
-  puts '-' * reddit_user.username.length
   comments.each { |c| max_key = c.first.length if c.first.length > max_key }
   comments.each { |c| printf "%-*s  %s\n", max_key, c.first, c.last }
 else
