@@ -48,7 +48,7 @@ module USaidWat
       self.cache_comments comments if cache
       subreddits = Hash.new { |h,k| h[k] = 0 }
       comments.each do |comment|
-        subreddit = comment['data']['subreddit'].to_sym
+        subreddit = comment['data']['subreddit']
         subreddits[subreddit] += 1
       end
       subreddits.sort { |a,b| b[1] <=> a[1] }
