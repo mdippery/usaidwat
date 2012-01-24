@@ -16,6 +16,7 @@ def die(code=1)
   $stderr.puts "
     The most commonly used usaidwat commands are:
         list   Show user's last 100 comments for a given subreddit
+        show   Show a specific comment from a user
         where  Show where a user posts most often.".undent
   exit code
 end
