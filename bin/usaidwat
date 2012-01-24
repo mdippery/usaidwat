@@ -11,8 +11,8 @@ end
 def die(code=1)
   $stderr.puts "usaidwat v#{USaidWat::VERSION}"
   $stderr.puts "Usage: #{File.basename $0} <subcommand> [options]"
-  $stderr.puts "The most commonly used usaidwat commands are:"
   $stderr.puts
+  $stderr.puts "Available commands are:"
   commands = USaidWat.commands
   max_cmd = 0
   commands.each { |c| max_cmd = c.length if c.length > max_cmd }

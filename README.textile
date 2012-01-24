@@ -12,9 +12,9 @@ h2(#usage). Usage
 
 A @usaidwat@ binary is installed with the gem. @usaidwat@ will analyze a user's last 100 comments and provide statistics.
 
-To list a count of subreddits in which a user has posted, simply plug in a username:
+To list a count of subreddits in which a user has posted:
 
-bc. # usaidwat jedberg
+bc. # usaidwat where jedberg
 
 You will see output like the following:
 
@@ -44,8 +44,10 @@ apple                 1
 
 Which indicates that jedberg has commented in @/r/funny@ 15 times (out of his last 100 comments).
 
-To see the comments for a specific subreddit, tack on that subreddit:
+To see the comments for a specific subreddit:
 
-bc. $ usaidwat jedberg funny
+bc. $ usaidwat list jedberg funny
 
 All the comments for the given subreddit will be printed.
+
+Other available commands can be shown simply by running @usaidwat@.
