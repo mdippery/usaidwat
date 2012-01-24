@@ -10,8 +10,8 @@ end
 
 die if $*.length < 1 or $*.length > 2
 
-subreddit = $*.length == 2 ? $*.last : nil
-reddit_user = USaidWat::RedditUser.new $*.first
+reddit_user = USaidWat::RedditUser.new $*.shift
+subreddit = $*.shift
 unless subreddit
   comments = reddit_user.retrieve_comments
   exit 2 unless comments
