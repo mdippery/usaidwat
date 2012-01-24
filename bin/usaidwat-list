@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'usaidwat'
+
+
+def die(code=1)
+  $stderr.puts "Usage: usaidwat list <user> <subreddit>"
+  exit code
+end
+
+die if $*.length != 2
+
+reddit_user = USaidWat::RedditUser.new $*.shift
+subreddit = $*.shift
+comments = reddit_user.comments_for_subreddit subreddit
+is_first = true
+width = `tput cols`.to_i rescue 80
+comments.each do |c|
+  puts '-' * width unless is_first
+  puts c
+  is_first = false
+end

@@ -3,28 +3,28 @@
 require 'usaidwat'
 
 
+class String
+  def undent
+    self.gsub(/^.{#{slice(/^ +/).length}}/, '')
+  end
+end
+
+
 def die(code=1)
-  $stderr.puts "Usage: #{File.basename $0} <user> [<subreddit>]"
+  $stderr.puts "usaidwat v#{USaidWat::VERSION}"
+  $stderr.puts "Usage: #{File.basename $0} <subcommand> [options]"
+  $stderr.puts "
+    The most commonly used usaidwat commands are:
+        list   Show user's last 100 comments for a given subreddit
+        where  Show where a user posts most often.".undent
   exit code
 end
 
-die if $*.length < 1 or $*.length > 2
+die if $*.length < 1
 
-reddit_user = USaidWat::RedditUser.new $*.shift
-subreddit = $*.shift
-unless subreddit
-  comments = reddit_user.retrieve_comments
-  exit 2 unless comments
-  max_key = 1
-  comments.each { |c| max_key = c.first.length if c.first.length > max_key }
-  comments.each { |c| printf "%-*s  %s\n", max_key, c.first, c.last }
-else
-  comments = reddit_user.comments_for_subreddit subreddit
-  is_first = true
-  width = `tput cols`.to_i rescue 80
-  comments.each do |c|
-    puts '-' * width unless is_first
-    puts c
-    is_first = false
-  end
-end
+subcommand = $*.shift
+script = File.absolute_path $0
+dir = File.dirname script
+subcommand = File.join dir, "usaidwat-#{subcommand}"
+die 2 unless File.exists? subcommand
+exec subcommand, *$*
