@@ -5,7 +5,7 @@ module USaidWat::Commands extend self
   def where
     damn where_usage unless ARGV.length == 1
     
-    reddit_user = USaidWat::RedditUser.new $*.shift
+    reddit_user = USaidWat::RedditUser.new ARGV.shift
     comments = reddit_user.retrieve_comments
     exit 2 unless comments
     max_key = 1
