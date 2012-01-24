@@ -1,32 +1,35 @@
 #!/usr/bin/env ruby
 
 require 'usaidwat'
+require 'usaidwat/commands'
 
 
-class String
-  def undent
-    self.gsub(/^.{#{slice(/^ +/).length}}/, '')
-  end
+def require_path(subcommand)
+  "usaidwat/cmd/#{subcommand}"
 end
-
 
 def die(code=1)
   $stderr.puts "usaidwat v#{USaidWat::VERSION}"
   $stderr.puts "Usage: #{File.basename $0} <subcommand> [options]"
-  $stderr.puts "
-    The most commonly used usaidwat commands are:
-        list   Show user's last 100 comments for a given subreddit
-        show   Show a specific comment from a user
-        where  Show where a user posts most often.".undent
+  $stderr.puts "The most commonly used usaidwat commands are:"
+  $stderr.puts
+  commands = USaidWat.commands
+  max_cmd = 0
+  commands.each { |c| max_cmd = c.length if c.length > max_cmd }
+  commands.each do |cmd|
+    require require_path(cmd)
+    help = "#{cmd}_tag".to_sym
+    help = USaidWat.send help
+    $stderr.printf "    %-*s  %s\n", max_cmd, cmd, help
+  end
   exit code
 end
 
 die if ARGV.length < 1
 
 subc = ARGV.shift
-require_path = "usaidwat/cmd/#{subc}"
 begin
-  require require_path
+  require require_path(subc)
   USaidWat.send subc.gsub('-', '_').to_sym
 rescue LoadError => e
   $stderr.puts "usaidwat: command '#{subc}' not found"
