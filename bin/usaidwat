@@ -4,7 +4,7 @@ require 'usaidwat'
 
 
 def die(code=1)
-  $stderr.puts "Usage: #{$0} <user> [<subreddit>]"
+  $stderr.puts "Usage: #{File.basename $0} <user> [<subreddit>]"
   exit code
 end
 
