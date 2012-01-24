@@ -21,11 +21,14 @@ def die(code=1)
   exit code
 end
 
-die if $*.length < 1
+die if ARGV.length < 1
 
-subcommand = $*.shift
-script = File.absolute_path $0
-dir = File.dirname script
-subcommand = File.join dir, "usaidwat-#{subcommand}"
-die 2 unless File.exists? subcommand
-exec subcommand, *$*
+subc = ARGV.shift
+require_path = "usaidwat/cmd/#{subc}"
+begin
+  require require_path
+  USaidWat.send subc.gsub('-', '_').to_sym
+rescue LoadError => e
+  $stderr.puts "usaidwat: command '#{subc}' not found"
+  exit 2
+end
