@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Michael Dippery"]
   s.email       = ["michael@monkey-robot.com"]
   s.homepage    = ""
-  s.summary     = %q{View a user's last 100 Reddit comments}
+  s.summary     = %q{Answers the age-old question, "Where does a Redditor comment the most?"}
   s.description = %q{View a user's last 100 Reddit comments, organized by subreddit.}
 
   s.rubyforge_project = "usaidwat"
