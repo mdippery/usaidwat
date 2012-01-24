@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'usaidwat'
 
-module USaidWat extend self
+module USaidWat::Commands extend self
   def list
     damn list_usage unless ARGV.length == 2
     

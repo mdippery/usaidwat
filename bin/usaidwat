@@ -19,7 +19,7 @@ def die(code=1)
   commands.each do |cmd|
     require require_path(cmd)
     help = "#{cmd}_tag".to_sym
-    help = USaidWat.send help
+    help = USaidWat::Commands.send help
     $stderr.printf "    %-*s  %s\n", max_cmd, cmd, help
   end
   exit code
@@ -30,7 +30,7 @@ die if ARGV.length < 1
 subc = ARGV.shift
 begin
   require require_path(subc)
-  USaidWat.send subc.gsub('-', '_').to_sym
+  USaidWat::Commands.send subc.gsub('-', '_').to_sym
 rescue LoadError => e
   $stderr.puts "usaidwat: command '#{subc}' not found"
   exit 2
