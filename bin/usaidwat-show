@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'usaidwat'
+
+
+def die(code=1)
+  $stderr.puts "Usage: usaidwat show <user> <comment>"
+  exit code
+end
+
+reddit_user = USaidWat::RedditUser.new $*.shift
+comment = $*.shift
+Dir.chdir(reddit_user.comments_dir) do
+  Dir['*'].each do |subreddit|
+    Dir.chdir(subreddit) do
+      Dir['*'].each do |comment_file|
+        if comment == comment_file
+          puts File.open(comment_file).read
+          exit 0
+        end
+      end
+    end
+  end
+end
+$stderr.puts "Comment for user #{reddit_user.username} with ID #{comment} could not be found."
