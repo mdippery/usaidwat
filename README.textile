@@ -10,7 +10,7 @@ bc. $ gem install usaidwat
 
 h2(#usage). Usage
 
-A @usaidwat@ binary is installed with the gem. @usaidwat@` will analyze a user's last 100 comments and provide statistics.
+A @usaidwat@ binary is installed with the gem. @usaidwat@ will analyze a user's last 100 comments and provide statistics.
 
 To list a count of subreddits in which a user has posted, simply plug in a username:
 
