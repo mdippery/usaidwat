@@ -23,8 +23,9 @@ unless subreddit
 else
   comments = reddit_user.comments_for_subreddit subreddit
   is_first = true
+  width = `tput cols`.to_i rescue 80
   comments.each do |c|
-    puts '-' * 20 unless is_first
+    puts '-' * width unless is_first
     puts c
     is_first = false
   end
