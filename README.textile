@@ -1,0 +1,51 @@
+h1(#usaidwat). usaidwat
+
+Are you a Redditor? Do you use Ruby? Do you want to view the subreddits in which a particular user commonly posts? If you answered "yes" to all three of these questions, then *usaidwat* is the gem for you!
+
+h2(#install). Installation
+
+*usaidwat* can be installed via RubyGems:
+
+bc. $ gem install usaidwat
+
+h2(#usage). Usage
+
+A `usaidwat` binary is installed with the gem. `usaidwat` will analyze a user's last 100 comments and provide statistics.
+
+To list a count of subreddits in which a user has posted, simply plug in a username:
+
+bc. # usaidwat jedberg
+
+You will see output like the following:
+
+bc. jedberg
+-------
+blog                  26
+funny                 15
+unitedkingdom         12
+Random_Acts_Of_Pizza  11
+AskReddit             7
+entertainment         4
+politics              4
+TheoryOfReddit        3
+Frugal                3
+technology            2
+fffffffuuuuuuuuuuuu   2
+wikipedia             2
+pics                  1
+programming           1
+sex                   1
+space                 1
+movies                1
+geek                  1
+comics                1
+videos                1
+apple                 1
+
+Which indicates that jedberg has commented in `/r/funny` 15 times (out of his last 100 comments).
+
+To see the comments for a specific subreddit, tack on that subreddit:
+
+bc. $ usaidwat jedberg funny
+
+All the comments for the given subreddit will be printed.
