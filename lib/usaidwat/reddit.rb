@@ -82,8 +82,8 @@ module USaidWat
     def fetch_comments(count)
       comments = Array.new
       after = nil
-      last_page = count / COMMENTS_PER_PAGE
-      (1..last_page).each do |i|
+      pages = count / COMMENTS_PER_PAGE
+      pages.times do |i|
         query = i == 1 ? '' : {:count => COMMENTS_PER_PAGE, :after => after}.to_query
         url = "#{self.comments_url}.json?#{query}"
         resp = Net::HTTP.get_response 'www.reddit.com', url
