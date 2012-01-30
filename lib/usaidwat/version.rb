@@ -1,3 +1,3 @@
 module USaidWat
-  VERSION = "0.1.1"
+  VERSION = "0.0.3dev"
 end
