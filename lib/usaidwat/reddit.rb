@@ -69,7 +69,7 @@ module USaidWat
       end
     end
     
-    def retrieve_comments(options={})
+    def retrieve_comments
       update_cache
       subreddits = Hash.new { |h,k| h[k] = 0 }
       Dir.chdir(comments_dir) do
