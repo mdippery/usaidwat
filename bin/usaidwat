@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'usaidwat'
+require 'usaidwat/utils'
 
 
 VERSION = "usaidwat v#{USaidWat::VERSION}"
@@ -35,6 +36,7 @@ else
   subreddit = ARGV.shift
   comments = reddit_user.comments_for_subreddit subreddit
   is_first = true
+  run_pager
   width = `tput cols`.to_i rescue 80
   comments.each do |c|
     puts '-' * width unless is_first
