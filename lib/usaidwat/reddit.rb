@@ -85,6 +85,7 @@ module USaidWat
       update_cache
       comments = []
       subreddit_dir = File.join comments_dir, subreddit
+      return nil unless File.exists? subreddit_dir
       Dir.chdir(subreddit_dir) do
         Dir['*'].each do |f|
           path = File.join subreddit_dir, f

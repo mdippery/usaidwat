@@ -35,6 +35,10 @@ if ARGV.length == 0
 else
   subreddit = ARGV.shift
   comments = reddit_user.comments_for_subreddit subreddit
+  unless comments
+    puts "No comments by #{reddit_user.username} for #{subreddit}."
+    exit 0
+  end
   is_first = true
   run_pager
   width = `tput cols`.to_i rescue 80
