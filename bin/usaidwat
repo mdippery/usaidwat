@@ -29,7 +29,7 @@ reddit_user = USaidWat::RedditUser.new ARGV.shift
 if ARGV.length == 0
   comments = reddit_user.retrieve_comments
   exit 2 unless comments
-  max_key = comments.max_by{ |c| c.first.length }.first.length
+  max_key = comments.longest_subreddit.length
   comments.each { |c| printf "%-*s  %s\n", max_key, c.first, c.last }
 else
   subreddit = ARGV.shift

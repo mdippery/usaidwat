@@ -1,3 +1,9 @@
+class Array
+  def longest_subreddit
+    max_by { |s| s.first.length }.first
+  end
+end
+
 # Inspired by: http://nex-3.com/posts/73-git-style-automatic-paging-in-ruby
 def run_pager
   return if RUBY_PLATFORM =~ /win32/
