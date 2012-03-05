@@ -4,24 +4,17 @@ require 'usaidwat'
 require 'usaidwat/utils'
 
 
-VERSION = "usaidwat v#{USaidWat::VERSION}"
-USAGE = "Usage: #{File.basename $0} <user> [<subreddit>]"
-
-def die(code=1)
-  $stderr.puts VERSION
-  $stderr.puts USAGE
+def die(code=1, stream=STDERR)
+  stream.puts "Usage: #{File.basename $0} <user> [<subreddit>]"
   exit code
 end
 
 die if ARGV.length < 1 or ARGV.length > 2
 
-if ARGV.first == '--help' or ARGV.first == '-h'
-  puts USAGE
-  exit 0
-end
+die(0, STDOUT) if ARGV.first == '--help' || ARGV.first == '-h'
 
 if ARGV.first == '--version' or ARGV.first == '-V'
-  puts VERSION
+  puts "usaidwat v#{USaidWat::VERSION}"
   exit 0
 end
 
