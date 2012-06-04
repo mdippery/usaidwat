@@ -78,7 +78,7 @@ module USaidWat
           Dir["#{sr}/*"].each { |f| subreddits[sr] += 1 }
         end
       end
-      subreddits.sort { |a,b| b[1] <=> a[1] }
+      subreddits.sort { |a,b| a[0] <=> b[0] }
     end
     
     def comments_for_subreddit(subreddit)
