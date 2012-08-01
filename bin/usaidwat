@@ -25,18 +25,34 @@ if ARGV.length == 0
   max_key = comments.longest_subreddit.length
   comments.each { |c| printf "%-*s  %s\n", max_key, c.first, c.last }
 else
-  subreddit = ARGV.shift
-  comments = reddit_user.comments_for_subreddit subreddit
-  unless comments
-    puts "No comments by #{reddit_user.username} for #{subreddit}."
-    exit 0
-  end
-  is_first = true
-  run_pager
-  width = `tput cols`.to_i rescue 80
-  comments.each do |c|
-    puts '-' * width unless is_first
-    puts c
-    is_first = false
+  if ARGV[0] == '--all'
+    comments = reddit_user.retrieve_comments
+    comments.each do |record|
+      subreddit = record[0]
+      comments = reddit_user.comments_for_subreddit subreddit
+      is_first = true
+      run_pager
+      width = `tput cols`.to_i rescue 80
+      comments.each do |c|
+        puts '-' * width unless is_first
+        puts c
+        is_first = false
+      end
+    end
+  else
+    subreddit = ARGV.shift
+    comments = reddit_user.comments_for_subreddit subreddit
+    unless comments
+      puts "No comments by #{reddit_user.username} for #{subreddit}."
+      exit 0
+    end
+    is_first = true
+    run_pager
+    width = `tput cols`.to_i rescue 80
+    comments.each do |c|
+      puts '-' * width unless is_first
+      puts c
+      is_first = false
+    end
   end
 end
