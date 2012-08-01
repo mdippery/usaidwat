@@ -2,6 +2,7 @@
 
 require 'usaidwat'
 require 'usaidwat/utils'
+require 'rainbow'
 
 
 def die(code=1, stream=STDERR)
@@ -30,11 +31,11 @@ else
     comments.each do |record|
       subreddit = record[0]
       comments = reddit_user.comments_for_subreddit subreddit
-      is_first = true
       run_pager
-      width = `tput cols`.to_i rescue 80
+      is_first = true
       comments.each do |c|
-        puts '-' * width unless is_first
+        puts unless is_first
+        puts subreddit.foreground(:green).bright
         puts c
         is_first = false
       end
@@ -46,11 +47,10 @@ else
       puts "No comments by #{reddit_user.username} for #{subreddit}."
       exit 0
     end
-    is_first = true
     run_pager
-    width = `tput cols`.to_i rescue 80
+    is_first = true
     comments.each do |c|
-      puts '-' * width unless is_first
+      puts unless is_first
       puts c
       is_first = false
     end
