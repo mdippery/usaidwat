@@ -51,6 +51,7 @@ else
     is_first = true
     comments.each do |c|
       puts unless is_first
+      puts subreddit.foreground(:green).bright
       puts c
       is_first = false
     end
