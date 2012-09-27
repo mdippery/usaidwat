@@ -54,12 +54,12 @@ module USaidWat
           url = "#{comments_url}.json?#{query}"
           resp = Net::HTTP.get_response 'www.reddit.com', url
           unless resp.code.to_i == 200
-            $stderr.puts "Could not retrieve comments: #{resp.message}"
+            STDERR.puts "Could not retrieve comments: #{resp.message}"
             return nil
           end
           resp = JSON.parse resp.body
           if resp.key? 'error'
-            $stderr.puts "Could not retrieve comments: #{resp['error'] || 'Unknown error'}"
+            STDERR.puts "Could not retrieve comments: #{resp['error'] || 'Unknown error'}"
             return nil
           end
           comments += resp['data']['children']
@@ -79,6 +79,8 @@ module USaidWat
         end
       end
       subreddits.sort { |a,b| a[0].downcase <=> b[0].downcase }
+    rescue Errno::ENOENT
+      nil
     end
     
     def comments_for_subreddit(subreddit)
