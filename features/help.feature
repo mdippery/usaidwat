@@ -10,3 +10,11 @@ Feature: Get help
       """
       Usage: usaidwat [--tally] <user> [<subreddit>]
       """
+  
+  Scenario: Get version
+    When I run `usaidwat --version`
+    Then the exit status should be 0
+    And the stdout should contain:
+      """
+      usaidwat v
+      """
