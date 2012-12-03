@@ -42,13 +42,14 @@ module USaidWat
     
     private
       def handle_arguments(argv)
+        usage(1) if argv.length == 0
         usage if argv.first == "--help"
         version if argv.first == "--version"
         opts = {:tally => false}
         if argv.first == "--tally"
           opts[:tally] = true
           argv.shift
-          usage(1) if argv.length > 1
+          usage(1) unless argv.length == 1
         end
         [opts, argv]
       end
