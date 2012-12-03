@@ -4,6 +4,8 @@ module USaidWat
   module Client
     describe Client do
       before(:each) do
+        WebMock.disable_net_connect!
+        WebMock.reset!
         root = File.expand_path("../../../test/responses", __FILE__)
         stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").
           to_return(:body => IO.read(File.join(root, "comments.json")))
