@@ -3,14 +3,6 @@ require 'spec_helper'
 module USaidWat
   module Client
     describe Client do
-      before(:each) do
-        WebMock.disable_net_connect!
-        WebMock.reset!
-        root = File.expand_path("../../../test/responses", __FILE__)
-        stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").
-          to_return(:body => IO.read(File.join(root, "comments.json")))
-      end
-      
       let(:redditor) { Client::Redditor.new("mipadi") }
       
       describe "#username" do
@@ -19,9 +11,34 @@ module USaidWat
         end
       end
       
-      describe "#comments" do
-        it "gets 100 comments" do
-          redditor.comments.count.should == 100
+      context "when Reddit is up" do
+        before(:each) do
+          WebMock.disable_net_connect!
+          WebMock.reset!
+          root = File.expand_path("../../../test/responses", __FILE__)
+          stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").
+            to_return(:body => IO.read(File.join(root, "comments.json")))
+        end
+      
+        describe "#comments" do
+          it "gets 100 comments" do
+            redditor.comments.count.should == 100
+          end
+        end
+      end
+      
+      context "when Reddit is down" do
+        before(:each) do
+          WebMock.disable_net_connect!
+          WebMock.reset!
+          stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").
+            to_return(:status => 500)
+        end
+        
+        describe "#comments" do
+          it "gets 100 comments" do
+            expect { redditor.comments }.to raise_error(RuntimeError)
+          end
         end
       end
     end
