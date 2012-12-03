@@ -6,7 +6,7 @@ Feature: Browse comments
   
   Background: Reddit service
     Given the Reddit service returns comments for the user "mipadi"
-
+  
   Scenario: List all comments
     When I run `usaidwat mipadi`
     Then the exit status should be 0
@@ -40,7 +40,21 @@ Feature: Browse comments
       """
       No comments by mipadi for nsfw.
       """
-
+  
   Scenario: Tally comments with subreddit
     When I run `usaidwat --tally mipadi AskReddit`
     Then the exit status should not be 0
+  
+  Scenario: Pass no arguments
+    When I run `usaidwat`
+    Then it should fail with:
+      """
+      Usage: usaidwat [--tally] <user> [<subreddit>]
+      """
+  
+  Scenario: Pass no arguments when tallying
+    When I run `usaidwat --tally`
+    Then it should fail with:
+      """
+      Usage: usaidwat [--tally] <user> [<subreddit>]
+      """
