@@ -10,6 +10,7 @@ module USaidWat
       @opts, args = handle_arguments(argv)
       @redditor = USaidWat::Client::Redditor.new(args.first)
       return tally_comments if @opts[:tally]
+      return list_comments_for_subreddit(args[1]) if args.length == 2
     end
     
     def usage(code=0)
@@ -19,6 +20,16 @@ module USaidWat
     
     def version(code=0)
       puts "usaidwat v#{USaidWat::VERSION}"
+    end
+    
+    def list_comments_for_subreddit(subreddit)
+      comments = @redditor.comments
+      comments = comments.reject { |c| c.subreddit != subreddit }
+      if comments.length == 0
+        puts "No comments by #{@redditor.username} for #{subreddit}."
+        exit 0
+      else
+      end
     end
     
     def tally_comments
