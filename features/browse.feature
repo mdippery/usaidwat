@@ -33,6 +33,13 @@ Feature: Browse comments
   Scenario: List comments for a particular subreddit
     When I run `usaidwat mipadi AskReddit`
     Then the exit status should be 0
+  
+  Scenario: List comments for a subreddit with no comments
+    When I run `usaidwat mipadi nsfw`
+    Then it should pass with:
+      """
+      No comments by mipadi for nsfw.
+      """
 
   Scenario: Tally comments with subreddit
     When I run `usaidwat --tally mipadi AskReddit`
