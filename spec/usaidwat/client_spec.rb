@@ -21,7 +21,7 @@ module USaidWat
         end
       
         describe "#comments" do
-          it "gets 100 comments" do
+          it "retrieves 100 comments" do
             redditor.comments.count.should == 100
           end
         end
@@ -36,8 +36,8 @@ module USaidWat
         end
         
         describe "#comments" do
-          it "gets 100 comments" do
-            expect { redditor.comments }.to raise_error(RuntimeError)
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.comments }.to raise_error(RuntimeError, /Reddit unreachable/)
           end
         end
       end

@@ -12,6 +12,8 @@ module USaidWat
       
       def comments
         @service.user(username).comments(100)
+      rescue TypeError
+        raise "Reddit unreachable"
       end
     end
   end
