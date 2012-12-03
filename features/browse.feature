@@ -3,6 +3,9 @@ Feature: Browse comments
   As a Redditor
   I want to quickly be able to list another Redditor's comments
   In order to see what they like to talk about
+  
+  Background: Reddit service
+    Given the Reddit service returns comments for the user "mipadi"
 
   Scenario: List all comments
     When I run `usaidwat mipadi`
