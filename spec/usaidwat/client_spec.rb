@@ -37,7 +37,7 @@ module USaidWat
         
         describe "#comments" do
           it "raises 'Reddit unreachable' error" do
-            expect { redditor.comments }.to raise_error(RuntimeError, /Reddit unreachable/)
+            expect { redditor.comments }.to raise_error(ReachabilityError, /Reddit unreachable/)
           end
         end
       end

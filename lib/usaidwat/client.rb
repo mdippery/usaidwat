@@ -2,6 +2,8 @@ require 'snooby'
 
 module USaidWat
   module Client
+    class ReachabilityError < RuntimeError; end
+    
     class Redditor
       attr_reader :username
       
@@ -13,7 +15,7 @@ module USaidWat
       def comments
         @service.user(username).comments(100)
       rescue TypeError
-        raise "Reddit unreachable"
+        raise ReachabilityError, "Reddit unreachable"
       end
     end
   end
