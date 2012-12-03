@@ -13,7 +13,22 @@ Feature: Browse comments
   
   Scenario: Tally comments
     When I run `usaidwat --tally mipadi`
-    Then the exit status should be 0
+    Then it should pass with:
+      """
+      apple            6
+      AskReddit        61
+      battlefield3     2
+      books            2
+      django           1
+      Games            1
+      nyc              1
+      personalfinance  1
+      photography      1
+      programming      20
+      redditcasual     1
+      wikipedia        1
+      worldnews        2
+      """
   
   Scenario: List comments for a particular subreddit
     When I run `usaidwat mipadi AskReddit`
