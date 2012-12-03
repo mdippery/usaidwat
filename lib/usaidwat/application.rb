@@ -20,6 +20,7 @@ module USaidWat
     
     def version(code=0)
       puts "usaidwat v#{USaidWat::VERSION}"
+      exit 0
     end
     
     def list_comments_for_subreddit(subreddit)
