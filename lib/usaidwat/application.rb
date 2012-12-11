@@ -11,6 +11,7 @@ module USaidWat
       @redditor = USaidWat::Client::Redditor.new(args.first)
       return tally_comments if @opts[:tally]
       return list_comments_for_subreddit(args[1]) if args.length == 2
+      return list_all_comments
     end
     
     def usage(code=0)
@@ -23,6 +24,11 @@ module USaidWat
       exit 0
     end
     
+    def list_all_comments
+      formatter = USaidWat::CLI::CommentFormatter.new
+      @redditor.comments.each { |c| print formatter.format(c) }
+    end
+    
     def list_comments_for_subreddit(subreddit)
       comments = @redditor.comments
       comments = comments.reject { |c| c.subreddit != subreddit }
@@ -30,6 +36,8 @@ module USaidWat
         puts "No comments by #{@redditor.username} for #{subreddit}."
         exit 0
       else
+        formatter = USaidWat::CLI::CommentFormatter.new
+        comments.each { |c| print formatter.format(c) }
       end
     end
     
