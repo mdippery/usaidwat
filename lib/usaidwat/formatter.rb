@@ -14,6 +14,7 @@ module USaidWat
         out.write("#{comment_link(comment)}\n")
         out.write("\n")
         out.write("#{comment.body}\n")
+        @count += 1
         out.rewind
         out.read
       end
