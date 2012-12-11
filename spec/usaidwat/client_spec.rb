@@ -3,7 +3,7 @@ require 'spec_helper'
 module USaidWat
   module Client
     describe Client do
-      let(:redditor) { Client::Redditor.new("mipadi") }
+      let(:redditor) { Redditor.new("mipadi") }
       
       describe "#username" do
         it "returns the Redditor's username" do
