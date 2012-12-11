@@ -51,3 +51,10 @@ To see the comments for a specific subreddit, tack on that subreddit:
 bc. $ usaidwat jedberg funny
 
 All the comments for the given subreddit will be printed.
+
+h2(#testing). Testing
+
+Test suites can be run with RSpec and Cucumber. Note that there is one tiny wrinkle: a testing server that mimics the Reddit web service must be run before running Cucumber tests:
+
+bc. $ ruby features/server/reddit.rb
+$ cucumber
