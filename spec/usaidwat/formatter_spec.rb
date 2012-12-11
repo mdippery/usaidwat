@@ -6,9 +6,9 @@ module USaidWat
       let(:formatter) { CommentFormatter.new }
       
       describe "#format" do
-        it "should format a comment" do
+        it "should return a string containing the formatted comment" do
           comment = double("comment")
-          comment.should_receive(:subreddit).and_return("programming")
+          comment.should_receive(:subreddit).twice.and_return("programming")
           comment.should_receive(:link_id).and_return("t3_13f783")
           comment.should_receive(:id).and_return("c73qhxi")
           comment.should_receive(:body).and_return("Welcome to the wonderful world of Python drama!")
