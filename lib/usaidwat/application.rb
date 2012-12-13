@@ -15,7 +15,7 @@ module USaidWat
     end
     
     def usage(code=0)
-      puts "Usage: usaidwat [--tally] <user> [<subreddit>]"
+      puts "Usage: usaidwat [-t] <user> [<subreddit>]"
       exit code
     end
     
@@ -66,7 +66,7 @@ module USaidWat
         usage if argv.first == "--help"
         version if argv.first == "--version"
         opts = {:tally => false}
-        if argv.first == "--tally"
+        if argv.first == "-t"
           opts[:tally] = true
           argv.shift
           usage(1) unless argv.length == 1

@@ -590,7 +590,7 @@ Feature: Browse comments
       """
   
   Scenario: Tally comments
-    When I run `usaidwat --tally mipadi`
+    When I run `usaidwat -t mipadi`
     Then it should pass with:
       """
       apple            6
@@ -982,22 +982,22 @@ Feature: Browse comments
       """
   
   Scenario: Tally comments with subreddit
-    When I run `usaidwat --tally mipadi AskReddit`
+    When I run `usaidwat -t mipadi AskReddit`
     Then it should fail with:
       """
-      Usage: usaidwat [--tally] <user> [<subreddit>]
+      Usage: usaidwat [-t] <user> [<subreddit>]
       """
   
   Scenario: Pass no arguments
     When I run `usaidwat`
     Then it should fail with:
       """
-      Usage: usaidwat [--tally] <user> [<subreddit>]
+      Usage: usaidwat [-t] <user> [<subreddit>]
       """
   
   Scenario: Pass no arguments when tallying
-    When I run `usaidwat --tally`
+    When I run `usaidwat -t`
     Then it should fail with:
       """
-      Usage: usaidwat [--tally] <user> [<subreddit>]
+      Usage: usaidwat [-t] <user> [<subreddit>]
       """

@@ -18,7 +18,7 @@ bc. $ usaidwat jedberg
 
 To list a count of subreddits in which a user has posted, pass the @--tally@ flag:
 
-bc. $ usaidwat --tally jedberg
+bc. $ usaidwat -t jedberg
 
 You will see output like the following:
 
