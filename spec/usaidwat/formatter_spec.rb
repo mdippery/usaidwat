@@ -18,12 +18,11 @@ http://www.reddit.com/r/programming/comments/13f783/z/c73qhxi
 
 Welcome to the wonderful world of Python drama!
 EXPECTED
-          actual = formatter.format(comment)
+          actual = formatter.format(comment).delete_ansi_color_codes
           actual.should == expected
         end
         
-        it "should print a horizontal rule for subsequent comments" do
-          expected = "-" * 80
+        it "should print two spaces between comments" do
           comment1 = double("first comment")
           comment1.should_receive(:subreddit).twice.and_return("programming")
           comment1.should_receive(:link_id).and_return("t3_13f783")
@@ -36,8 +35,10 @@ EXPECTED
           comment2.should_receive(:body).and_return("Welcome to the wonderful world of Python drama!")
           s = formatter.format(comment1)
           s = formatter.format(comment2)
-          actual = s.split("\n")[0]
-          actual.should == expected
+          lines = s.split("\n")
+          lines[0].should == ''
+          lines[1].should == ''
+          lines[2].should_not == ""
         end
       end
     end
