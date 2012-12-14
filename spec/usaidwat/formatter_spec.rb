@@ -40,6 +40,17 @@ EXPECTED
           lines[1].should == ''
           lines[2].should_not == ""
         end
+        
+        it "should strip leading and trailing whitespace from comments" do
+          comment = double(comment)
+          comment.should_receive(:subreddit).twice.and_return("test")
+          comment.should_receive(:link_id).and_return("t3_13f783")
+          comment.should_receive(:id).and_return("c73qhxi")
+          comment.should_receive(:body).and_return("This is a comment.\n\nIt has two lines.\n\n\n")
+          s = formatter.format(comment)
+          lines = s.split("\n")
+          lines[-1].should == "It has two lines."
+        end
       end
     end
   end

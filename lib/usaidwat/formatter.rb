@@ -16,7 +16,7 @@ module USaidWat
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
         out.write("\n")
-        out.write("#{comment.body}\n")
+        out.write("#{comment.body.strip}\n")
         @count += 1
         out.rewind
         out.read
