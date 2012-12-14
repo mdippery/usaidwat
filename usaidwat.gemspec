@@ -17,12 +17,12 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency('snooby')
-  gem.add_dependency('rainbow')
+  gem.add_dependency('snooby', '~> 0.1.5')
+  gem.add_dependency('rainbow', '~> 1.1.4')
 
-  gem.add_development_dependency('rspec')
-  gem.add_development_dependency('cucumber')
-  gem.add_development_dependency('aruba')
-  gem.add_development_dependency('webmock')
-  gem.add_development_dependency('sinatra')
+  gem.add_development_dependency('rspec', '~> 2.12.0')
+  gem.add_development_dependency('cucumber', '~> 1.2.1')
+  gem.add_development_dependency('aruba', '~> 0.5.1')
+  gem.add_development_dependency('webmock', '~> 1.9.0')
+  gem.add_development_dependency('sinatra', '~> 1.3.1')
 end
