@@ -27,6 +27,14 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
   
+  Scenario: List all comments when user has no comments
+    Given the Reddit service returns comments for the user "blank"
+    When I run `usaidwat blank`
+    Then it should pass with:
+      """
+      blank has no comments.
+      """
+  
   Scenario: Tally comments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t mipadi`
@@ -45,6 +53,14 @@ Feature: Browse comments
       redditcasual     1
       wikipedia        1
       worldnews        2
+      """
+    
+  Scenario: Tally comments when user has no comments
+    Given the Reddit service returns comments for the user "blank"
+    When I run `usaidwat -t blank`
+    Then it should pass with:
+      """
+      blank has no comments.
       """
   
   Scenario: List comments for a particular subreddit
