@@ -24,7 +24,13 @@ module USaidWat
       exit 0
     end
     
+    def quit(message, code=0)
+      puts message
+      exit code
+    end
+    
     def list_all_comments
+      quit "#{@redditor.username} has no comments." if @redditor.comments.empty?
       formatter = USaidWat::CLI::CommentFormatter.new
       @redditor.comments.each { |c| print formatter.format(c) }
     end
@@ -32,16 +38,13 @@ module USaidWat
     def list_comments_for_subreddit(subreddit)
       comments = @redditor.comments
       comments = comments.reject { |c| c.subreddit != subreddit }
-      if comments.length == 0
-        puts "No comments by #{@redditor.username} for #{subreddit}."
-        exit 0
-      else
-        formatter = USaidWat::CLI::CommentFormatter.new
-        comments.each { |c| print formatter.format(c) }
-      end
+      quit "No comments by #{@redditor.username} for #{subreddit}." if comments.empty?
+      formatter = USaidWat::CLI::CommentFormatter.new
+      comments.each { |c| print formatter.format(c) }
     end
     
     def tally_comments
+      quit "#{@redditor.username} has no comments." if @redditor.comments.empty?
       # Unfortunately Snooby cannot return comments for a specific
       # user in a specific subreddit, so for now we have to sort them
       # ourself.
