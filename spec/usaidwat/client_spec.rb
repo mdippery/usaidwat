@@ -17,7 +17,7 @@ module USaidWat
           WebMock.reset!
           root = File.expand_path("../../../features/fixtures", __FILE__)
           stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").
-            to_return(:body => IO.read(File.join(root, "comments.json")))
+            to_return(:body => IO.read(File.join(root, "mipadi.json")))
         end
       
         describe "#comments" do

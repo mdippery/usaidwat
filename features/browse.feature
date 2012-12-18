@@ -4,10 +4,8 @@ Feature: Browse comments
   I want to quickly be able to list another Redditor's comments
   In order to see what they like to talk about
   
-  Background: Reddit service
-    Given the Reddit service returns comments for the user "mipadi"
-  
   Scenario: List all comments
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi | head -n 16`
     Then it should pass with:
       """
@@ -30,6 +28,7 @@ Feature: Browse comments
       """
   
   Scenario: Tally comments
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t mipadi`
     Then it should pass with:
       """
@@ -49,6 +48,7 @@ Feature: Browse comments
       """
   
   Scenario: List comments for a particular subreddit
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi AskReddit | head -n 16`
     Then it should pass with:
       """
@@ -71,6 +71,7 @@ Feature: Browse comments
       """
   
   Scenario: List comments for a subreddit with no comments
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi nsfw`
     Then it should pass with:
       """
@@ -78,6 +79,7 @@ Feature: Browse comments
       """
   
   Scenario: Tally comments with subreddit
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t mipadi AskReddit`
     Then it should fail with:
       """
@@ -85,6 +87,7 @@ Feature: Browse comments
       """
   
   Scenario: Pass no arguments
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat`
     Then it should fail with:
       """
@@ -92,6 +95,7 @@ Feature: Browse comments
       """
   
   Scenario: Pass no arguments when tallying
+    Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t`
     Then it should fail with:
       """
