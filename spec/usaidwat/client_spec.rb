@@ -11,6 +11,12 @@ module USaidWat
         end
       end
       
+      describe "#to_s" do
+        it "returns a string representing the Redditor" do
+          "#{redditor}".should == "mipadi"
+        end
+      end
+      
       context "when Reddit is up" do
         before(:each) do
           WebMock.disable_net_connect!

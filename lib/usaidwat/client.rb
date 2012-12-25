@@ -19,6 +19,10 @@ module USaidWat
         raise ReachabilityError, "Reddit unreachable"
       end
       
+      def to_s
+        "#{username}"
+      end
+      
       private
         def enable_test_urls
           Snooby::Paths.each { |k,v| Snooby::Paths[k] = v.sub(%r{http://www.reddit.com}, "http://localhost:4567") }
