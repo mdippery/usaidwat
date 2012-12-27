@@ -58,7 +58,7 @@ module USaidWat
       subreddits = buckets.keys.sort { |a,b| a.downcase <=> b.downcase }
       subreddits.each do |subreddit|
         tally = buckets[subreddit]
-        printf "%-*s  %s\n", longest_subreddit, subreddit, tally
+        printf "%-*s  %3d\n", longest_subreddit, subreddit, tally
       end
       exit 0
     end

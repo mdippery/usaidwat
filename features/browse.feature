@@ -40,19 +40,19 @@ Feature: Browse comments
     When I run `usaidwat -t mipadi`
     Then it should pass with:
       """
-      apple            6
-      AskReddit        61
-      battlefield3     2
-      books            2
-      django           1
-      Games            1
-      nyc              1
-      personalfinance  1
-      photography      1
-      programming      20
-      redditcasual     1
-      wikipedia        1
-      worldnews        2
+      apple              6
+      AskReddit         61
+      battlefield3       2
+      books              2
+      django             1
+      Games              1
+      nyc                1
+      personalfinance    1
+      photography        1
+      programming       20
+      redditcasual       1
+      wikipedia          1
+      worldnews          2
       """
     
   Scenario: Tally comments when user has no comments
