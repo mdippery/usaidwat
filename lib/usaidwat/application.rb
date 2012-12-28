@@ -7,6 +7,7 @@ module USaidWat
   
   class Application
     def run(argv)
+      trap("INT") { puts; exit 0 }
       @opts, args = handle_arguments(argv)
       @redditor = USaidWat::Client::Redditor.new(args.first)
       return tally_comments if @opts[:tally]
