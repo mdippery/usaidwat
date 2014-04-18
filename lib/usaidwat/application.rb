@@ -1,41 +1,46 @@
 module USaidWat
   class << self
     def application
-      @application ||= USaidWat::Application.new
+      client = ENV['USAIDWAT_ENV'] == 'cucumber' ? USaidWat::Client::TestRedditor : USaidWat::Client::Redditor
+      @application ||= USaidWat::Application.new(client)
     end
   end
-  
+
   class Application
+    def initialize(client)
+      @client = client
+    end
+
     def run(argv)
       trap("INT") { puts; exit 0 }
       opts, args = handle_arguments(argv)
-      @redditor = USaidWat::Client::Redditor.new(args.first)
+      @redditor = @client.new(args.first)
       return tally_comments if opts[:tally]
       return list_comments_for_subreddit(args[1]) if args.length == 2
       return list_all_comments
     end
-    
+
     def usage(code=0)
       puts "Usage: usaidwat [-t] <user> [<subreddit>]"
       exit code
     end
-    
+
     def version(code=0)
       puts "usaidwat v#{USaidWat::VERSION}"
       exit 0
     end
-    
+
     def quit(message, code=0)
       puts message
       exit code
     end
-    
+
     def list_all_comments
       quit "#{@redditor.username} has no comments." if @redditor.comments.empty?
       formatter = USaidWat::CLI::CommentFormatter.new
       @redditor.comments.each { |c| print formatter.format(c) }
     end
-    
+
     def list_comments_for_subreddit(subreddit)
       comments = @redditor.comments
       comments = comments.reject { |c| c.subreddit != subreddit }
@@ -43,7 +48,7 @@ module USaidWat
       formatter = USaidWat::CLI::CommentFormatter.new
       comments.each { |c| print formatter.format(c) }
     end
-    
+
     def tally_comments
       quit "#{@redditor.username} has no comments." if @redditor.comments.empty?
       # Unfortunately Snooby cannot return comments for a specific
@@ -63,7 +68,7 @@ module USaidWat
       end
       exit 0
     end
-    
+
     private
       def handle_arguments(argv)
         usage(1) if argv.length == 0

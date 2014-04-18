@@ -1,4 +1,5 @@
 require 'usaidwat'
+require 'usaidwat/service'
 require 'webmock/rspec'
 
 

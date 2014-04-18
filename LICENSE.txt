@@ -1,4 +1,4 @@
-Copyright (c) 2012 Michael Dippery
+Copyright (c) 2012-2014 Michael Dippery
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
