@@ -5,6 +5,8 @@ module USaidWat
   module Client
     class ReachabilityError < RuntimeError; end
 
+    class NoSuchUserError < StandardError; end
+
     class BaseRedditor
       attr_reader :username
 
@@ -14,6 +16,8 @@ module USaidWat
 
       def comments
         @service.user(username).comments(100)
+      rescue NoMethodError
+        raise NoSuchUserError, username
       rescue TypeError
         raise ReachabilityError, "Reddit unreachable"
       end

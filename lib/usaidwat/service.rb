@@ -19,9 +19,13 @@ module USaidWat
 
       def comments(n)
         path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", "#{@username}.json")
-        json = IO.read(path)
-        json = JSON.parse(json)
-        json['data']['children'].map { |d| MockComment.new(d) }
+        if File.exists?(path)
+          json = IO.read(path)
+          json = JSON.parse(json)
+          json['data']['children'].map { |d| MockComment.new(d) }
+        else
+          raise USaidWat::Client::NoSuchUserError, @username
+        end
       end
     end
 

@@ -14,10 +14,15 @@ module USaidWat
     def run(argv)
       trap("INT") { puts; exit 0 }
       opts, args = handle_arguments(argv)
-      @redditor = @client.new(args.first)
-      return tally_comments if opts[:tally]
-      return list_comments_for_subreddit(args[1]) if args.length == 2
-      return list_all_comments
+      username = args.first
+      @redditor = @client.new(username)
+      begin
+        return tally_comments if opts[:tally]
+        return list_comments_for_subreddit(args[1]) if args.length == 2
+        return list_all_comments
+      rescue USaidWat::Client::NoSuchUserError
+        quit "No such user: #{username}", 3
+      end
     end
 
     def usage(code=0)

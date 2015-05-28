@@ -26,6 +26,14 @@ Feature: Browse comments
 
       The Judgment of Solomon Accords.
       """
+
+  Scenario: List all comments for a user that does not exist
+    Given the Reddit service does not have a user "palorchild"
+    When I run `usaidwat palorchild`
+    Then it should fail with:
+      """
+      No such user: palorchild
+      """
   
   Scenario: List all comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
