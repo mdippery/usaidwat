@@ -1,7 +1,7 @@
 require 'stringio'
-require 'rainbow'
+require 'rainbow/ext/string'
 
-Sickill::Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
+Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 
 module USaidWat
   module CLI
