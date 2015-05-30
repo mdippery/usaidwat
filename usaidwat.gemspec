@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency('snooby', '~> 0.1.5')
   gem.add_dependency('rainbow', '~> 2.0.0')
 
-  gem.add_development_dependency('rspec', '~> 2.12.0')
+  gem.add_development_dependency('rspec', '~> 3.2.0')
   gem.add_development_dependency('cucumber', '~> 2.0.0')
   gem.add_development_dependency('aruba', '~> 0.6.2')
   gem.add_development_dependency('webmock', '~> 1.21.0')

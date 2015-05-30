@@ -7,13 +7,13 @@ module USaidWat
       
       describe "#username" do
         it "returns the Redditor's username" do
-          redditor.username.should == "mipadi"
+          expect(redditor.username).to eq("mipadi")
         end
       end
       
       describe "#to_s" do
         it "returns a string representing the Redditor" do
-          "#{redditor}".should == "mipadi"
+          expect("#{redditor}").to eq("mipadi")
         end
       end
       
@@ -28,7 +28,7 @@ module USaidWat
       
         describe "#comments" do
           it "retrieves 100 comments" do
-            redditor.comments.count.should == 100
+            expect(redditor.comments.count).to eq(100)
           end
         end
       end
