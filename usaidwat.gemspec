@@ -6,6 +6,7 @@ require 'usaidwat/version'
 Gem::Specification.new do |gem|
   gem.name          = "usaidwat"
   gem.version       = USaidWat::VERSION
+  gem.licenses      = ["MIT"]
   gem.authors       = ["Michael Dippery"]
   gem.email         = ["michael@monkey-robot.com"]
   gem.homepage      = "https://github.com/mdippery/usaidwat"
@@ -18,10 +19,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency('snooby', '~> 0.1.5')
-  gem.add_dependency('rainbow', '~> 2.0.0')
+  gem.add_dependency('rainbow', '~> 2.0', '>= 2.0.0')
 
-  gem.add_development_dependency('rspec', '~> 3.2.0')
-  gem.add_development_dependency('cucumber', '~> 2.0.0')
+  gem.add_development_dependency('rspec', '~> 3.2', '>= 3.2.0')
+  gem.add_development_dependency('cucumber', '~> 2.0', '>= 2.0.0')
   gem.add_development_dependency('aruba', '~> 0.6.2')
-  gem.add_development_dependency('webmock', '~> 1.21.0')
+  gem.add_development_dependency('webmock', '~> 1.21', '>= 1.21.0')
 end
