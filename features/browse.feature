@@ -94,6 +94,29 @@ Feature: Browse comments
       You didn't slow down for very long though, did you?
       """
   
+  Scenario: List comments for a particular subreddit specified with the wrong case
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat mipadi askreddit | head -n 16`
+    Then it should pass with:
+      """
+      AskReddit
+      http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
+
+      I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
+
+
+      AskReddit
+      http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+
+      You're from New Jersey? Which exit?
+
+
+      AskReddit
+      http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
+
+      You didn't slow down for very long though, did you?
+      """
+
   Scenario: List comments for a subreddit with no comments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi nsfw`

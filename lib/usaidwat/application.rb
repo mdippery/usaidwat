@@ -48,7 +48,7 @@ module USaidWat
 
     def list_comments_for_subreddit(subreddit)
       comments = @redditor.comments
-      comments = comments.reject { |c| c.subreddit != subreddit }
+      comments = comments.find_all { |c| c.subreddit.downcase == subreddit.downcase }
       quit "No comments by #{@redditor.username} for #{subreddit}." if comments.empty?
       formatter = USaidWat::CLI::CommentFormatter.new
       comments.each { |c| print formatter.format(c) }
