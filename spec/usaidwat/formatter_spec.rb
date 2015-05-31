@@ -36,9 +36,9 @@ EXPECTED
           s = formatter.format(comment1)
           s = formatter.format(comment2)
           lines = s.split("\n")
-          lines[0].should == ''
-          lines[1].should == ''
-          lines[2].should_not == ""
+          expect(lines[0]).to eq('')
+          expect(lines[1]).to eq('')
+          expect(lines[2]).not_to eq('')
         end
         
         it "should strip leading and trailing whitespace from comments" do
@@ -49,7 +49,7 @@ EXPECTED
           expect(comment).to receive(:body).and_return("This is a comment.\n\nIt has two lines.\n\n\n")
           s = formatter.format(comment)
           lines = s.split("\n")
-          lines[-1].should == "It has two lines."
+          expect(lines[-1]).to eq("It has two lines.")
         end
       end
     end
