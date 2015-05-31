@@ -1,5 +1,6 @@
 require 'stringio'
 require 'rainbow/ext/string'
+require 'usaidwat/ext/string'
 
 Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 
@@ -16,7 +17,7 @@ module USaidWat
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
         out.write("\n")
-        out.write("#{comment.body.strip}\n")
+        out.write("#{comment.body.strip.convert_entities}\n")
         @count += 1
         out.rewind
         out.read
