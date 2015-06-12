@@ -3,14 +3,15 @@ Feature: Browse comments
   As a Redditor
   I want to quickly be able to list another Redditor's comments
   In order to see what they like to talk about
-  
+
   Scenario: List all comments
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat mipadi | head -n 16`
+    When I run `usaidwat mipadi`
     Then it should pass with:
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       01 Dec 2012, 12:14 PM
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -18,6 +19,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       30 Nov 2012, 04:44 PM
 
       It has a fare when the lights are *off.*
@@ -25,6 +27,7 @@ Feature: Browse comments
 
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
+      Palestinians win upgraded UN status by wide margin
       30 Nov 2012, 10:09 AM
 
       The Judgment of Solomon Accords.
@@ -37,7 +40,7 @@ Feature: Browse comments
       """
       No such user: palorchild
       """
-  
+
   Scenario: List all comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
     When I run `usaidwat blank`
@@ -45,7 +48,7 @@ Feature: Browse comments
       """
       blank has no comments.
       """
-  
+
   Scenario: Tally comments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t mipadi`
@@ -65,7 +68,7 @@ Feature: Browse comments
       wikipedia          1
       worldnews          2
       """
-    
+
   Scenario: Tally comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
     When I run `usaidwat -t blank`
@@ -73,7 +76,7 @@ Feature: Browse comments
       """
       blank has no comments.
       """
-  
+
   Scenario: List comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi AskReddit`
@@ -81,6 +84,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
+      Do colleges actually teach students how to think critically? Or even to think/question at all?
       30 Nov 2012, 08:27 AM
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
@@ -88,6 +92,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       30 Nov 2012, 08:20 AM
 
       You're from New Jersey? Which exit?
@@ -95,11 +100,12 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
+      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me. Rather than pull me over, the officer simply mouthed "SLOW DOWN" and drove away. Reddit, when has the law made you crap your pants and then immediately made you day?
       30 Nov 2012, 08:19 AM
 
       You didn't slow down for very long though, did you?
       """
-  
+
   Scenario: List comments for a particular subreddit specified with the wrong case
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat mipadi askreddit`
@@ -107,6 +113,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
+      Do colleges actually teach students how to think critically? Or even to think/question at all?
       30 Nov 2012, 08:27 AM
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
@@ -114,6 +121,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       30 Nov 2012, 08:20 AM
 
       You're from New Jersey? Which exit?
@@ -121,6 +129,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
+      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me. Rather than pull me over, the officer simply mouthed "SLOW DOWN" and drove away. Reddit, when has the law made you crap your pants and then immediately made you day?
       30 Nov 2012, 08:19 AM
 
       You didn't slow down for very long though, did you?
@@ -133,7 +142,7 @@ Feature: Browse comments
       """
       No comments by mipadi for nsfw.
       """
-  
+
   Scenario: Tally comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t mipadi AskReddit`
@@ -141,7 +150,7 @@ Feature: Browse comments
       """
       Usage: usaidwat [-t] <user> [<subreddit>]
       """
-  
+
   Scenario: Pass no arguments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat`
@@ -149,7 +158,7 @@ Feature: Browse comments
       """
       Usage: usaidwat [-t] <user> [<subreddit>]
       """
-  
+
   Scenario: Pass no arguments when tallying
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t`

@@ -1,7 +1,7 @@
 module USaidWat
   module Service
     class MockComment
-      attr_reader :subreddit, :body, :id, :link_id, :created_utc
+      attr_reader :subreddit, :body, :id, :link_id, :created_utc, :link_title
 
       def initialize(dict)
         data = dict['data']
@@ -10,6 +10,7 @@ module USaidWat
         @id = data['id']
         @link_id = data['link_id']
         @created_utc = data['created_utc']
+        @link_title = data['link_title']
       end
     end
 
