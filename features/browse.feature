@@ -11,18 +11,21 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      01 Dec 2012, 12:14 PM
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      30 Nov 2012, 04:44 PM
 
       It has a fare when the lights are *off.*
 
 
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
+      30 Nov 2012, 10:09 AM
 
       The Judgment of Solomon Accords.
       """
@@ -73,46 +76,52 @@ Feature: Browse comments
   
   Scenario: List comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat mipadi AskReddit | head -n 16`
+    When I run `usaidwat mipadi AskReddit`
     Then it should pass with:
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
+      30 Nov 2012, 08:27 AM
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
 
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+      30 Nov 2012, 08:20 AM
 
       You're from New Jersey? Which exit?
 
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
+      30 Nov 2012, 08:19 AM
 
       You didn't slow down for very long though, did you?
       """
   
   Scenario: List comments for a particular subreddit specified with the wrong case
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat mipadi askreddit | head -n 16`
+    When I run `usaidwat mipadi askreddit`
     Then it should pass with:
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
+      30 Nov 2012, 08:27 AM
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
 
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+      30 Nov 2012, 08:20 AM
 
       You're from New Jersey? Which exit?
 
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
+      30 Nov 2012, 08:19 AM
 
       You didn't slow down for very long though, did you?
       """

@@ -9,6 +9,7 @@ module USaidWat
   class Application
     def initialize(client)
       @client = client
+      Signal.trap("PIPE", "EXIT")
     end
 
     def run(argv)

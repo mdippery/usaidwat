@@ -1,3 +1,4 @@
+require 'date'
 require 'stringio'
 require 'rainbow/ext/string'
 require 'usaidwat/ext/string'
@@ -16,6 +17,7 @@ module USaidWat
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
+        out.write("#{comment_date(comment)}\n".color(:blue))
         out.write("\n")
         out.write("#{comment.body.strip.convert_entities}\n")
         @count += 1
@@ -27,6 +29,11 @@ module USaidWat
         def comment_link(comment)
           link = comment.link_id.split("_")[-1]
           "http://www.reddit.com/r/#{comment.subreddit}/comments/#{link}/z/#{comment.id}"
+        end
+
+        def comment_date(comment)
+          fmt = ENV['USAIDWAT_TIME_FORMAT'] || '%d %b %Y, %I:%M %p'
+          DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime.strftime(fmt)
         end
     end
   end
