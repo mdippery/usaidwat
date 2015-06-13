@@ -18,7 +18,7 @@ module USaidWat
       username = args.first
       @redditor = @client.new(username)
       begin
-        return tally_comments if opts[:tally]
+        return tally_comments if opts.tally
         return list_comments_for_subreddit(args[1]) if args.length == 2
         return list_all_comments
       rescue USaidWat::Client::NoSuchUserError
@@ -78,12 +78,13 @@ module USaidWat
 
     private
       def handle_arguments(argv)
+        opts = OpenStruct.new
+        opts.tally = false
         usage(1) if argv.length == 0
         usage if argv.first == "--help"
         version if argv.first == "--version"
-        opts = {:tally => false}
         if argv.first == "-t"
-          opts[:tally] = true
+          opts.tally = true
           argv.shift
           usage(1) unless argv.length == 1
         end
