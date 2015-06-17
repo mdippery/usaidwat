@@ -70,9 +70,37 @@ Feature: Browse comments
       worldnews          2
       """
 
+  Scenario: Sort comments
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat -T mipadi`
+    Then it should pass with:
+      """
+      AskReddit         61
+      programming       20
+      apple              6
+      battlefield3       2
+      books              2
+      worldnews          2
+      django             1
+      Games              1
+      nyc                1
+      personalfinance    1
+      photography        1
+      redditcasual       1
+      wikipedia          1
+      """
+
   Scenario: Tally comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
     When I run `usaidwat -t blank`
+    Then it should pass with:
+      """
+      blank has no comments.
+      """
+
+  Scenario: Sort comments when user has no comments
+    Given the Reddit service returns comments for the user "blank"
+    When I run `usaidwat -T blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -154,6 +182,14 @@ Feature: Browse comments
       Usage: usaidwat [-t | -T] <user> [<subreddit>]
       """
 
+  Scenario: Sort comments with subreddit
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat -T mipadi AskReddit`
+    Then it should fail with:
+      """
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      """
+
   Scenario: Pass no arguments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat`
@@ -165,6 +201,14 @@ Feature: Browse comments
   Scenario: Pass no arguments when tallying
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat -t`
+    Then it should fail with:
+      """
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      """
+
+  Scenario: Pass no arguments when sorting
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat -T`
     Then it should fail with:
       """
       Usage: usaidwat [-t | -T] <user> [<subreddit>]
