@@ -2,7 +2,3 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in usaidwat.gemspec
 gemspec
-
-group :optional do
-  gem 'nyan-cat-formatter'
-end
