@@ -1,4 +1,5 @@
 require 'date'
+require 'highline'
 require 'stringio'
 require 'rainbow/ext/string'
 require 'usaidwat/ext/string'
@@ -13,11 +14,12 @@ module USaidWat
       end
       
       def format(comment)
+        cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
-        out.write("#{comment.link_title.strip}\n".color(:red))
+        out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:red))
         out.write("#{comment_date(comment)}\n".color(:blue))
         out.write("\n")
         out.write("#{comment.body.strip.convert_entities}\n")
