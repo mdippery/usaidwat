@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('snooby', '~> 0.1.5')
   gem.add_runtime_dependency('rainbow', '~> 2.0')
-  gem.add_runtime_dependency('highline', '~> 1.7.2')
+  gem.add_runtime_dependency('highline', '~> 1.7', '>= 1.7.2')
 
   gem.add_development_dependency('rspec', '~> 3.2')
   gem.add_development_dependency('cucumber', '~> 2.0')
