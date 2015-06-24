@@ -3,6 +3,7 @@ require 'highline'
 require 'stringio'
 require 'rainbow/ext/string'
 require 'usaidwat/ext/string'
+require 'usaidwat/ext/time'
 
 Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 
@@ -35,8 +36,7 @@ module USaidWat
         end
 
         def comment_date(comment)
-          fmt = ENV['USAIDWAT_TIME_FORMAT'] || '%d %b %Y, %I:%M %p'
-          DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime.strftime(fmt)
+          DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime.ago
         end
     end
   end

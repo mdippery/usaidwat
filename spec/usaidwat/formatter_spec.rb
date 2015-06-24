@@ -1,9 +1,18 @@
 require 'spec_helper'
+require 'timecop'
 
 module USaidWat
   module CLI
     describe CommentFormatter do
       let(:formatter) { CommentFormatter.new }
+
+      before do
+        Timecop.freeze(Time.new(2015, 6, 16, 17, 8))
+      end
+
+      after do
+        Timecop.return
+      end
       
       describe "#format" do
         it "should return a string containing the formatted comment" do
@@ -18,7 +27,7 @@ module USaidWat
 programming
 http://www.reddit.com/r/programming/comments/13f783/z/c73qhxi
 Why Brit Ruby 2013 was cancelled and why this is not ok - Gist
-03 Jun 2015, 05:38 PM
+about 2 weeks ago
 
 Welcome to the wonderful world of Python drama!
 EXPECTED
