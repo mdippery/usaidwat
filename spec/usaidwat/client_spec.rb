@@ -38,13 +38,13 @@ module USaidWat
           WebMock.disable_net_connect!
           WebMock.reset!
           root = File.expand_path("../../../features/fixtures", __FILE__)
-          stub_request(:get, "http://www.reddit.com/user/palorchild/comments.json?after=&limit=100").
-            to_return(:status => 404, :body => IO.read(File.join(root, "palorchild.json")))
+          stub_request(:get, "http://www.reddit.com/user/testuser/comments.json?after=&limit=100").
+            to_return(:status => 404, :body => IO.read(File.join(root, "testuser.json")))
         end
 
         describe "#comments" do
           it "raises an exception if the user does not exist" do
-            expect { Redditor.new("palorchild").comments }.to raise_error(NoSuchUserError, /palorchild/)
+            expect { Redditor.new("testuser").comments }.to raise_error(NoSuchUserError, /testuser/)
           end
         end
       end

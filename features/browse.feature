@@ -34,11 +34,11 @@ Feature: Browse comments
       """
 
   Scenario: List all comments for a user that does not exist
-    Given the Reddit service does not have a user "palorchild"
-    When I run `usaidwat palorchild`
+    Given the Reddit service does not have a user "testuser"
+    When I run `usaidwat testuser`
     Then it should fail with:
       """
-      No such user: palorchild
+      No such user: testuser
       """
 
   Scenario: List all comments when user has no comments
