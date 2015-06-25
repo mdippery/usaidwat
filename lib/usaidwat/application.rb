@@ -17,6 +17,7 @@ module USaidWat
       opts, args = handle_arguments(argv)
       username = args.first
       @redditor = @client.new(username)
+      @algo = opts.algorithm
       begin
         return tally_comments if opts.tally
         return list_comments_for_subreddit(args[1]) if args.length == 2
@@ -27,7 +28,7 @@ module USaidWat
     end
 
     def usage(code=0)
-      puts "Usage: usaidwat [-t] <user> [<subreddit>]"
+      puts "Usage: usaidwat [-t | -T] <user> [<subreddit>]"
       exit code
     end
 
@@ -68,7 +69,8 @@ module USaidWat
         longest_subreddit = subreddit.length if subreddit.length > longest_subreddit
         buckets[subreddit] += 1
       end
-      subreddits = buckets.keys.sort { |a,b| a.downcase <=> b.downcase }
+      algo = @algo.new(buckets)
+      subreddits = buckets.keys.sort { |a,b| algo.sort(a, b) }
       subreddits.each do |subreddit|
         tally = buckets[subreddit]
         printf "%-*s  %3d\n", longest_subreddit, subreddit, tally
@@ -80,11 +82,13 @@ module USaidWat
       def handle_arguments(argv)
         opts = OpenStruct.new
         opts.tally = false
+        opts.algorithm = USaidWat::Algorithms::LexicographicalAlgorithm
         usage(1) if argv.length == 0
         usage if argv.first == "--help"
         version if argv.first == "--version"
-        if argv.first == "-t"
+        if %W{-t -T}.include?(argv.first)
           opts.tally = true
+          opts.algorithm = USaidWat::Algorithms::CountAlgorithm if argv.first == "-T"
           argv.shift
           usage(1) unless argv.length == 1
         end

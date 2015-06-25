@@ -151,7 +151,7 @@ Feature: Browse comments
     When I run `usaidwat -t mipadi AskReddit`
     Then it should fail with:
       """
-      Usage: usaidwat [-t] <user> [<subreddit>]
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
       """
 
   Scenario: Pass no arguments
@@ -159,7 +159,7 @@ Feature: Browse comments
     When I run `usaidwat`
     Then it should fail with:
       """
-      Usage: usaidwat [-t] <user> [<subreddit>]
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
       """
 
   Scenario: Pass no arguments when tallying
@@ -167,5 +167,5 @@ Feature: Browse comments
     When I run `usaidwat -t`
     Then it should fail with:
       """
-      Usage: usaidwat [-t] <user> [<subreddit>]
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
       """
