@@ -1,3 +1,5 @@
+require 'usaidwat/pager'
+
 module USaidWat
   class << self
     def application
@@ -7,6 +9,8 @@ module USaidWat
   end
 
   class Application
+    include Pager
+
     def initialize(client)
       @client = client
       Signal.trap("PIPE", "EXIT")
@@ -45,6 +49,7 @@ module USaidWat
     def list_all_comments
       quit "#{@redditor.username} has no comments." if @redditor.comments.empty?
       formatter = USaidWat::CLI::CommentFormatter.new
+      page
       @redditor.comments.each { |c| print formatter.format(c) }
     end
 
@@ -54,6 +59,7 @@ module USaidWat
       comments = comments[subreddit.downcase]
       quit "No comments by #{@redditor.username} for #{subreddit}." if comments.nil?
       formatter = USaidWat::CLI::CommentFormatter.new
+      page
       comments.each { |c| print formatter.format(c) }
     end
 
