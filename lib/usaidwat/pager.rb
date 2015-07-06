@@ -1,5 +1,3 @@
-require "pager/version"
-
 module Pager
 
   def page
