@@ -1,3 +1,4 @@
+require 'sysexits'
 require 'usaidwat/pager'
 
 module USaidWat
@@ -10,6 +11,7 @@ module USaidWat
 
   class Application
     include Pager
+    include Sysexits
 
     def initialize(client)
       @client = client
@@ -27,21 +29,21 @@ module USaidWat
         return list_comments_for_subreddit(args[1]) if args.length == 2
         return list_all_comments
       rescue USaidWat::Client::NoSuchUserError
-        quit "No such user: #{username}", 3
+        quit "No such user: #{username}", :no_such_user
       end
     end
 
-    def usage(code=0)
+    def usage(code=:usage)
       puts "Usage: usaidwat [-t | -T] <user> [<subreddit>]"
       exit code
     end
 
-    def version(code=0)
+    def version(code=:ok)
       puts "usaidwat v#{USaidWat::VERSION}"
       exit 0
     end
 
-    def quit(message, code=0)
+    def quit(message, code=:ok)
       puts message
       exit code
     end
@@ -89,14 +91,14 @@ module USaidWat
         opts = OpenStruct.new
         opts.tally = false
         opts.algorithm = USaidWat::Algorithms::LexicographicalAlgorithm
-        usage(1) if argv.length == 0
-        usage if argv.first == "--help"
+        usage if argv.length == 0
+        usage(:ok) if argv.first == "--help"
         version if argv.first == "--version"
         if %W{-t -T}.include?(argv.first)
           opts.tally = true
           opts.algorithm = USaidWat::Algorithms::CountAlgorithm if argv.first == "-T"
           argv.shift
-          usage(1) unless argv.length == 1
+          usage unless argv.length == 1
         end
         [opts, argv]
       end
