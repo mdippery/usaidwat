@@ -4,7 +4,7 @@ class String
   end
 
   def convert_entities
-    self.gsub(/&gt;/, '>').gsub(/&lt;/, '<')
+    self.gsub(/&gt;/, '>').gsub(/&lt;/, '<').gsub(/&amp;/, '&')
   end
 
   def pluralize(n, suffix = 's', singular_suffix = '')

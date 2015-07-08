@@ -18,9 +18,16 @@ module USaidWat
           expect(actual).to eq(expected)
         end
 
-        it "converts both &gt; and &lt; to <" do
+        it "converts both &gt; and &lt; to > and <" do
           s = "look -&gt; this string has both &lt;- awesome, huh?"
           expected = "look -> this string has both <- awesome, huh?"
+          actual = s.convert_entities
+          expect(actual).to eq(expected)
+        end
+
+        it "converts &amp; to &" do
+          s = "i like cake &amp; ice cream"
+          expected = "i like cake & ice cream"
           actual = s.convert_entities
           expect(actual).to eq(expected)
         end
