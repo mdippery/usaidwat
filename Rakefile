@@ -12,6 +12,7 @@ end
 
 desc "Push gem to RubyGems"
 task :release => :build do
+  sytem "git", "tag", "-s", "-m", "usaidwat v#{USaidWat::VERSION}", "v#{USaidWat::VERSION}"
   system "gem", "push", GEM
 end
 
