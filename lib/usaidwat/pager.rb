@@ -1,5 +1,4 @@
 module Pager
-
   def page
     return if RUBY_PLATFORM =~ /win32/
     return unless STDOUT.tty?
@@ -26,5 +25,4 @@ module Pager
     exec pager rescue exec "/bin/sh", "-c", pager
   rescue StandardError
   end
-
 end
