@@ -34,6 +34,20 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
 
+  Scenario: Search for a specific comment
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat --grep='Heisenbug' mipadi`
+    Then it should pass with:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      over 3 years ago
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      """
+
   Scenario: List all comments for a user that does not exist
     Given the Reddit service does not have a user "testuser"
     When I run `usaidwat log testuser`
@@ -49,7 +63,35 @@ Feature: Browse comments
       """
       blank has no comments.
       """
+  Scenario: Search for a specific comment
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat --grep='Heisenbug' mipadi`
+    Then it should pass with:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      over 3 years ago
 
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      """
+
+  Scenario: Search for a comment for a user that does not exist
+    Given the Reddit service does not have a user "testuser"
+    When I run `usaidwat --grep='Heisenbug' testuser`
+    Then it should fail with:
+      """
+      No such user: testuser
+      """
+
+  Scenario: Search for a comment when user has no comments
+    Given the Reddit service returns comments for the user "blank"
+    When I run `usaidwat --grep='Heisenbug' blank`
+    Then it should pass with:
+      """
+      blank has no comments.
+      """
   Scenario: Tally comments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally mipadi`
@@ -106,6 +148,22 @@ Feature: Browse comments
       blank has no comments.
       """
 
+  Scenario: Search for a comment when tallying
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat -t --grep='Heisenbug' mipadi`
+    Then it should fail with:
+      """
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      """
+
+  Scenario: Search for a comment when sorting
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat -T --grep='Heisenbug' mipadi`
+    Then it should fail with:
+      """
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      """
+
   Scenario: List comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
@@ -134,6 +192,19 @@ Feature: Browse comments
       over 3 years ago
 
       You didn't slow down for very long though, did you?
+      """
+  Scenario: Search in comments for a particular subreddit
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat --grep='New Jersey' mipadi AskReddit`
+    Then it should pass with:
+      """
+      AskReddit
+      http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
+      over 3 years ago
+
+      You're from New Jersey? Which exit?
       """
 
   Scenario: List comments for a particular subreddit specified with the wrong case
@@ -216,4 +287,12 @@ Feature: Browse comments
       """
       ERROR: "usaidwat tally" was called with no arguments
       Usage: "usaidwat tally USERNAME"
+      """
+
+  Scenario: Pass no arguments when searching
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat --grep mipadi`
+    Then it should fail with:
+      """
+      Usage: usaidwat [-t | -T] <user> [<subreddit>]
       """
