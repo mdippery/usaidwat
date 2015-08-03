@@ -46,18 +46,19 @@ module USaidWat
     end
 
     desc 'log USERNAME [SUBREDDIT]', 'Show comments by a user'
+    option :grep, :type => :string, :banner => 'STRING', :desc => 'Show only comments matching string'
     def log(username, subreddit = nil)
       redditor = Application.client.new(username)
+      comments = redditor.comments
       if subreddit
-        comments = redditor.comments
         comments = comments.group_by { |c| c.subreddit.downcase }
         comments = comments[subreddit.downcase]
         quit "No comments by #{redditor.username} for #{subreddit}." if comments.nil?
-        list_comments(comments)
       else
-        quit "#{redditor.username} has no comments." if redditor.comments.empty?
-        list_comments(redditor.comments)
+        quit "#{redditor.username} has no comments." if comments.empty?
       end
+      comments = comments.select { |c| c.body =~ /#{options[:grep]}/i } if options[:grep]
+      list_comments(comments)
     rescue USaidWat::Client::NoSuchUserError
       quit "No such user: #{username}", :no_such_user
     end
