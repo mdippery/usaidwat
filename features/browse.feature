@@ -155,7 +155,8 @@ Feature: Browse comments
     When I run `usaidwat tally --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with arguments ["--grep=Heisenbug", "mipadi"]
+      Usage: "usaidwat tally USERNAME"
       """
 
   Scenario: Search for a comment when sorting
@@ -163,7 +164,8 @@ Feature: Browse comments
     When I run `usaidwat tally -c --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with arguments ["--grep=Heisenbug", "mipadi"]
+      Usage: "usaidwat tally USERNAME"
       """
 
   Scenario: List comments for a particular subreddit
@@ -213,7 +215,7 @@ Feature: Browse comments
   Scenario: Search in comments for a particular subreddit with wrong case
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat --grep='new jersey' mipadi AskReddit`
+    When I run `usaidwat log --grep='new jersey' mipadi AskReddit`
     Then it should pass with:
       """
       AskReddit
@@ -311,5 +313,6 @@ Feature: Browse comments
     When I run `usaidwat log --grep mipadi`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat log" was called with no arguments
+      Usage: "usaidwat log USERNAME [SUBREDDIT]"
       """
