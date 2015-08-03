@@ -22,7 +22,7 @@ module USaidWat
     map 'l' => :log
 
     desc 'tally USERNAME', 'Count comments by subreddit'
-    option :count, :type => :boolean, :desc => 'Sort output by number of comments'
+    option :count, :aliases => '-c', :type => :boolean, :desc => 'Sort output by number of comments'
     def tally(username)
       redditor = Application.client.new(username)
       algo_cls = options[:count] ? USaidWat::Algorithms::CountAlgorithm : USaidWat::Algorithms::LexicographicalAlgorithm

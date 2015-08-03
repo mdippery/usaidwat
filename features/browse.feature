@@ -72,7 +72,7 @@ Feature: Browse comments
 
   Scenario: Sort comments
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat tally --count mipadi`
+    When I run `usaidwat tally -c mipadi`
     Then it should pass with:
       """
       AskReddit         61
@@ -92,7 +92,7 @@ Feature: Browse comments
 
   Scenario: Tally comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat tally --count blank`
+    When I run `usaidwat tally -c blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -100,7 +100,7 @@ Feature: Browse comments
 
   Scenario: Sort comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat tally --count blank`
+    When I run `usaidwat tally -c blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -185,7 +185,7 @@ Feature: Browse comments
 
   Scenario: Sort comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat tally --count mipadi AskReddit`
+    When I run `usaidwat tally -c mipadi AskReddit`
     Then it should fail with:
       """
       ERROR: "usaidwat tally" was called with arguments ["mipadi", "AskReddit"]
@@ -211,7 +211,7 @@ Feature: Browse comments
 
   Scenario: Pass no arguments when sorting
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat tally --count`
+    When I run `usaidwat tally -c`
     Then it should fail with:
       """
       ERROR: "usaidwat tally" was called with no arguments
