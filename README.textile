@@ -12,13 +12,14 @@ h2(#usage). Usage
 
 A @usaidwat@ binary is installed with the gem. @usaidwat@ will analyze a user's last 100 comments and provide statistics.
 
-To list a Redditor's comments, simply plug in a username:
+To list a Redditor's comments, use the @log@ subcommand:
 
-bc. $ usaidwat jedberg
+bc. $ usaidwat log jedberg
 
-To list a count of subreddits in which a user has posted, pass the @-t@ flag:
+To list a count of subreddits in which a user has posted, use the @tally@
+subcommand:
 
-bc. $ usaidwat -t jedberg
+bc. $ usaidwat tally jedberg
 
 You will see output like the following:
 
@@ -48,7 +49,7 @@ Which indicates that jedberg has commented in @/r/funny@ 15 times (out of his la
 
 To see the comments for a specific subreddit, tack on that subreddit:
 
-bc. $ usaidwat jedberg funny
+bc. $ usaidwat log jedberg funny
 
 All the comments for the given subreddit will be printed.
 
