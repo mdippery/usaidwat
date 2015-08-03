@@ -2,4 +2,4 @@
 
 require 'usaidwat'
 
-USaidWat.application.run(ARGV)
+USaidWat::Application.start(ARGV)

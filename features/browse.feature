@@ -7,7 +7,7 @@ Feature: Browse comments
   Scenario: List all comments
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat mipadi`
+    When I run `usaidwat log mipadi`
     Then it should pass with:
       """
       wikipedia
@@ -36,7 +36,7 @@ Feature: Browse comments
 
   Scenario: List all comments for a user that does not exist
     Given the Reddit service does not have a user "testuser"
-    When I run `usaidwat testuser`
+    When I run `usaidwat log testuser`
     Then it should fail with:
       """
       No such user: testuser
@@ -44,7 +44,7 @@ Feature: Browse comments
 
   Scenario: List all comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat blank`
+    When I run `usaidwat log blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -52,7 +52,7 @@ Feature: Browse comments
 
   Scenario: Tally comments
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -t mipadi`
+    When I run `usaidwat tally mipadi`
     Then it should pass with:
       """
       apple              6
@@ -72,7 +72,7 @@ Feature: Browse comments
 
   Scenario: Sort comments
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -T mipadi`
+    When I run `usaidwat tally --count mipadi`
     Then it should pass with:
       """
       AskReddit         61
@@ -92,7 +92,7 @@ Feature: Browse comments
 
   Scenario: Tally comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat -t blank`
+    When I run `usaidwat tally --count blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -100,7 +100,7 @@ Feature: Browse comments
 
   Scenario: Sort comments when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat -T blank`
+    When I run `usaidwat tally --count blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -109,7 +109,7 @@ Feature: Browse comments
   Scenario: List comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat mipadi AskReddit`
+    When I run `usaidwat log mipadi AskReddit`
     Then it should pass with:
       """
       AskReddit
@@ -139,7 +139,7 @@ Feature: Browse comments
   Scenario: List comments for a particular subreddit specified with the wrong case
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat mipadi askreddit`
+    When I run `usaidwat log mipadi askreddit`
     Then it should pass with:
       """
       AskReddit
@@ -168,7 +168,7 @@ Feature: Browse comments
 
   Scenario: List comments for a subreddit with no comments
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat mipadi nsfw`
+    When I run `usaidwat log mipadi nsfw`
     Then it should pass with:
       """
       No comments by mipadi for nsfw.
@@ -176,40 +176,44 @@ Feature: Browse comments
 
   Scenario: Tally comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -t mipadi AskReddit`
+    When I run `usaidwat tally mipadi AskReddit`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with arguments ["mipadi", "AskReddit"]
+      Usage: "usaidwat tally USERNAME"
       """
 
   Scenario: Sort comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -T mipadi AskReddit`
+    When I run `usaidwat tally --count mipadi AskReddit`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with arguments ["mipadi", "AskReddit"]
+      Usage: "usaidwat tally USERNAME"
       """
 
   Scenario: Pass no arguments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat`
-    Then it should fail with:
+    Then it should pass with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      Commands:
       """
 
   Scenario: Pass no arguments when tallying
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -t`
+    When I run `usaidwat tally`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with no arguments
+      Usage: "usaidwat tally USERNAME"
       """
 
   Scenario: Pass no arguments when sorting
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -T`
+    When I run `usaidwat tally --count`
     Then it should fail with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      ERROR: "usaidwat tally" was called with no arguments
+      Usage: "usaidwat tally USERNAME"
       """

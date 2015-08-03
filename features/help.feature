@@ -8,7 +8,7 @@ Feature: Get help
     When I run `usaidwat --help`
     Then it should pass with:
       """
-      Usage: usaidwat [-t | -T] <user> [<subreddit>]
+      Commands:
       """
   
   Scenario: Get version
