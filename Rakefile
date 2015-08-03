@@ -10,7 +10,7 @@ task :build do
   system "gem", "build", GEMSPEC
 end
 
-desc "Install usaidway.gem"
+desc "Install usaidwat.gem"
 task :install => :build do
   system "gem", "install", GEM
 end
