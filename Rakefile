@@ -10,6 +10,11 @@ task :build do
   system "gem", "build", GEMSPEC
 end
 
+desc "Install usaidway.gem"
+task :install => :build do
+  system "gem", "install", GEM
+end
+
 desc "Push gem to RubyGems"
 task :release => :build do
   system "git", "tag", "-s", "-m", "usaidwat v#{USaidWat::VERSION}", "v#{USaidWat::VERSION}"
