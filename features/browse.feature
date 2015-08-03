@@ -37,7 +37,7 @@ Feature: Browse comments
   Scenario: Search for a specific comment
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat --grep='Heisenbug' mipadi`
+    When I run `usaidwat log --grep='Heisenbug' mipadi`
     Then it should pass with:
       """
       wikipedia
@@ -51,7 +51,7 @@ Feature: Browse comments
   Scenario: Search for a specific comment with wrong case
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat --grep='heisenbug' mipadi`
+    When I run `usaidwat log --grep='heisenbug' mipadi`
     Then it should pass with:
       """
       wikipedia
@@ -80,7 +80,7 @@ Feature: Browse comments
 
   Scenario: Search for a comment for a user that does not exist
     Given the Reddit service does not have a user "testuser"
-    When I run `usaidwat --grep='Heisenbug' testuser`
+    When I run `usaidwat log --grep='Heisenbug' testuser`
     Then it should fail with:
       """
       No such user: testuser
@@ -88,7 +88,7 @@ Feature: Browse comments
 
   Scenario: Search for a comment when user has no comments
     Given the Reddit service returns comments for the user "blank"
-    When I run `usaidwat --grep='Heisenbug' blank`
+    When I run `usaidwat log --grep='Heisenbug' blank`
     Then it should pass with:
       """
       blank has no comments.
@@ -152,7 +152,7 @@ Feature: Browse comments
 
   Scenario: Search for a comment when tallying
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -t --grep='Heisenbug' mipadi`
+    When I run `usaidwat tally --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
       Usage: usaidwat [-t | -T] <user> [<subreddit>]
@@ -160,7 +160,7 @@ Feature: Browse comments
 
   Scenario: Search for a comment when sorting
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat -T --grep='Heisenbug' mipadi`
+    When I run `usaidwat tally -c --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
       Usage: usaidwat [-t | -T] <user> [<subreddit>]
@@ -199,7 +199,7 @@ Feature: Browse comments
   Scenario: Search in comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
-    When I run `usaidwat --grep='New Jersey' mipadi AskReddit`
+    When I run `usaidwat log --grep='New Jersey' mipadi AskReddit`
     Then it should pass with:
       """
       AskReddit
@@ -308,7 +308,7 @@ Feature: Browse comments
 
   Scenario: Pass no arguments when searching
     Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat --grep mipadi`
+    When I run `usaidwat log --grep mipadi`
     Then it should fail with:
       """
       Usage: usaidwat [-t | -T] <user> [<subreddit>]
