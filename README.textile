@@ -14,42 +14,34 @@ A @usaidwat@ binary is installed with the gem. @usaidwat@ will analyze a user's 
 
 To list a Redditor's comments, use the @log@ subcommand:
 
-bc. $ usaidwat log jedberg
+bc. $ usaidwat log mipadi
 
 To list a count of subreddits in which a user has posted, use the @tally@
 subcommand:
 
-bc. $ usaidwat tally jedberg
+bc. $ usaidwat tally mipadi
 
 You will see output like the following:
 
-bc. AskReddit              7
-blog                  26
-Frugal                 3
-Random_Acts_Of_Pizza  11
-TheoryOfReddit         3
-apple                  1
-comics                 1
-entertainment          4
-fffffffuuuuuuuuuuuu    2
-funny                 15
-geek                   1
-movies                 1
-pics                   1
-politics               4
-programming            1
-sex                    1
-space                  1
-technology             2
-unitedkingdom         12
-videos                 1
-wikipedia              2
+bc. apple              6
+AskReddit         61
+battlefield3       2
+books              2
+django             1
+Games              1
+nyc                1
+personalfinance    1
+photography        1
+programming       20
+redditcasual       1
+wikipedia          1
+worldnews          2
 
-Which indicates that jedberg has commented in @/r/funny@ 15 times (out of his last 100 comments).
+Which indicates that mipadi has commented in @/r/AskReddit@ 61 times (out of his last 100 comments).
 
 To see the comments for a specific subreddit, tack on that subreddit:
 
-bc. $ usaidwat log jedberg funny
+bc. $ usaidwat log mipadi AskReddit
 
 All the comments for the given subreddit will be printed.
 
