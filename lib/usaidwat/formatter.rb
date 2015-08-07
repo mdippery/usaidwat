@@ -13,7 +13,7 @@ module USaidWat
       def initialize
         @count = 0
       end
-      
+
       def format(comment)
         cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new
@@ -38,6 +38,19 @@ module USaidWat
         def comment_date(comment)
           DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime.ago
         end
+    end
+
+    class CompactCommentFormatter
+      def format(comment)
+        cols = HighLine::SystemExtensions.terminal_size[0]
+        out = StringIO.new
+        subreddit = comment.subreddit
+        cols -= subreddit.length + 1
+        out.write("#{subreddit}".color(:green))
+        out.write(" #{comment.link_title.strip.truncate(cols)}\n")
+        out.rewind
+        out.read
+      end
     end
   end
 end

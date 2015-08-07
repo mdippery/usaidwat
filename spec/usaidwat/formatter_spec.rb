@@ -72,5 +72,28 @@ EXPECTED
         end
       end
     end
+
+    describe CompactCommentFormatter do
+      let (:formatter) { CompactCommentFormatter.new }
+
+      before do
+        Timecop.freeze(Time.new(2015, 6, 16, 17, 8))
+      end
+
+      after do
+        Timecop.return
+      end
+
+      describe "#format" do
+        it "should return a string containing the formatted comment" do
+          comment = double("comment")
+          expect(comment).to receive(:subreddit).and_return("programming")
+          expect(comment).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
+          expected = "programming Why Brit Ruby 2013 was cancelled and why this is not ok - Gist\n"
+          actual = formatter.format(comment).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+      end
+    end
   end
 end

@@ -47,6 +47,7 @@ module USaidWat
 
     desc 'log USERNAME [SUBREDDIT]', 'Show comments by a user'
     option :grep, :type => :string, :banner => 'STRING', :desc => 'Show only comments matching string'
+    option :oneline, :type => :boolean, :desc => 'Output log in a more compact form'
     def log(username, subreddit = nil)
       redditor = Application.client.new(username)
       comments = redditor.comments
@@ -58,7 +59,7 @@ module USaidWat
         quit "#{redditor.username} has no comments." if comments.empty?
       end
       comments = comments.select { |c| c.body =~ /#{options[:grep]}/i } if options[:grep]
-      list_comments(comments)
+      list_comments(comments, options[:oneline])
     rescue USaidWat::Client::NoSuchUserError
       quit "No such user: #{username}", :no_such_user
     end
@@ -69,8 +70,8 @@ module USaidWat
     end
 
     no_commands do
-      def list_comments(comments)
-        formatter = USaidWat::CLI::CommentFormatter.new
+      def list_comments(comments, oneline = false)
+        formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new
         page
         comments.each { |c| print formatter.format(c) }
       end

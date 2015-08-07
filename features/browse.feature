@@ -34,6 +34,17 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
 
+  Scenario: Output comments on line line
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --oneline mipadi`
+    Then it should pass with:
+      """
+      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
+      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
+      worldnews Palestinians win upgraded UN status by wide margin
+      """
+
   Scenario: Search for a specific comment
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
