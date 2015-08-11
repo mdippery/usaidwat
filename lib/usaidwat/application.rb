@@ -71,6 +71,7 @@ module USaidWat
 
     no_commands do
       def list_comments(comments, oneline = false)
+        return nil if comments.empty?
         formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new
         page
         comments.each { |c| print formatter.format(c) }
