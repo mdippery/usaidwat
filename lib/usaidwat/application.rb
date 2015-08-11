@@ -55,10 +55,14 @@ module USaidWat
         comments = comments.group_by { |c| c.subreddit.downcase }
         comments = comments[subreddit.downcase]
         quit "No comments by #{redditor.username} for #{subreddit}." if comments.nil?
-      else
-        quit "#{redditor.username} has no comments." if comments.empty?
       end
       comments = comments.select { |c| c.body =~ /#{options[:grep]}/i } if options[:grep]
+      if comments.empty?
+        msg = "#{redditor.username} has no comments"
+        msg = "#{msg} matching /#{options[:grep]}/" if options[:grep]
+        msg = "#{msg}."
+        quit msg
+      end
       list_comments(comments, options[:oneline])
     rescue USaidWat::Client::NoSuchUserError
       quit "No such user: #{username}", :no_such_user
@@ -71,7 +75,6 @@ module USaidWat
 
     no_commands do
       def list_comments(comments, oneline = false)
-        return nil if comments.empty?
         formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new
         page
         comments.each { |c| print formatter.format(c) }

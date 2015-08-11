@@ -73,6 +73,15 @@ Feature: Browse comments
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
       """
 
+  Scenario: Search for a specific comment with no matches
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='oogabooga' mipadi`
+    Then it should pass with:
+      """
+      mipadi has no comments matching /oogabooga/.
+      """
+
   Scenario: List all comments for a user that does not exist
     Given the Reddit service does not have a user "testuser"
     When I run `usaidwat log testuser`
@@ -102,7 +111,7 @@ Feature: Browse comments
     When I run `usaidwat log --grep='Heisenbug' blank`
     Then it should pass with:
       """
-      blank has no comments.
+      blank has no comments matching /Heisenbug/.
       """
 
   Scenario: Tally comments
