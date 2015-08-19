@@ -7,6 +7,7 @@ GEM     = "usaidwat-#{USaidWat::VERSION}.gem"
 
 desc "Build usaidwat.gem"
 task :build do
+  system "chmod", "-R", "a+rX", *`git ls-files`.chomp.split("\n")
   system "gem", "build", GEMSPEC
 end
 
