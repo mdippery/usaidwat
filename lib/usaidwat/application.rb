@@ -43,6 +43,8 @@ module USaidWat
         tally = buckets[subreddit]
         printf "%-*s  %3d\n", longest_subreddit, subreddit, tally
       end
+    rescue USaidWat::Client::NoSuchUserError
+      quit "No such user: #{username}", :no_such_user
     end
 
     desc 'log USERNAME [SUBREDDIT]', 'Show comments by a user'
