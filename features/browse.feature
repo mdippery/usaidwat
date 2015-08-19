@@ -106,6 +106,14 @@ Feature: Browse comments
       blank has no comments.
       """
 
+  Scenario: Sort comments when a user does not exist
+    Given the Reddit service does not have a user "testuser"
+    When I run `usaidwat tally testuser`
+    Then it should fail with:
+      """
+      No such user: testuser
+      """
+
   Scenario: List comments for a particular subreddit
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
