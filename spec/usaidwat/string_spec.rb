@@ -1,3 +1,4 @@
+require 'rainbow'
 require 'spec_helper'
 
 module USaidWat
@@ -72,6 +73,43 @@ module USaidWat
         it "should not append 'ies' to a singular noun" do
           s = "popp"
           expect(s.pluralize(1, "ies", "y")).to eq("poppy")
+        end
+      end
+
+      describe "#highlight" do
+        it "should highlight matching parts of strings" do
+          s = "apple pie is made from apples"
+          expected = "#{Rainbow("apple").red} pie is made from #{Rainbow("apple").red}s"
+          actual = s.highlight("apple")
+          expect(actual).to eq(expected)
+        end
+
+        it "should return an identical string if no matches are found" do
+          s = "apple pie is made from apples"
+          expected = s.dup
+          actual = s.highlight("cherry")
+          expect(actual).to eq(expected)
+        end
+
+        it "should match parts insensitive to case" do
+          s = "Apple pie is made from Apples"
+          expected = "#{Rainbow("Apple").red} pie is made from #{Rainbow("Apple").red}s"
+          actual = s.highlight("apple")
+          expect(actual).to eq(expected)
+        end
+
+        it "should highlight matching parts of strings using a regex-like string" do
+          s = "pears are tastier than bears"
+          expected = "#{Rainbow("pears").red} are tastier than #{Rainbow("bears").red}"
+          actual = s.highlight("[b|p]ears")
+          expect(actual).to eq(expected)
+        end
+
+        it "should highlight matching parts of strings using an actual regex" do
+          s = "pears are tastier than bears"
+          expected = "#{Rainbow("pears").red} are tastier than #{Rainbow("bears").red}"
+          actual = s.highlight(/[b|p]ears/)
+          expect(actual).to eq(expected)
         end
       end
     end

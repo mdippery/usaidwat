@@ -9,11 +9,20 @@ Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 
 module USaidWat
   module CLI
-    class CommentFormatter
-      def initialize
+    class BaseFormatter
+      attr_reader :pattern
+
+      def initialize(pattern = nil)
+        @pattern = pattern
         @count = 0
       end
 
+      def pattern?
+        !@pattern.nil?
+      end
+    end
+
+    class CommentFormatter < BaseFormatter
       def format(comment)
         cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new
@@ -23,13 +32,22 @@ module USaidWat
         out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:red))
         out.write("#{comment_date(comment)}\n".color(:blue))
         out.write("\n")
-        out.write("#{comment.body.strip.convert_entities}\n")
+        out.write("#{comment_body(comment)}\n")
         @count += 1
         out.rewind
         out.read
       end
       
       private
+        def comment_body(comment)
+          body = comment.body.strip.convert_entities
+          if pattern?
+            body.highlight(pattern)
+          else
+            body
+          end
+        end
+
         def comment_link(comment)
           link = comment.link_id.split("_")[-1]
           "http://www.reddit.com/r/#{comment.subreddit}/comments/#{link}/z/#{comment.id}"
@@ -40,7 +58,7 @@ module USaidWat
         end
     end
 
-    class CompactCommentFormatter
+    class CompactCommentFormatter < BaseFormatter
       def format(comment)
         cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new

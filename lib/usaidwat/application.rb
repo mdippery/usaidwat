@@ -65,7 +65,7 @@ module USaidWat
         msg = "#{msg}."
         quit msg
       end
-      list_comments(comments, options[:oneline])
+      list_comments(comments, options[:grep], options[:oneline])
     rescue USaidWat::Client::NoSuchUserError
       quit "No such user: #{username}", :no_such_user
     end
@@ -76,8 +76,8 @@ module USaidWat
     end
 
     no_commands do
-      def list_comments(comments, oneline = false)
-        formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new
+      def list_comments(comments, pattern = nil, oneline = false)
+        formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new(pattern)
         page
         comments.each { |c| print formatter.format(c) }
       end

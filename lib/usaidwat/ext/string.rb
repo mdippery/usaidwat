@@ -1,3 +1,5 @@
+require 'rainbow'
+
 class String
   def truncate(width)
     self[0, width]
@@ -13,5 +15,9 @@ class String
     else
       self + suffix
     end
+  end
+
+  def highlight(pattern)
+    gsub(/#{pattern}/i) { |m| Rainbow(m).red }
   end
 end
