@@ -29,7 +29,7 @@ module USaidWat
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
-        out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:red))
+        out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:magenta))
         out.write("#{comment_date(comment)}\n".color(:blue))
         out.write("\n")
         out.write("#{comment_body(comment)}\n")
