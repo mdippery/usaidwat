@@ -4,36 +4,6 @@ require 'spec_helper'
 module USaidWat
   module Ext
     describe String do
-      describe "#convert_entities" do
-        it "converts &gt; to >" do
-          s = "-&gt; look at this!"
-          expected = "-> look at this!"
-          actual = s.convert_entities
-          expect(actual).to eq(expected)
-        end
-
-        it "converts &lt; to <" do
-          s = "left &lt;&lt; shift!"
-          expected = "left << shift!"
-          actual = s.convert_entities
-          expect(actual).to eq(expected)
-        end
-
-        it "converts both &gt; and &lt; to > and <" do
-          s = "look -&gt; this string has both &lt;- awesome, huh?"
-          expected = "look -> this string has both <- awesome, huh?"
-          actual = s.convert_entities
-          expect(actual).to eq(expected)
-        end
-
-        it "converts &amp; to &" do
-          s = "i like cake &amp; ice cream"
-          expected = "i like cake & ice cream"
-          actual = s.convert_entities
-          expect(actual).to eq(expected)
-        end
-      end
-
       describe "#truncate" do
         it "truncates strings longer than the given width to the width" do
           n = 80
