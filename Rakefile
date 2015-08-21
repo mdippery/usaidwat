@@ -6,9 +6,13 @@ GEMSPEC = `git ls-files | grep gemspec`.chomp
 GEM     = "usaidwat-#{USaidWat::VERSION}.gem"
 
 desc "Build usaidwat.gem"
-task :build do
-  system "chmod", "-R", "a+rX", *`git ls-files`.chomp.split("\n")
+task :build => :perms do
   system "gem", "build", GEMSPEC
+end
+
+desc "Ensure correct permissions for usaidwat.gem"
+task :perms do
+  system "chmod", "-R", "a+rX", *`git ls-files`.chomp.split("\n")
 end
 
 desc "Install usaidwat.gem"
