@@ -1,7 +1,9 @@
 require 'date'
+require 'downterm'
 require 'highline'
-require 'stringio'
 require 'rainbow/ext/string'
+require 'redcarpet'
+require 'stringio'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
 
@@ -23,6 +25,13 @@ module USaidWat
     end
 
     class CommentFormatter < BaseFormatter
+      def initialize(pattern = nil)
+        @markdown = Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
+                                                                        :strikethrough => true,
+                                                                        :superscript => true)
+        super
+      end
+
       def format(comment)
         cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new
@@ -40,7 +49,7 @@ module USaidWat
       
       private
         def comment_body(comment)
-          body = comment.body.strip.convert_entities
+          body = @markdown.render(comment.body)
           if pattern?
             body.highlight(pattern)
           else

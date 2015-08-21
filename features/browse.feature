@@ -23,7 +23,7 @@ Feature: Browse comments
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
       over 3 years ago
 
-      It has a fare when the lights are *off.*
+      It has a fare when the lights are off.
 
 
       worldnews
