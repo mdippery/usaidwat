@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
 
 require 'usaidwat'
+require 'mercenary'
 
-USaidWat::Application.start(ARGV)
+Mercenary.program(:usaidwat) do |p|
+  p.version USaidWat::VERSION
+  p.description 'Answers the age-old question, "Where does a Redditor comment the most?"'
+  p.syntax 'usaidwat <command> [options] <args>'
+
+  USaidWat::Application::Log.new(p)
+  USaidWat::Application::Tally.new(p)
+
+  p.action do |args, options|
+    if args.empty?
+      puts p.to_s
+      exit 0
+    else
+      abort "Invalid command: #{args.first}"
+    end
+  end
+end

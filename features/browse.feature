@@ -175,8 +175,7 @@ Feature: Browse comments
     When I run `usaidwat tally --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with arguments ["--grep=Heisenbug", "mipadi"]
-      Usage: "usaidwat tally USERNAME"
+      invalid option: --grep=Heisenbug
       """
 
   Scenario: Search for a comment when sorting
@@ -184,8 +183,7 @@ Feature: Browse comments
     When I run `usaidwat tally -c --grep='Heisenbug' mipadi`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with arguments ["--grep=Heisenbug", "mipadi"]
-      Usage: "usaidwat tally USERNAME"
+      invalid option: --grep=Heisenbug
       """
 
   Scenario: Sort comments when a user does not exist
@@ -297,8 +295,7 @@ Feature: Browse comments
     When I run `usaidwat tally mipadi AskReddit`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with arguments ["mipadi", "AskReddit"]
-      Usage: "usaidwat tally USERNAME"
+      You cannot specify a subreddit when tallying comments
       """
 
   Scenario: Sort comments with subreddit
@@ -306,16 +303,7 @@ Feature: Browse comments
     When I run `usaidwat tally -c mipadi AskReddit`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with arguments ["mipadi", "AskReddit"]
-      Usage: "usaidwat tally USERNAME"
-      """
-
-  Scenario: Pass no arguments
-    Given the Reddit service returns comments for the user "mipadi"
-    When I run `usaidwat`
-    Then it should pass with:
-      """
-      Commands:
+      You cannot specify a subreddit when tallying comments
       """
 
   Scenario: Pass no arguments when tallying
@@ -323,8 +311,7 @@ Feature: Browse comments
     When I run `usaidwat tally`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with no arguments
-      Usage: "usaidwat tally USERNAME"
+      You must specify a username
       """
 
   Scenario: Pass no arguments when sorting
@@ -332,8 +319,7 @@ Feature: Browse comments
     When I run `usaidwat tally -c`
     Then it should fail with:
       """
-      ERROR: "usaidwat tally" was called with no arguments
-      Usage: "usaidwat tally USERNAME"
+      You must specify a username
       """
 
   Scenario: Pass no arguments when searching
@@ -341,6 +327,5 @@ Feature: Browse comments
     When I run `usaidwat log --grep mipadi`
     Then it should fail with:
       """
-      ERROR: "usaidwat log" was called with no arguments
-      Usage: "usaidwat log USERNAME [SUBREDDIT]"
+      You must specify a username
       """
