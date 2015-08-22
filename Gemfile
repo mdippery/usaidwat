@@ -2,5 +2,3 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in usaidwat.gemspec
 gemspec
-
-gem 'downterm', :github => 'mdippery/downterm'
