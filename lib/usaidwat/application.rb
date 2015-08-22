@@ -33,6 +33,7 @@ module USaidWat
           c.alias :l
           c.option 'grep', '--grep STRING', 'Show only comments matching STRING'
           c.option 'oneline', '--oneline', 'Output log in a more comptact form'
+          c.option 'raw', '--raw', 'Print raw comment bodies'
 
           c.action do |args, options|
             process(options, args)
@@ -60,15 +61,15 @@ module USaidWat
           msg = "#{msg}."
           quit msg
         end
-        list_comments(comments, options['grep'], options['oneline'])
+        list_comments(comments, options['grep'], !options['oneline'].nil?, !options['raw'].nil?)
       rescue USaidWat::Client::NoSuchUserError
         quit "No such user: #{username}", :no_such_user
       end
 
       private
 
-      def list_comments(comments, pattern = nil, oneline = false)
-        formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new(pattern)
+      def list_comments(comments, pattern = nil, oneline = false, raw = false)
+        formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new(pattern, raw)
         page
         comments.each { |c| print formatter.format(c) }
       end

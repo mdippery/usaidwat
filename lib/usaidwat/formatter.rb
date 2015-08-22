@@ -1,7 +1,9 @@
 require 'date'
+require 'downterm'
 require 'highline'
-require 'stringio'
 require 'rainbow/ext/string'
+require 'redcarpet'
+require 'stringio'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
 
@@ -12,17 +14,29 @@ module USaidWat
     class BaseFormatter
       attr_reader :pattern
 
-      def initialize(pattern = nil)
+      def initialize(pattern = nil, raw = false)
         @pattern = pattern
+        @raw = raw
         @count = 0
       end
 
       def pattern?
         !@pattern.nil?
       end
+
+      def raw?
+        @raw
+      end
     end
 
     class CommentFormatter < BaseFormatter
+      def initialize(pattern = nil, raw = false)
+        @markdown = Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
+                                                                        :strikethrough => true,
+                                                                        :superscript => true)
+        super
+      end
+
       def format(comment)
         cols = HighLine::SystemExtensions.terminal_size[0]
         out = StringIO.new
@@ -40,7 +54,8 @@ module USaidWat
       
       private
         def comment_body(comment)
-          body = comment.body.strip.convert_entities
+          body = comment.body
+          body = @markdown.render(body) unless raw?
           if pattern?
             body.highlight(pattern)
           else
