@@ -14,18 +14,23 @@ module USaidWat
     class BaseFormatter
       attr_reader :pattern
 
-      def initialize(pattern = nil)
+      def initialize(pattern = nil, raw = false)
         @pattern = pattern
+        @raw = raw
         @count = 0
       end
 
       def pattern?
         !@pattern.nil?
       end
+
+      def raw?
+        @raw
+      end
     end
 
     class CommentFormatter < BaseFormatter
-      def initialize(pattern = nil)
+      def initialize(pattern = nil, raw = false)
         @markdown = Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
                                                                         :strikethrough => true,
                                                                         :superscript => true)
@@ -49,7 +54,8 @@ module USaidWat
       
       private
         def comment_body(comment)
-          body = @markdown.render(comment.body)
+          body = comment.body
+          body = @markdown.render(body) unless raw?
           if pattern?
             body.highlight(pattern)
           else
