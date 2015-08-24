@@ -8,8 +8,7 @@ Mercenary.program(:usaidwat) do |p|
   p.description 'Answers the age-old question, "Where does a Redditor comment the most?"'
   p.syntax 'usaidwat <command> [options] <args>'
 
-  USaidWat::Application::Log.new(p)
-  USaidWat::Application::Tally.new(p)
+  USaidWat::Application::Command.subclasses.each { |c| c.new(p) }
 
   p.action do |args, options|
     if args.empty?

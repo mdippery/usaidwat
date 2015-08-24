@@ -11,6 +11,17 @@ module USaidWat
 
       attr_reader :client
 
+      class << self
+        def subclasses
+          @subclasses ||= []
+        end
+
+        def inherited(base)
+          subclasses << base
+          super
+        end
+      end
+
       def initialize(prog)
         @client = cucumber? ? USaidWat::Client::TestRedditor : USaidWat::Client::Redditor
       end
