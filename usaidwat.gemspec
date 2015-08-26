@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'usaidwat/version'
 
 Gem::Specification.new do |gem|
@@ -12,6 +14,10 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/mdippery/usaidwat"
   gem.description   = %q{View a user's last 100 Reddit comments, organized by subreddit.}
   gem.summary       = %q{Answers the age-old question, "Where does a Redditor comment the most?"}
+
+  gem.metadata      = {
+    'build_date' => Time.now.strftime("%Y-%m-%d %H:%M:%S.%L %Z"),
+  }
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
