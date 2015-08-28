@@ -43,6 +43,7 @@ module USaidWat
         prog.command(:log) do |c|
           c.alias :l
           c.option 'grep', '--grep STRING', 'Show only comments matching STRING'
+          c.option 'limit', '-n LIMIT', 'Only show n comments'
           c.option 'oneline', '--oneline', 'Output log in a more compact form'
           c.option 'raw', '--raw', 'Print raw comment bodies'
 
@@ -72,6 +73,7 @@ module USaidWat
           msg = "#{msg}."
           quit msg
         end
+        comments = comments[0...options['limit'].to_i] if options['limit']
         opts = {
           :pattern => options['grep'],
           :raw => !options['raw'].nil?,
