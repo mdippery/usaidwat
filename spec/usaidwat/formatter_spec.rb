@@ -3,6 +3,57 @@ require 'timecop'
 
 module USaidWat
   module CLI
+    describe BaseFormatter do
+      describe "options" do
+        describe "patterns" do
+          let (:formatter) { BaseFormatter.new(:pattern => /[0-9]+/) }
+          describe "#pattern" do
+            it "should return its pattern" do
+              expect(formatter.pattern).to eq(/[0-9]+/)
+            end
+
+            it "should return nil if it does not have a pattern" do
+              f = BaseFormatter.new
+              expect(f.pattern).to be nil
+            end
+          end
+
+          describe "#pattern?" do
+            it "should return true if it has a pattern" do
+              expect(formatter.pattern?).to be true
+            end
+
+            it "should return false if it does not have a pattern" do
+              f = BaseFormatter.new
+              expect(f.pattern?).to be false
+            end
+
+            it "should return false by default" do
+              f = BaseFormatter.new
+              expect(f.pattern?).to be false
+            end
+          end
+        end
+
+        describe "#raw?" do
+          it "should return true if it is a raw formatter" do
+            f = BaseFormatter.new(:raw => true)
+            expect(f.raw?).to be true
+          end
+
+          it "should return false if it is not a raw formatter" do
+            f = BaseFormatter.new(:raw => false)
+            expect(f.raw?).to be false
+          end
+
+          it "should return false by default" do
+            f = BaseFormatter.new
+            expect(f.raw?).to be false
+          end
+        end
+      end
+    end
+
     describe CommentFormatter do
       let(:formatter) { CommentFormatter.new }
 

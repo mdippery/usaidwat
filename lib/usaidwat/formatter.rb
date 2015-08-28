@@ -12,25 +12,26 @@ Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 module USaidWat
   module CLI
     class BaseFormatter
-      attr_reader :pattern
-
-      def initialize(pattern = nil, raw = false)
-        @pattern = pattern
-        @raw = raw
+      def initialize(options = {})
+        @options = options
         @count = 0
       end
 
+      def pattern
+        @options[:pattern]
+      end
+
       def pattern?
-        !@pattern.nil?
+        !!@options[:pattern]
       end
 
       def raw?
-        @raw
+        !!@options[:raw]
       end
     end
 
     class CommentFormatter < BaseFormatter
-      def initialize(pattern = nil, raw = false)
+      def initialize(options = {})
         @markdown = Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
                                                                         :strikethrough => true,
                                                                         :superscript => true)
