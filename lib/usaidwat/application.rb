@@ -42,6 +42,7 @@ module USaidWat
       def initialize(prog)
         prog.command(:log) do |c|
           c.alias :l
+          c.option 'date', '--date FORMAT', 'Show dates in "absolute" or "relative" format'
           c.option 'grep', '--grep STRING', 'Show only comments matching STRING'
           c.option 'limit', '-n LIMIT', 'Only show n comments'
           c.option 'oneline', '--oneline', 'Output log in a more compact form'
@@ -75,9 +76,10 @@ module USaidWat
         end
         comments = comments[0...options['limit'].to_i] if options['limit']
         opts = {
+          :date_format => (options['date'] || :relative).to_sym,
+          :oneline => !options['oneline'].nil?,
           :pattern => options['grep'],
           :raw => !options['raw'].nil?,
-          :oneline => !options['oneline'].nil?,
         }
         list_comments(comments, opts)
       rescue USaidWat::Client::NoSuchUserError

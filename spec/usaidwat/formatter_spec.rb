@@ -5,6 +5,40 @@ module USaidWat
   module CLI
     describe BaseFormatter do
       describe "options" do
+        describe "date formats" do
+          describe "#relative_dates?" do
+            it "should return true if a relative date formatter" do
+              f = BaseFormatter.new(:date_format => :relative)
+              expect(f.relative_dates?).to be true
+            end
+
+            it "should return true if relative date option is passed as a string" do
+              f = BaseFormatter.new(:date_format => 'relative')
+              expect(f.relative_dates?).to be true
+            end
+
+            it "should return false if date format is absolute" do
+              f = BaseFormatter.new(:date_format => :absolute)
+              expect(f.relative_dates?).to be false
+            end
+
+            it "should return false if date format is absolute and is passed as a string" do
+              f = BaseFormatter.new(:date_format => 'absolute')
+              expect(f.relative_dates?).to be false
+            end
+
+            it "should use relative dates by default" do
+              f = BaseFormatter.new
+              expect(f.relative_dates?).to be true
+            end
+
+            it "should use relative dates when a date format is invalid" do
+              f = BaseFormatter.new(:date_format => :iso)
+              expect(f.relative_dates?).to be true
+            end
+          end
+        end
+
         describe "patterns" do
           let (:formatter) { BaseFormatter.new(:pattern => /[0-9]+/) }
           describe "#pattern" do

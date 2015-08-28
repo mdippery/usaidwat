@@ -28,6 +28,10 @@ module USaidWat
       def raw?
         !!@options[:raw]
       end
+
+      def relative_dates?
+        @options[:date_format].nil? || @options[:date_format].to_sym != :absolute
+      end
     end
 
     class CommentFormatter < BaseFormatter
@@ -70,7 +74,14 @@ module USaidWat
         end
 
         def comment_date(comment)
-          DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime.ago
+          d = DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime
+          if relative_dates?
+            d.ago
+          else
+            d_part = d.strftime("%-d %b %Y")
+            t_part = d.strftime("%l:%M %p").strip
+            "#{d_part} #{t_part}"
+          end
         end
     end
 
