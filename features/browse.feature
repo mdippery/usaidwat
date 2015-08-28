@@ -34,6 +34,28 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
 
+  Scenario: List a limited selection of comments
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log -n 2 mipadi`
+    Then it should pass with exactly:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      over 3 years ago
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+
+
+      nyc
+      http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      over 3 years ago
+
+      It has a fare when the lights are off.
+      """
+
   Scenario: List all comments with comment bodies unformatted
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
@@ -64,7 +86,7 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
 
-  Scenario: Output comments on line line
+  Scenario: Output comments on one line
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
     When I run `usaidwat log --oneline mipadi`
@@ -73,6 +95,16 @@ Feature: Browse comments
       wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
       nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
       worldnews Palestinians win upgraded UN status by wide margin
+      """
+
+  Scenario: Output a limited number of comments on one line
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --oneline -n 2 mipadi`
+    Then it should pass with:
+      """
+      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
+      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
       """
 
   Scenario: Search for a specific comment
