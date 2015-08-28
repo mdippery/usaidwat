@@ -115,7 +115,6 @@ module USaidWat
         username = args.first
 
         redditor = client.new(username)
-        algo_cls = options['count'] ? USaidWat::Algorithms::CountAlgorithm : USaidWat::Algorithms::LexicographicalAlgorithm
         quit "#{redditor.username} has no comments." if redditor.comments.empty?
         # Unfortunately Snooby cannot return comments for a specific
         # user in a specific subreddit, so for now we have to sort them
@@ -127,7 +126,7 @@ module USaidWat
           longest_subreddit = subreddit.length if subreddit.length > longest_subreddit
           buckets[subreddit] += 1
         end
-        algo = algo_cls.new(buckets)
+        algo = algorithm(options['count']).new(buckets)
         subreddits = buckets.keys.sort { |a,b| algo.sort(a, b) }
         subreddits.each do |subreddit|
           tally = buckets[subreddit]
@@ -135,6 +134,12 @@ module USaidWat
         end
       rescue USaidWat::Client::NoSuchUserError
         quit "No such user: #{username}", :no_such_user
+      end
+
+      private
+
+      def algorithm(count)
+        count ? USaidWat::Algorithms::CountAlgorithm : USaidWat::Algorithms::LexicographicalAlgorithm
       end
     end
   end
