@@ -43,7 +43,7 @@ module USaidWat
         prog.command(:log) do |c|
           c.alias :l
           c.option 'grep', '--grep STRING', 'Show only comments matching STRING'
-          c.option 'oneline', '--oneline', 'Output log in a more comptact form'
+          c.option 'oneline', '--oneline', 'Output log in a more compact form'
           c.option 'raw', '--raw', 'Print raw comment bodies'
 
           c.action do |args, options|
