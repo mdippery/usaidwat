@@ -56,6 +56,36 @@ Feature: Browse comments
       It has a fare when the lights are off.
       """
 
+  Scenario: List all comments without relative dates
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --date=relative mipadi`
+    Then it should pass with:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      01 Dec 2012 12:14 PM
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+
+
+      nyc
+      http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      30 Nov 2012 4:44 PM
+
+      It has a fare when the lights are off.
+
+
+      worldnews
+      http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
+      Palestinians win upgraded UN status by wide margin
+      30 Nov 2012 10:09 AM
+
+      The Judgment of Solomon Accords.
+      """
+
   Scenario: List all comments with comment bodies unformatted
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
