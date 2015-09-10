@@ -532,6 +532,30 @@ Feature: Browse comments
       No comments by mipadi for nsfw.
       """
 
+  Scenario: List comments for multiple comma-separated subreddits with no comments
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat log mipadi nsfw,spacedicks`
+    Then it should pass with:
+      """
+      No comments by mipadi for nsfw, spacedicks.
+      """
+
+  Scenario: List comments for multiple plus-separated subreddits with no comments
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat log mipadi nsfw+spacedicks`
+    Then it should pass with:
+      """
+      No comments by mipadi for nsfw, spacedicks.
+      """
+
+  Scenario: List comments for multiple subreddits with no comments
+    Given the Reddit service returns comments for the user "mipadi"
+    When I run `usaidwat log mipadi nsfw spacedicks`
+    Then it should pass with:
+      """
+      No comments by mipadi for nsfw, spacedicks.
+      """
+
   Scenario: Tally comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally mipadi AskReddit`
