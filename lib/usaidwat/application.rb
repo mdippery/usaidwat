@@ -58,7 +58,7 @@ module USaidWat
       def process(options, args)
         raise ArgumentError.new('You must specify a username') if args.empty?
         username = args.shift
-        subreddits = args.map { |sr| sr.downcase }
+        subreddits = args.join(' ').split(/[ ,\+]/).map { |sr| sr.downcase }
 
         redditor = client.new(username)
         comments = redditor.comments
