@@ -58,14 +58,13 @@ module USaidWat
       def process(options, args)
         raise ArgumentError.new('You must specify a username') if args.empty?
         username = args.shift
-        subreddit = args.shift
+        subreddits = args.map { |sr| sr.downcase }
 
         redditor = client.new(username)
         comments = redditor.comments
-        if subreddit
-          comments = comments.group_by { |c| c.subreddit.downcase }
-          comments = comments[subreddit.downcase]
-          quit "No comments by #{redditor.username} for #{subreddit}." if comments.nil?
+        if subreddits.count > 0
+          comments = comments.find_all { |c| subreddits.include?(c.subreddit.downcase) }
+          quit "No comments by #{redditor.username} for #{subreddits.join(', ')}." if comments.empty?
         end
         comments = comments.select { |c| c.body =~ /#{options['grep']}/i } if options['grep']
         if comments.empty?
