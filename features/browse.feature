@@ -146,6 +146,126 @@ Feature: Browse comments
       The Judgment of Solomon Accords.
       """
 
+  Scenario: List comments for multiple subreddits separated by commas
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log mipadi books,django,Games`
+    Then it should pass with:
+      """
+      Games
+      http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      over 3 years ago
+
+      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+
+      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      I went to a public school.
+
+
+      django
+      http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
+      I need a little help understanding billing and payment
+      over 3 years ago
+
+      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      """
+
+  Scenario: List comments for multiple subreddits separated by commas
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log mipadi books+django+Games`
+    Then it should pass with:
+      """
+      Games
+      http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      over 3 years ago
+
+      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+
+      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      I went to a public school.
+
+
+      django
+      http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
+      I need a little help understanding billing and payment
+      over 3 years ago
+
+      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      """
+
+  Scenario: List comments for multiple subreddits separated by commas
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log mipadi books django Games`
+    Then it should pass with:
+      """
+      Games
+      http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      over 3 years ago
+
+      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+
+      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      I went to a public school.
+
+
+      django
+      http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
+      I need a little help understanding billing and payment
+      over 3 years ago
+
+      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
+      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      over 3 years ago
+
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      """
+
   Scenario: Output comments on one line
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
