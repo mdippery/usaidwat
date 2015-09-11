@@ -1,5 +1,6 @@
 require 'usaidwat/algo'
 require 'usaidwat/client'
+require 'usaidwat/either'
 require 'usaidwat/pager'
 require 'sysexits'
 
@@ -62,30 +63,61 @@ module USaidWat
 
         redditor = client.new(username)
         comments = redditor.comments
-        if subreddits.count > 0
-          comments = comments.find_all { |c| subreddits.include?(c.subreddit.downcase) }
-          quit "No comments by #{redditor.username} for #{subreddits.join(', ')}." if comments.empty?
-        end
-        comments = comments.select { |c| c.body =~ /#{options['grep']}/i } if options['grep']
-        if comments.empty?
-          msg = "#{redditor.username} has no comments"
-          msg = "#{msg} matching /#{options['grep']}/" if options['grep']
-          msg = "#{msg}."
-          quit msg
-        end
-        comments = comments[0...options['limit'].to_i] if options['limit']
+
+        res = filter_comments(redditor, comments, subreddits)
+        res = res >> lambda { |r| grep_comments(redditor, res.value, options['grep']) }
+        res = res >> lambda { |r| limit_comments(redditor, res.value, options['limit']) }
+        res = res >> lambda { |r| ensure_comments(redditor, res.value) }
+
+        quit res.value if res.left?
+
         opts = {
           :date_format => (options['date'] || :relative).to_sym,
           :oneline => !options['oneline'].nil?,
           :pattern => options['grep'],
           :raw => !options['raw'].nil?,
         }
-        list_comments(comments, opts)
+        list_comments(res.value, opts)
       rescue USaidWat::Client::NoSuchUserError
         quit "No such user: #{username}", :no_such_user
       end
 
       private
+
+      def filter_comments(redditor, comments, subreddits)
+        return USaidWat::Right.new(comments) if subreddits.empty?
+        comments = comments.find_all { |c| subreddits.include?(c.subreddit.downcase) }
+        if comments.empty?
+          USaidWat::Left.new("No comments by #{redditor.username} for #{subreddits.join(', ')}.")
+        else
+          USaidWat::Right.new(comments)
+        end
+      end
+
+      def grep_comments(redditor, comments, grep)
+        return USaidWat::Right.new(comments) if grep.nil?
+        comments = comments.select { |c| c.body =~ /#{grep}/i }
+        if comments.empty?
+          msg = "#{redditor.username} has no comments matching /#{grep}/."
+          USaidWat::Left.new(msg)
+        else
+          USaidWat::Right.new(comments)
+        end
+      end
+
+      def limit_comments(redditor, comments, n)
+        return USaidWat::Right.new(comments) if n.nil?
+        comments = comments[0...n.to_i]
+        USaidWat::Right.new(comments)
+      end
+
+      def ensure_comments(redditor, comments)
+        if comments.empty?
+          USaidWat::Left.new("#{redditor.username} has no comments.")
+        else
+          USaidWat::Right.new(comments)
+        end
+      end
 
       def list_comments(comments, options = {})
         oneline = options[:oneline]
