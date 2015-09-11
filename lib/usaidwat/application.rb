@@ -64,10 +64,10 @@ module USaidWat
         redditor = client.new(username)
         comments = redditor.comments
 
-        res = filter_comments(redditor, comments, subreddits)
-        res = res >> lambda { |r| grep_comments(redditor, res.value, options['grep']) }
-        res = res >> lambda { |r| limit_comments(redditor, res.value, options['limit']) }
-        res = res >> lambda { |r| ensure_comments(redditor, res.value) }
+        res = filter_comments(redditor, comments, subreddits) >>
+              lambda { |r| grep_comments(redditor, r.value, options['grep']) } >>
+              lambda { |r| limit_comments(redditor, r.value, options['limit']) } >>
+              lambda { |r| ensure_comments(redditor, r.value) }
 
         quit res.value if res.left?
 

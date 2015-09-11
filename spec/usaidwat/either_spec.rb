@@ -4,26 +4,26 @@ require 'usaidwat/either'
 module USaidWat
   describe Either do
     it 'should return the initial value if all operations are successful' do
-      e = Right.new("value")
-      e = e >> lambda { |res| Right.new(res.value.upcase) }
+      e = Right.new("value") >>
+          lambda { |res| Right.new(res.value.upcase) }
       expect(e).to be_kind_of(Right)
       expect(e.right?).to be true
       expect(e.value).to eq('VALUE')
     end
 
     it 'should return an error value if an operation is not successful' do
-      e = Right.new("value")
-      e = e >> lambda { |res| Right.new(res.value.count) rescue Left.new('No such method') }
+      e = Right.new("value") >>
+          lambda { |res| Right.new(res.value.count) rescue Left.new('No such method') }
       expect(e).to be_kind_of(Left)
       expect(e.left?).to be true
       expect(e.value).to eq('No such method')
     end
 
     it 'should return an error value if any operation in the chain fails' do
-      e = Right.new("value")
-      e = e >> lambda { |res| Right.new(e.value.upcase) }
-      e = e >> lambda { |res| Right.new(res.value.count) rescue Left.new('No such method') }
-      e = e >> lambda { |res| Right.new(res.value.capitalize) rescue Left.new('Chain failed') }
+      e = Right.new("value") >>
+          lambda { |res| Right.new(res.value.upcase) } >>
+          lambda { |res| Right.new(res.value.count) rescue Left.new('No such method') } >>
+          lambda { |res| Right.new(res.value.capitalize) rescue Left.new('Chain failed') }
       expect(e).to be_kind_of(Left)
       expect(e.left?).to be true
       expect(e.value).to eq('No such method')
