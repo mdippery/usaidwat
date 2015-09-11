@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Answers the age-old question, "Where does a Redditor comment the most?"}
 
   gem.metadata      = {
-    'build_date' => Time.now.strftime("%Y-%m-%d %H:%M:%S.%L %Z"),
+    'build_date' => Time.now.strftime("%Y-%m-%d %H:%M:%S %Z"),
   }
 
   gem.files         = `git ls-files`.split($/)
