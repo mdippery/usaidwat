@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
 
   gem.metadata      = {
     'build_date' => Time.now.strftime("%Y-%m-%d %H:%M:%S %Z"),
+    'commit' => `git describe`.chomp,
+    'commit_hash' => `git rev-parse HEAD`.chomp,
   }
 
   gem.files         = `git ls-files`.split($/)
