@@ -5,18 +5,37 @@ module USaidWat
     def initialize(value)
       @value = value
     end
+
+    def >>(&block)
+      raise NoMethodError, 'subclasses must define >>'
+    end
+
+    def left?
+      false
+    end
+
+    def right?
+      false
+    end
   end
 
   class Left < Either
-    def method_missing(method_sym, *args, &block)
+    def >>(callable)
       self
+    end
+
+    def left?
+      true
     end
   end
 
   class Right < Either
-    def method_missing(method_sym, *args, &block)
-      @value = value.send(method_sym, *args, &block)
-      self
+    def >>(callable)
+      callable.call(self)
+    end
+
+    def right?
+      true
     end
   end
 end
