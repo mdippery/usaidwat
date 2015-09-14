@@ -49,7 +49,9 @@ module USaidWat
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
         out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:magenta))
-        out.write("#{comment_date(comment)}\n".color(:blue))
+        out.write("#{comment_date(comment)}".color(:blue))
+        out.write(" \u2022 ")
+        out.write(sprintf("%+d\n", comment_karma(comment)).color(:blue))
         out.write("\n")
         out.write("#{comment_body(comment)}\n")
         @count += 1
@@ -82,6 +84,10 @@ module USaidWat
             t_part = d.strftime("%l:%M %p").strip
             "#{d_part} #{t_part}"
           end
+        end
+
+        def comment_karma(comment)
+          comment.ups - comment.downs
         end
     end
 

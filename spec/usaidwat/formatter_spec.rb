@@ -107,12 +107,14 @@ module USaidWat
           expect(comment).to receive(:id).and_return("c73qhxi")
           expect(comment).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
           expect(comment).to receive(:created_utc).and_return(1433378314.0)
+          expect(comment).to receive(:ups).and_return(12)
+          expect(comment).to receive(:downs).and_return(1)
           expect(comment).to receive(:body).and_return("Welcome to the wonderful world of Python drama!")
           expected = <<-EXPECTED
 programming
 http://www.reddit.com/r/programming/comments/13f783/z/c73qhxi
 Why Brit Ruby 2013 was cancelled and why this is not ok - Gist
-about 2 weeks ago
+about 2 weeks ago \u2022 +11
 
 Welcome to the wonderful world of Python drama!
 EXPECTED
@@ -126,6 +128,8 @@ EXPECTED
           expect(comment1).to receive(:link_id).and_return("t3_13f783")
           expect(comment1).to receive(:id).and_return("c73qhxi")
           expect(comment1).to receive(:created_utc).and_return(1433378314.0)
+          expect(comment1).to receive(:ups).and_return(12)
+          expect(comment1).to receive(:downs).and_return(1)
           expect(comment1).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
           expect(comment1).to receive(:body).and_return("Welcome to the wonderful world of Python drama!")
           comment2 = double("second comment")
@@ -133,6 +137,8 @@ EXPECTED
           expect(comment2).to receive(:link_id).and_return("t3_13f783")
           expect(comment2).to receive(:id).and_return("c73qhxi")
           expect(comment2).to receive(:created_utc).and_return(1433378314.0)
+          expect(comment2).to receive(:ups).and_return(12)
+          expect(comment2).to receive(:downs).and_return(1)
           expect(comment2).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
           expect(comment2).to receive(:body).and_return("Welcome to the wonderful world of Python drama!")
           s = formatter.format(comment1)
@@ -149,6 +155,8 @@ EXPECTED
           expect(comment).to receive(:link_id).and_return("t3_13f783")
           expect(comment).to receive(:id).and_return("c73qhxi")
           expect(comment).to receive(:created_utc).and_return(1433378314.0)
+          expect(comment).to receive(:ups).and_return(12)
+          expect(comment).to receive(:downs).and_return(1)
           expect(comment).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
           expect(comment).to receive(:body).and_return("This is a comment.\n\nIt has two lines.\n\n\n")
           s = formatter.format(comment)
