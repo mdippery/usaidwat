@@ -50,7 +50,7 @@ module USaidWat
         out.write("#{comment_link(comment)}\n".color(:yellow))
         out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:magenta))
         out.write("#{comment_date(comment)}".color(:blue))
-        out.write(" \u2022 ")
+        out.write(" \u2022 ".color(:cyan))
         out.write(sprintf("%+d\n", comment_karma(comment)).color(:blue))
         out.write("\n")
         out.write("#{comment_body(comment)}\n")
