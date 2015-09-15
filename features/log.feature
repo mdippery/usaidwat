@@ -13,7 +13,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
@@ -21,7 +21,7 @@ Feature: Browse comments
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       It has a fare when the lights are off.
 
@@ -29,7 +29,7 @@ Feature: Browse comments
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
       Palestinians win upgraded UN status by wide margin
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       The Judgment of Solomon Accords.
       """
@@ -43,7 +43,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
@@ -51,7 +51,7 @@ Feature: Browse comments
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       It has a fare when the lights are off.
       """
@@ -95,7 +95,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
@@ -103,7 +103,7 @@ Feature: Browse comments
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       It has a fare when the lights are off.
 
@@ -111,7 +111,7 @@ Feature: Browse comments
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
       Palestinians win upgraded UN status by wide margin
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       The Judgment of Solomon Accords.
       """
@@ -125,7 +125,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
@@ -133,7 +133,7 @@ Feature: Browse comments
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       It has a fare when the lights are *off.*
 
@@ -141,7 +141,7 @@ Feature: Browse comments
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
       Palestinians win upgraded UN status by wide margin
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       The Judgment of Solomon Accords.
       """
@@ -155,7 +155,7 @@ Feature: Browse comments
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
 
@@ -165,7 +165,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       I went to a public school.
 
@@ -173,7 +173,7 @@ Feature: Browse comments
       django
       http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
       I need a little help understanding billing and payment
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
 
@@ -181,7 +181,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +11
+      over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
@@ -195,7 +195,7 @@ Feature: Browse comments
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
 
@@ -205,7 +205,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       I went to a public school.
 
@@ -213,7 +213,7 @@ Feature: Browse comments
       django
       http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
       I need a little help understanding billing and payment
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
 
@@ -221,7 +221,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +11
+      over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
@@ -235,7 +235,7 @@ Feature: Browse comments
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
 
@@ -245,7 +245,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       I went to a public school.
 
@@ -253,7 +253,7 @@ Feature: Browse comments
       django
       http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
       I need a little help understanding billing and payment
-      over 3 years ago • +2
+      over 2 years ago • +2
 
       I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
 
@@ -261,7 +261,7 @@ Feature: Browse comments
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
       I was saddened hearing this story on the Takeaway this morning- "Is literature n
-      over 3 years ago • +11
+      over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
@@ -296,7 +296,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
       """
@@ -310,7 +310,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
       """
@@ -365,7 +365,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
       Do colleges actually teach students how to think critically? Or even to think/qu
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
 
@@ -373,7 +373,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
       I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You're from New Jersey? Which exit?
 
@@ -381,7 +381,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
       Today I was going 80mph in a 55 when an unmarked police car pulled up next to me
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You didn't slow down for very long though, did you?
       """
@@ -395,7 +395,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
       I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You're from New Jersey? Which exit?
       """
@@ -409,7 +409,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
       I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You're from New Jersey? Which exit?
       """
@@ -423,7 +423,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
       Do colleges actually teach students how to think critically? Or even to think/qu
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
 
@@ -431,7 +431,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
       I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You're from New Jersey? Which exit?
 
@@ -439,7 +439,7 @@ Feature: Browse comments
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
       Today I was going 80mph in a 55 when an unmarked police car pulled up next to me
-      over 3 years ago • +1
+      over 2 years ago • +1
 
       You didn't slow down for very long though, did you?
       """

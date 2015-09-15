@@ -338,5 +338,15 @@ module USaidWat
         end
       end
     end
+
+    describe "Special Time cases" do
+      it "should respond when then was almost but not quite 8 years ago" do
+        now = Time.new(2015, 9, 15, 16, 13, 0)
+        Timecop.freeze(now)
+        then_ = Time.new(2007, 11, 19, 10, 4)
+        expect(then_.ago).to eq("over 7 years ago")
+        Timecop.return
+      end
+    end
   end
 end

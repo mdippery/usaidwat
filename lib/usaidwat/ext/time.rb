@@ -60,7 +60,7 @@ class Float
     when 10081..43220    then "about #{weeks_ago.round} #{"week".pluralize(weeks_ago.round)} ago"
     when 43221..525960   then "about #{months_ago.round} #{"month".pluralize(months_ago.round)} ago"
     when 525960..1051920 then "about a year ago"
-    else                      "over #{years_ago.round} years ago"
+    else                      "over #{years_ago.to_i} years ago"
     end
   end
 
