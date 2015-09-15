@@ -21,15 +21,21 @@ module USaidWat
         @username = username
       end
 
+      def about
+        load_data("user_#{@username}.json")['data']
+      end
+
       def comments(n)
-        path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", "#{@username}.json")
-        if File.exists?(path)
-          json = IO.read(path)
-          json = JSON.parse(json)
-          json['data']['children'].map { |d| MockComment.new(d) }
-        else
-          raise USaidWat::Client::NoSuchUserError, @username
-        end
+        json = load_data("#{@username}.json")
+        json['data']['children'].map { |d| MockComment.new(d) }
+      end
+
+      private
+
+      def load_data(data_file)
+        path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", data_file)
+        raise USaidWat::Client::NoSuchUserError, @username unless File.exists?(path)
+        JSON.parse(IO.read(path))
       end
     end
 

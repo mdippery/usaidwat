@@ -1,5 +1,6 @@
 require 'snooby'
 require 'usaidwat/service'
+require 'usaidwat/ext/time'
 
 module USaidWat
   module Client
@@ -15,15 +16,45 @@ module USaidWat
       end
 
       def comments
-        @service.user(username).comments(100)
+        user.comments(100)
       rescue NoMethodError
         raise NoSuchUserError, username
       rescue TypeError
         raise ReachabilityError, "Reddit unreachable"
       end
 
+      def link_karma
+        about('link_karma')
+      end
+
+      def comment_karma
+        about('comment_karma')
+      end
+
+      def created_at
+        Time.at(about('created_utc'))
+      end
+
+      def age
+        (Time.now - created_at).ago
+      end
+
       def to_s
         "#{username}"
+      end
+
+      private
+
+      def user
+        @service.user(username)
+      end
+
+      def about(key)
+        user.about[key]
+      rescue NoMethodError
+        raise NoSuchUserError, username
+      rescue TypeError
+        raise ReachabilityError, "Reddit unreachable"
       end
     end
 

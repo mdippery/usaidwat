@@ -1,4 +1,4 @@
-Given /^the Reddit service returns comments for the user "(.*?)"$/ do |user|
+Given /^the Reddit service returns [^\s]+ for the user "(.*?)"$/ do |user|
   set_environment_variable 'USAIDWAT_ENV', 'cucumber'
 end
 

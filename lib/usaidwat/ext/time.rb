@@ -2,6 +2,46 @@ require 'usaidwat/ext/string'
 
 class Time
   def ago
+    delta.ago
+  end
+
+  def seconds_ago
+    delta.seconds_ago
+  end
+
+  def minutes_ago
+    delta.minutes_ago
+  end
+
+  def hours_ago
+    delta.hours_ago
+  end
+
+  def days_ago
+    delta.days_ago
+  end
+
+  def weeks_ago
+    delta.weeks_ago
+  end
+
+  def months_ago
+    delta.months_ago
+  end
+
+  def years_ago
+    delta.years_ago
+  end
+
+  private
+
+  def delta
+    Time.now - self
+  end
+end
+
+class Float
+  def ago
     case minutes_ago
     when 0..1
       case seconds_ago
@@ -25,7 +65,7 @@ class Time
   end
 
   def seconds_ago
-    Time.now.to_i - to_i
+    self
   end
 
   def minutes_ago
