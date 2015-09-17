@@ -27,6 +27,7 @@ end
 
 desc "Push gem to RubyGems"
 task :release => [:tag, :build] do
+  fail 'Cannot release a dev version' if USaidWat::VERSION.end_with?('dev')
   system "gem", "push", GEM
 end
 
