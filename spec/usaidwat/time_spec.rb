@@ -187,7 +187,7 @@ module USaidWat
         end
 
         it "should respond when then was several years ago" do
-          then_ = (1051920.minutes + 1).to_f
+          then_ = 1051921.minutes.to_f
           expect(then_.ago).to eq("over 2 years ago")
         end
       end
@@ -333,7 +333,7 @@ module USaidWat
         end
 
         it "should respond when then was several years ago" do
-          then_ = Time.now - 1051920.minutes - 1
+          then_ = Time.now - 1051921.minutes
           expect(then_.ago).to eq("over 2 years ago")
         end
       end
@@ -345,6 +345,14 @@ module USaidWat
         Timecop.freeze(now)
         then_ = Time.new(2007, 11, 19, 10, 4)
         expect(then_.ago).to eq("over 7 years ago")
+        Timecop.return
+      end
+
+      it "should respond when the delta is between 1 and 2 minutes" do
+        now = Time.new(2015, 9, 18, 10, 05, 20)
+        Timecop.freeze(now)
+        then_ = Time.new(2015, 9, 18, 10, 04, 0)
+        expect(then_.ago).to eq("a minute ago")
         Timecop.return
       end
     end

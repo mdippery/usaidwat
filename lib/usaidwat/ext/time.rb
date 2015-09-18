@@ -42,9 +42,9 @@ end
 
 class Float
   def ago
-    case minutes_ago
+    case minutes_ago.to_i
     when 0..1
-      case seconds_ago
+      case seconds_ago.to_i
       when 0..5   then "less than 5 seconds ago"
       when 6..10  then "less than 10 seconds ago"
       when 11..20 then "less than 20 seconds ago"
