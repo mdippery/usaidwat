@@ -61,7 +61,7 @@ module USaidWat
       
       private
         def comment_body(comment)
-          body = comment.body
+          body = comment.body.strip
           body = @markdown.render(body) unless raw?
           if pattern?
             body.highlight(pattern)
