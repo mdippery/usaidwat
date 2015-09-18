@@ -1,9 +1,9 @@
 require 'date'
 require 'downterm'
-require 'highline'
 require 'rainbow/ext/string'
 require 'redcarpet'
 require 'stringio'
+require 'tty-screen'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
 
@@ -32,6 +32,12 @@ module USaidWat
       def relative_dates?
         @options[:date_format].nil? || @options[:date_format].to_sym != :absolute
       end
+
+      protected
+
+        def tty
+          @tty || TTY::Screen.new
+        end
     end
 
     class CommentFormatter < BaseFormatter
@@ -43,7 +49,7 @@ module USaidWat
       end
 
       def format(comment)
-        cols = HighLine::SystemExtensions.terminal_size[0]
+        cols = tty.width
         out = StringIO.new
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
@@ -93,7 +99,7 @@ module USaidWat
 
     class CompactCommentFormatter < BaseFormatter
       def format(comment)
-        cols = HighLine::SystemExtensions.terminal_size[0]
+        cols = tty.width
         out = StringIO.new
         subreddit = comment.subreddit
         cols -= subreddit.length + 1
