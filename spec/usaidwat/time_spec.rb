@@ -355,6 +355,14 @@ module USaidWat
         expect(then_.ago).to eq("a minute ago")
         Timecop.return
       end
+
+      it "should throw an exception if the delta is negative" do
+        now = Time.new(2015, 9, 18, 10, 04, 0)
+        Timecop.freeze(now)
+        then_ = Time.new(2015, 9, 18, 10, 05, 20)
+        expect { then_.ago }.to raise_error(ArgumentError, /negative/)
+        Timecop.return
+      end
     end
   end
 end

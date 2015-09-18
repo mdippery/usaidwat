@@ -40,8 +40,19 @@ class Time
   end
 end
 
+class Numeric
+  def negative?
+    self < 0
+  end
+
+  def positive?
+    self > 0
+  end
+end
+
 class Float
   def ago
+    raise ArgumentError, "Delta is negative: #{self}" if negative?
     case minutes_ago.to_i
     when 0..1
       case seconds_ago.to_i
