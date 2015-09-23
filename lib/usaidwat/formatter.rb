@@ -3,7 +3,6 @@ require 'downterm'
 require 'rainbow/ext/string'
 require 'redcarpet'
 require 'stringio'
-require 'tty-screen'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
 
@@ -35,9 +34,9 @@ module USaidWat
 
       protected
 
-        def tty
-          @tty || TTY::Screen.new
-        end
+      def tty
+        @tty ||= USaidWat::Application::Terminal.new
+      end
     end
 
     class CommentFormatter < BaseFormatter
