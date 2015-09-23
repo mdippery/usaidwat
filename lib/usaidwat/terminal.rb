@@ -1,7 +1,19 @@
-require 'tty-screen'
+require 'highline'
 
 module USaidWat
   module Application
-    Terminal = TTY::Screen
+    class Terminal
+      def initialize
+        @term = HighLine.new
+      end
+
+      def width
+        @term.output_cols
+      end
+
+      def height
+        @term.output_rows
+      end
+    end
   end
 end
