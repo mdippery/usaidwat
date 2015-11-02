@@ -2,6 +2,7 @@ require 'date'
 require 'downterm'
 require 'rainbow/ext/string'
 require 'redcarpet'
+require 'set'
 require 'stringio'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
@@ -102,10 +103,29 @@ module USaidWat
         out = StringIO.new
         subreddit = comment.subreddit
         cols -= subreddit.length + 1
-        out.write("#{subreddit}".color(:green))
-        out.write(" #{comment.link_title.strip.truncate(cols)}\n")
+        title = comment.link_title.strip.truncate(cols)
+        key = "#{subreddit} #{title}"
+        if !seen?(key)
+          out.write("#{subreddit}".color(:green))
+          out.write(" #{title}\n")
+        end
+        mark_seen(key)
         out.rewind
         out.read
+      end
+
+      private
+
+      def comments
+        @comments ||= Set.new
+      end
+
+      def mark_seen(comment)
+        comments << comment
+      end
+
+      def seen?(comment)
+        comments.include?(comment)
       end
     end
   end

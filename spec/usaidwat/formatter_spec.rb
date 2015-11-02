@@ -186,6 +186,18 @@ EXPECTED
           actual = formatter.format(comment).delete_ansi_color_codes
           expect(actual).to eq(expected)
         end
+
+        it "should return an empty string if a comment has already been printed" do
+          comment1 = double("comment")
+          comment2 = double("comment")
+          expect(comment1).to receive(:subreddit).and_return("programming")
+          expect(comment1).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
+          _ = formatter.format(comment1).delete_ansi_color_codes
+          expect(comment2).to receive(:subreddit).and_return("programming")
+          expect(comment2).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
+          actual = formatter.format(comment2).delete_ansi_color_codes
+          expect(actual).to eq("")
+        end
       end
     end
   end
