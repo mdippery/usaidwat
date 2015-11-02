@@ -41,13 +41,6 @@ module USaidWat
     end
 
     class CommentFormatter < BaseFormatter
-      def initialize(options = {})
-        @markdown = Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
-                                                                        :strikethrough => true,
-                                                                        :superscript => true)
-        super
-      end
-
       def format(comment)
         cols = tty.width
         out = StringIO.new
@@ -66,9 +59,15 @@ module USaidWat
       end
       
       private
+        def markdown
+          @markdown ||= Redcarpet::Markdown.new(Downterm::Render::Terminal, :autolink => true,
+                                                                            :strikethrough => true,
+                                                                            :superscript => true)
+        end
+
         def comment_body(comment)
           body = comment.body.strip
-          body = @markdown.render(body) unless raw?
+          body = markdown.render(body) unless raw?
           if pattern?
             body.highlight(pattern)
           else
