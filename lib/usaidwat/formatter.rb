@@ -4,6 +4,7 @@ require 'rainbow/ext/string'
 require 'redcarpet'
 require 'set'
 require 'stringio'
+require 'ttycaca'
 require 'usaidwat/ext/string'
 require 'usaidwat/ext/time'
 
@@ -36,7 +37,7 @@ module USaidWat
       protected
 
       def tty
-        @tty ||= USaidWat::Application::Terminal.new
+        @tty ||= Ttycaca::Terminal.new
       end
     end
 

@@ -29,11 +29,11 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.add_runtime_dependency('downterm', '~> 0.1.3')
-  gem.add_runtime_dependency('highline', '~> 1.7')
   gem.add_runtime_dependency('mercenary', '~> 0.3.5')
   gem.add_runtime_dependency('rainbow', '~> 2.0')
   gem.add_runtime_dependency('snooby', '~> 0.1.5')
   gem.add_runtime_dependency('sysexits', '~> 1.2')
+  gem.add_runtime_dependency('ttycaca', '-> 1.0')
 
   gem.add_development_dependency('aruba', '~> 0.9')
   gem.add_development_dependency('cucumber', '~> 2.0')
