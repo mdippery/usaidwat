@@ -27,7 +27,8 @@ Feature: Display user information
   Scenario: Fail to pass a username when querying for information
     Given the Reddit service returns information for the user "mipadi"
     When I run `usaidwat info`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You must specify a username
       """

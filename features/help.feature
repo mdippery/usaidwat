@@ -7,7 +7,8 @@ Feature: Get help
   Scenario: Pass no arguments
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat`
-    Then it should pass with:
+    Then the exit status should be 0
+    And stdout should contain:
       """
       Usage:
 
@@ -16,7 +17,8 @@ Feature: Get help
 
   Scenario: List usage details
     When I run `usaidwat --help`
-    Then it should pass with:
+    Then the exit status should be 0
+    And stdout should contain:
       """
       Usage:
 
@@ -26,6 +28,7 @@ Feature: Get help
   Scenario: Get version
     When I run `usaidwat --version`
     Then the exit status should be 0
+    And stderr should not contain anything
     And the output should match:
       """
       usaidwat [0-9]+\.[0-9]+\.[0-9]+

@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
-require 'usaidwat'
 require 'mercenary'
+require 'usaidwat'
+require 'usaidwat/ext/mercenary'
 
 Mercenary.program(:usaidwat) do |p|
   p.version USaidWat::VERSION

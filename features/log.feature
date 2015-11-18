@@ -560,7 +560,8 @@ Feature: Browse comments
   Scenario: Pass no arguments when searching
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat log --grep mipadi`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You must specify a username
       """

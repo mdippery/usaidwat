@@ -63,7 +63,8 @@ Feature: Tally comments
   Scenario: Search for a comment when tallying
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally --grep='Heisenbug' mipadi`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain:
       """
       invalid option: --grep=Heisenbug
       """
@@ -71,7 +72,8 @@ Feature: Tally comments
   Scenario: Search for a comment when sorting
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally -c --grep='Heisenbug' mipadi`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain:
       """
       invalid option: --grep=Heisenbug
       """
@@ -87,7 +89,8 @@ Feature: Tally comments
   Scenario: Tally comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally mipadi AskReddit`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You cannot specify a subreddit when tallying comments
       """
@@ -95,7 +98,8 @@ Feature: Tally comments
   Scenario: Sort comments with subreddit
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally -c mipadi AskReddit`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You cannot specify a subreddit when tallying comments
       """
@@ -103,7 +107,8 @@ Feature: Tally comments
   Scenario: Pass no arguments when tallying
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You must specify a username
       """
@@ -111,7 +116,8 @@ Feature: Tally comments
   Scenario: Pass no arguments when sorting
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat tally -c`
-    Then it should fail with:
+    Then the exit status should not be 0
+    And stderr should contain exactly:
       """
       You must specify a username
       """
