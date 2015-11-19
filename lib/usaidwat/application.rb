@@ -151,9 +151,9 @@ module USaidWat
       end
     end
 
-    class Submission < Command
+    class Posts < Command
       def initialize(prog)
-        prog.command(:submissions) do |c|
+        prog.command(:posts) do |c|
           c.action do |args, options|
             process(options, args)
           end
@@ -166,7 +166,7 @@ module USaidWat
           end
 
           c.command(:tally) do |s|
-            s.description "Tally a user's submissions by subreddit"
+            s.description "Tally a user's posts by subreddit"
             s.option 'count', '-c', '--count', 'Sort output by number of comments'
             s.action do |args, options|
               process_tally(options, args)
@@ -177,7 +177,7 @@ module USaidWat
       end
 
       def process(options, args)
-        abort "Do you want to tally or log submissions?"
+        abort "Do you want to tally or log posts?"
       end
 
       def process_log(options, args)

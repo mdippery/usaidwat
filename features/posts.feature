@@ -1,13 +1,13 @@
-Feature: Show submissions
+Feature: Show posts
 
   As a Redditor
-  I want to quickly be able to list another Redditor's submissions
+  I want to quickly be able to list another Redditor's posts
   In order to see what they like to talk about
 
-  Scenario: List submissions
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: List posts
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions log mipadi`
+    When I run `usaidwat posts log mipadi`
     Then it should pass with:
       """
       short                                                                          
@@ -160,19 +160,19 @@ Feature: Show submissions
       about a year ago
       """
 
-  Scenario: List submissions when user has no submissions
-    Given the Reddit service returns submissions for the user "blank"
+  Scenario: List posts when user has no submissions
+    Given the Reddit service returns posts for the user "blank"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions log blank`
+    When I run `usaidwat posts log blank`
     Then it should pass with:
       """
-      blank has no submissions.
+      blank has no posts.
       """
 
-  Scenario: Filter submissions by subreddit
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: Filter posts by subreddit
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions log mipadi webdev`
+    When I run `usaidwat posts log mipadi webdev`
     Then it should pass with:
       """
       webdev
@@ -229,19 +229,19 @@ Feature: Show submissions
       about a year ago
       """
 
-  Scenario: Filter submissions by subreddit when user has no submissions to that subreddit
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: Filter posts by subreddit when user has no submissions to that subreddit
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions log mipadi nsfw`
+    When I run `usaidwat posts log mipadi nsfw`
     Then it should pass with:
       """
-      mipadi has no submissions in nsfw.
+      mipadi has no posts in nsfw.
       """
 
-  Scenario: Tally submissions
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: Tally posts
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally mipadi`
+    When I run `usaidwat posts tally mipadi`
     Then it should pass with:
       """
       apple         1
@@ -257,10 +257,10 @@ Feature: Show submissions
       webdev       10
       """
 
-  Scenario: Sort submissions
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: Sort posts
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally -c mipadi`
+    When I run `usaidwat posts tally -c mipadi`
     Then it should pass with:
       """
       webdev       10
@@ -276,46 +276,46 @@ Feature: Show submissions
       technology    1
       """
 
-  Scenario: Tally submissions when user has no submissions
-    Given the Reddit service returns submissions for the user "blank"
+  Scenario: Tally posts when user has no submissions
+    Given the Reddit service returns posts for the user "blank"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally blank`
+    When I run `usaidwat posts tally blank`
     Then it should pass with:
       """
-      blank has no submissions.
+      blank has no posts.
       """
 
-  Scenario: Sort submissions when user has no submissions
-    Given the Reddit service returns submissions for the user "blank"
+  Scenario: Sort posts when user has no submissions
+    Given the Reddit service returns posts for the user "blank"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally -c blank`
+    When I run `usaidwat posts tally -c blank`
     Then it should pass with:
       """
-      blank has no submissions.
+      blank has no posts.
       """
 
-  Scenario: Tally submissions when user does not exist
+  Scenario: Tally posts when user does not exist
     Given the Reddit service does not have a user "testuser"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally testuser`
+    When I run `usaidwat posts tally testuser`
     Then it should fail with:
       """
       No such user: testuser
       """
 
-  Scenario: Sort submissions when user does not exist
+  Scenario: Sort posts when user does not exist
     Given the Reddit service does not have a user "testuser"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally -c testuser`
+    When I run `usaidwat posts tally -c testuser`
     Then it should fail with:
       """
       No such user: testuser
       """
 
-  Scenario: Pass no arguments when listing submissions
-    Given the Reddit service returns submissions for the user "mipadi"
+  Scenario: Pass no arguments when listing posts
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions log`
+    When I run `usaidwat posts log`
     Then the exit status should not be 0
     And the stderr should contain exactly:
       """
@@ -323,9 +323,9 @@ Feature: Show submissions
       """
 
   Scenario: Pass no arguments when tallying
-    Given the Reddit service returns submissions for the user "mipadi"
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions tally`
+    When I run `usaidwat posts tally`
     Then the exit status should not be 0
     And the stderr should contain exactly:
       """
@@ -333,11 +333,11 @@ Feature: Show submissions
       """
 
   Scenario: Pass no arguments to command
-    Given the Reddit service returns submissions for the user "mipadi"
+    Given the Reddit service returns posts for the user "mipadi"
     And time is frozen at Nov 19, 2015 11:22 AM
-    When I run `usaidwat submissions`
+    When I run `usaidwat posts`
     Then the exit status should not be 0
     And the stderr should contain exactly:
       """
-      Do you want to tally or log submissions?
+      Do you want to tally or log posts?
       """
