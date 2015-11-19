@@ -16,6 +16,18 @@ module USaidWat
       end
     end
 
+    class MockSubmission
+      attr_reader :subreddit, :title, :created_utc, :permalink
+
+      def initialize(dict)
+        data = dict['data']
+        @subreddit = data['subreddit']
+        @title = data['title']
+        @created_utc = data['created_utc']
+        @permalink = data['permalink']
+      end
+    end
+
     class MockUser
       def initialize(username)
         @username = username
@@ -28,6 +40,11 @@ module USaidWat
       def comments(n)
         json = load_data("#{@username}.json")
         json['data']['children'].map { |d| MockComment.new(d) }
+      end
+
+      def posts
+        json = load_data("submissions_#{username}.json")
+        json['data']['children'].map { |d| MockSubmission.new(d) }
       end
 
       private

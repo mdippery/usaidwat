@@ -43,6 +43,10 @@ module USaidWat
         "#{username}"
       end
 
+      def posts
+        user.posts
+      end
+
       private
 
       def user

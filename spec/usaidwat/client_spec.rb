@@ -26,12 +26,20 @@ module USaidWat
             to_return(:body => IO.read(File.join(root, "mipadi.json")))
           stub_request(:get, "http://www.reddit.com/user/mipadi/about.json").
             to_return(:body => IO.read(File.join(root, "user_mipadi.json")))
+          stub_request(:get, "http://www.reddit.com/user/mipadi/submitted.json?after=&limit=25").
+            to_return(:body => IO.read(File.join(root, "submissions_mipadi.json")))
 
           Timecop.freeze(Time.new(2015, 9, 15, 11, 14, 30, "-07:00"))
         end
 
         after(:each) do
           Timecop.return
+        end
+
+        describe "#posts" do
+          it "retrieves 25 posts" do
+            expect(redditor.posts.count).to eq(25)
+          end
         end
 
         describe "#comments" do
@@ -76,6 +84,14 @@ module USaidWat
             to_return(:status => 404, :body => IO.read(File.join(root, "testuser.json")))
           stub_request(:get, "http://www.reddit.com/user/testuser/about.json").
             to_return(:status => 404, :body => IO.read(File.join(root, "user_testuser.json")))
+          stub_request(:get, "http://www.reddit.com/user/testuser/submitted.json?after=&limit=25").
+            to_return(:status => 404, :body => IO.read(File.join(root, "submissions_testuser.json")))
+        end
+
+        describe "#posts" do
+          it "raises an exception if the user does not exist" do
+            expect { Redditor.new("testuser").comments }.to raise_error(NoSuchUserError, /testuser/)
+          end
         end
 
         describe "#comments" do
@@ -117,6 +133,14 @@ module USaidWat
             to_return(:status => 500)
           stub_request(:get, "http://www.reddit.com/user/mipadi/about.json").
             to_return(:status => 500)
+          stub_request(:get, "http://www.reddit.com/user/mipadi/submitted.json?after=&limit=25").
+            to_return(:status => 500)
+        end
+
+        describe "#posts" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.comments }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
         end
 
         describe "#comments" do

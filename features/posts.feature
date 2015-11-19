@@ -319,7 +319,7 @@ Feature: Show posts
     Then the exit status should not be 0
     And the stderr should contain exactly:
       """
-      You must speicify a username
+      You must specify a username
       """
 
   Scenario: Pass no arguments when tallying
