@@ -88,6 +88,71 @@ module USaidWat
       end
     end
 
+    describe PostFormatter do
+      let(:formatter) { PostFormatter.new }
+
+      before do
+        Timecop.freeze(Time.new(2015, 11, 19, 15, 27))
+      end
+
+      after do
+        Timecop.return
+      end
+
+      describe "#format" do
+        it "should return a string containing the formatted post" do
+          post = double("post")
+          expect(post).to receive(:subreddit).and_return("Games")
+          expect(post).to receive(:permalink).and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
+          expect(post).to receive(:title).and_return("The Xbox One Is Garbage And The Future Is Bullshit")
+          expect(post).to receive(:created_utc).and_return(1444928064)
+          expected = <<-EXPECTED
+Games
+https://www.reddit.com/r/Games/comments/3ovldc
+The Xbox One Is Garbage And The Future Is Bullshit
+about 1 month ago
+EXPECTED
+          actual = formatter.format(post).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+
+        it "should print two spaces between posts" do
+          post1 = double("first post")
+          expect(post1).to receive(:subreddit).and_return("Games")
+          expect(post1).to receive(:permalink).and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
+          expect(post1).to receive(:title).and_return("The Xbox One Is Garbage And The Future Is Bullshit")
+          expect(post1).to receive(:created_utc).and_return(1444928064)
+          post2 = double("second post")
+          expect(post2).to receive(:subreddit).and_return("technology")
+          expect(post2).to receive(:permalink).and_return("/r/technology/comments/3o0vrh/mozilla_lays_out_a_proposed_set_of_rules_for/")
+          expect(post2).to receive(:title).and_return("Mozilla lays out a proposed set of rules for content blockers")
+          expect(post2).to receive(:created_utc).and_return(1444340278)
+          s = formatter.format(post1)
+          s = formatter.format(post2)
+          lines = s.split("\n")
+          expect(lines[0]).to eq('')
+          expect(lines[1]).to eq('')
+          expect(lines[2]).not_to eq('')
+        end
+
+        it "should truncate titles to 80 characters" do
+          post = double("post")
+          expect(post).to receive(:subreddit).and_return("webdev")
+          expect(post).to receive(:permalink).and_return("/r/webdev/comments/29og3m/sick_of_ruby_dynamic_typing_side_effects_and/")
+          expect(post).to receive(:title).and_return("Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming")
+          expect(post).to receive(:created_utc).and_return(1404331670)
+          expected = <<-EXPECTED
+webdev
+https://www.reddit.com/r/webdev/comments/29og3m
+Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
+about a year ago
+EXPECTED
+          actual = formatter.format(post).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+      end
+    end
+
     describe CommentFormatter do
       let(:formatter) { CommentFormatter.new }
 

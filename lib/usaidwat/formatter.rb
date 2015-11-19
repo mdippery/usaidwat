@@ -41,6 +41,31 @@ module USaidWat
       end
     end
 
+    class PostFormatter < BaseFormatter
+      def format(post)
+        cols = tty.width
+        out = StringIO.new
+        out.write("\n\n") unless @count == 0
+        out.write("#{post.subreddit}\n".color(:green))
+        out.write("#{post_link(post)}\n".color(:yellow))
+        out.write("#{post.title.strip.truncate(cols)}\n".color(:magenta))
+        out.write("#{post_date(post)}\n".color(:blue))
+        @count += 1
+        out.rewind
+        out.read
+      end
+
+      private
+
+      def post_link(post)
+        "https://www.reddit.com#{post.permalink.split('/')[0..-2].join('/')}"
+      end
+
+      def post_date(post)
+        Time.at(post.created_utc).ago
+      end
+    end
+
     class CommentFormatter < BaseFormatter
       def format(comment)
         cols = tty.width
