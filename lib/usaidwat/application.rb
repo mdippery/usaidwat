@@ -151,6 +151,21 @@ module USaidWat
       end
     end
 
+    class Submission < Command
+      def initialize(prog)
+        prog.command(:submissions) do |c|
+          c.action do |args, options|
+            process(options, args)
+          end
+        end
+        super
+      end
+
+      def process(options, args)
+        puts "Running `usaidwat submissions #{options} #{args}`"
+      end
+    end
+
     class Tally < Command
       def initialize(prog)
         prog.command(:tally) do |c|
