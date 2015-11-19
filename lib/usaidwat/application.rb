@@ -157,12 +157,35 @@ module USaidWat
           c.action do |args, options|
             process(options, args)
           end
+
+          c.command(:log) do |s|
+            s.description "Show a user's submitted posts"
+            s.action do |args, options|
+              process_log(options, args)
+            end
+          end
+
+          c.command(:tally) do |s|
+            s.description "Tally a user's submissions by subreddit"
+            s.option 'count', '-c', '--count', 'Sort output by number of comments'
+            s.action do |args, options|
+              process_tally(options, args)
+            end
+          end
         end
         super
       end
 
       def process(options, args)
         abort "Do you want to tally or log submissions?"
+      end
+
+      def process_log(options, args)
+        puts "usaidwat submissions log #{options} #{args}"
+      end
+
+      def process_tally(options, args)
+        puts "usaidwat submissions tally #{options} #{args}"
       end
     end
 
