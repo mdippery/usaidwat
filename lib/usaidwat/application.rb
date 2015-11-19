@@ -162,7 +162,7 @@ module USaidWat
       end
 
       def process(options, args)
-        puts "Running `usaidwat submissions #{options} #{args}`"
+        abort "Do you want to tally or log submissions?"
       end
     end
 
