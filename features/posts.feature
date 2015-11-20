@@ -10,9 +10,9 @@ Feature: Show posts
     When I run `usaidwat posts log mipadi`
     Then it should pass with:
       """
-      short                                                                          
-      https://www.reddit.com/r/short/comments/3pj7rx                                 
-      Science Says Being Short Makes You Depressed                                   
+      short
+      https://www.reddit.com/r/short/comments/3pj7rx
+      Science Says Being Short Makes You Depressed
       about 1 month ago
 
 
@@ -36,13 +36,13 @@ Feature: Show posts
 
       vim
       https://www.reddit.com/r/vim/comments/3m83kp
-      Vim setup for Markdown                      
+      Vim setup for Markdown
       about 2 months ago
 
 
       django
       https://www.reddit.com/r/django/comments/35rzlx
-      Deploy Django projects using git push          
+      Deploy Django projects using git push
       about 6 months ago
 
 
@@ -60,7 +60,7 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/32y92q
-      Microservices in Clojure                       
+      Microservices in Clojure
       about 7 months ago
 
 
@@ -84,7 +84,7 @@ Feature: Show posts
 
       swift
       https://www.reddit.com/r/swift/comments/2t55vj
-      Swift for CLI tools                           
+      Swift for CLI tools
       about 10 months ago
 
 
@@ -96,13 +96,13 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/2ejsyv
-      You have ruined HTML                           
+      You have ruined HTML
       about a year ago
 
 
       swift
       https://www.reddit.com/r/swift/comments/2au1ki
-      A few thoughts on Swift                       
+      A few thoughts on Swift
       about a year ago
 
 
@@ -132,7 +132,7 @@ Feature: Show posts
 
       Clojure
       https://www.reddit.com/r/Clojure/comments/26hlxb
-      Clojure: A Retrospective                        
+      Clojure: A Retrospective
       about a year ago
 
 
@@ -156,7 +156,7 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/25p2d8
-      Facebook: MVC Does Not Scale, Use Flux Instead 
+      Facebook: MVC Does Not Scale, Use Flux Instead
       about a year ago
       """
 
@@ -183,13 +183,13 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/32y92q
-      Microservices in Clojure                       
+      Microservices in Clojure
       about 7 months ago
 
 
       webdev
       https://www.reddit.com/r/webdev/comments/2ejsyv
-      You have ruined HTML                           
+      You have ruined HTML
       about a year ago
 
 
@@ -225,7 +225,7 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/25p2d8
-      Facebook: MVC Does Not Scale, Use Flux Instead 
+      Facebook: MVC Does Not Scale, Use Flux Instead
       about a year ago
       """
 
