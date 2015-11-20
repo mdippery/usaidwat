@@ -34,7 +34,8 @@ module USaidWat
       end
 
       def quit(message, code=:ok)
-        puts message
+        stream = code == :ok ? $stdout : $stderr
+        stream.puts message
         exit code
       end
     end
@@ -177,7 +178,7 @@ module USaidWat
       end
 
       def process(options, args)
-        abort "Do you want to tally or log posts?"
+        quit "Do you want to tally or log posts?", :usage
       end
 
       def process_log(options, args)
