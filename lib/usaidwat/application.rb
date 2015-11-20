@@ -2,6 +2,7 @@ require 'usaidwat/algo'
 require 'usaidwat/client'
 require 'usaidwat/either'
 require 'usaidwat/pager'
+require 'usaidwat/ext/array'
 require 'sysexits'
 
 module USaidWat
@@ -84,7 +85,7 @@ module USaidWat
       def process(options, args)
         raise ArgumentError.new('You must specify a username') if args.empty?
         username = args.shift
-        subreddits = args.join(' ').split(/[ ,\+]/).map { |sr| sr.downcase }
+        subreddits = args.subreddits
 
         redditor = client.new(username)
         comments = redditor.comments
