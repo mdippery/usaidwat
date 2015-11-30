@@ -43,7 +43,7 @@ module USaidWat
       end
 
       def posts
-        json = load_data("submissions_#{username}.json")
+        json = load_data("submissions_#{@username}.json")
         json['data']['children'].map { |d| MockSubmission.new(d) }
       end
 

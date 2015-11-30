@@ -13,7 +13,7 @@ Feature: Show posts
       short
       https://www.reddit.com/r/short/comments/3pj7rx
       Science Says Being Short Makes You Depressed
-      about 1 month ago
+      about 4 weeks ago
 
 
       Games
@@ -78,7 +78,7 @@ Feature: Show posts
 
       vim
       https://www.reddit.com/r/vim/comments/2tvq8u
-      Why does my shell prompt disappear when I install and use vim 7.4 (on CentOS 6)
+      Why does my shell prompt disappear when I install and use vim 7.4 (on CentOS 6)?
       about 10 months ago
 
 
@@ -188,6 +188,12 @@ Feature: Show posts
 
 
       webdev
+      https://www.reddit.com/r/webdev/comments/2vo5zs
+      Major security alert as 40,000 MongoDB databases left unsecured on the internet
+      about 9 months ago
+
+
+      webdev
       https://www.reddit.com/r/webdev/comments/2ejsyv
       You have ruined HTML
       about a year ago
@@ -235,7 +241,7 @@ Feature: Show posts
     When I run `usaidwat posts log mipadi nsfw`
     Then it should pass with:
       """
-      mipadi has no posts in nsfw.
+      No posts by mipadi for nsfw.
       """
 
   Scenario: Tally posts

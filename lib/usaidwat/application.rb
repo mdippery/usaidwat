@@ -129,6 +129,8 @@ module USaidWat
     end
 
     class Posts < Command
+      include FilterCommand
+
       def initialize(prog)
         prog.command(:posts) do |c|
           c.action do |args, options|
@@ -158,7 +160,22 @@ module USaidWat
       end
 
       def process_log(options, args)
-        puts "usaidwat submissions log #{options} #{args}"
+        raise ArgumentError.new('You must specify a username') if args.empty?
+        username = args.shift
+        subreddits = args.subreddits
+
+        redditor = client.new(username)
+        posts = redditor.posts
+
+        res = filter_entries('posts', redditor, posts, subreddits) >>
+              lambda { |r| ensure_entries('posts', redditor, r.value) }
+
+        quit res.value if res.left?
+        posts = res.value
+
+        formatter = USaidWat::CLI::PostFormatter.new
+        page
+        posts.each { |p| print formatter.format(p) }
       end
 
       def process_tally(options, args)

@@ -112,6 +112,7 @@ https://www.reddit.com/r/Games/comments/3ovldc
 The Xbox One Is Garbage And The Future Is Bullshit
 about 1 month ago
 EXPECTED
+          expected = expected.strip
           actual = formatter.format(post).delete_ansi_color_codes
           expect(actual).to eq(expected)
         end
@@ -132,7 +133,8 @@ EXPECTED
           lines = s.split("\n")
           expect(lines[0]).to eq('')
           expect(lines[1]).to eq('')
-          expect(lines[2]).not_to eq('')
+          expect(lines[2]).to eq('')
+          expect(lines[3]).not_to eq('')
         end
 
         it "should truncate titles to 80 characters" do
@@ -147,6 +149,7 @@ https://www.reddit.com/r/webdev/comments/29og3m
 Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
 about a year ago
 EXPECTED
+          expected = expected.strip
           actual = formatter.format(post).delete_ansi_color_codes
           expect(actual).to eq(expected)
         end

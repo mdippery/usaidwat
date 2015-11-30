@@ -45,11 +45,11 @@ module USaidWat
       def format(post)
         cols = tty.width
         out = StringIO.new
-        out.write("\n\n") unless @count == 0
+        out.write("\n\n\n") unless @count == 0
         out.write("#{post.subreddit}\n".color(:green))
         out.write("#{post_link(post)}\n".color(:yellow))
         out.write("#{post.title.strip.truncate(cols)}\n".color(:magenta))
-        out.write("#{post_date(post)}\n".color(:blue))
+        out.write("#{post_date(post)}".color(:blue))
         @count += 1
         out.rewind
         out.read
