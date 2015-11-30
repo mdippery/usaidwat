@@ -9,7 +9,7 @@ module USaidWat
         Struct.new('Comment', :subreddit, :body)
       end
 
-      let (:stub) { Class.new { include FilterCommand }.new}
+      let (:stub) { Class.new { include FilterCommand }.new }
       let (:redditor) { Struct::Redditor.new('mipadi') }
 
       let (:comments) do

@@ -1,7 +1,7 @@
-require 'usaidwat/algo'
-require 'usaidwat/client'
-require 'usaidwat/either'
 require 'sysexits'
+require 'usaidwat/client'
+require 'usaidwat/count'
+require 'usaidwat/either'
 require 'usaidwat/filter'
 require 'usaidwat/pager'
 require 'usaidwat/ext/array'
@@ -184,6 +184,8 @@ module USaidWat
     end
 
     class Tally < Command
+      include CountCommand
+
       def initialize(prog)
         prog.command(:tally) do |c|
           c.alias :t
@@ -203,30 +205,15 @@ module USaidWat
 
         redditor = client.new(username)
         quit "#{redditor.username} has no comments." if redditor.comments.empty?
-        # Unfortunately Snooby cannot return comments for a specific
-        # user in a specific subreddit, so for now we have to sort them
-        # ourself.
-        longest_subreddit = 0
-        buckets = Hash.new { |hash, key| hash[key] = 0 }
-        redditor.comments.each do |comment|
-          subreddit = comment.subreddit
-          longest_subreddit = subreddit.length if subreddit.length > longest_subreddit
-          buckets[subreddit] += 1
-        end
-        algo = algorithm(options['count']).new(buckets)
-        subreddits = buckets.keys.sort { |a,b| algo.sort(a, b) }
-        subreddits.each do |subreddit|
-          tally = buckets[subreddit]
+        partition_data = partition(redditor.comments, options['count'])
+        longest_subreddit = partition_data.longest
+        subreddits = partition_data.counts
+        subreddits.each do |subreddit_count|
+          subreddit, tally = subreddit_count
           printf "%-*s  %3d\n", longest_subreddit, subreddit, tally
         end
       rescue USaidWat::Client::NoSuchUserError
         quit "No such user: #{username}", :no_such_user
-      end
-
-      private
-
-      def algorithm(count)
-        count ? USaidWat::Algorithms::CountAlgorithm : USaidWat::Algorithms::LexicographicalAlgorithm
       end
     end
   end
