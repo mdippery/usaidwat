@@ -1,3 +1,3 @@
 Given /^time is frozen at (.+)$/ do |time|
-  Timecop.freeze(Time.parse(time))
+  set_environment_variable 'USAIDWAT_CURRENT_TIME', time
 end

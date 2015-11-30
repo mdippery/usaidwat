@@ -1,9 +1,11 @@
 require 'usaidwat/algo'
 require 'usaidwat/client'
 require 'usaidwat/either'
+require 'sysexits'
 require 'usaidwat/pager'
 require 'usaidwat/ext/array'
-require 'sysexits'
+
+require 'timecop' if ENV['USAIDWAT_ENV'] == 'cucumber'
 
 module USaidWat
   module Application
@@ -26,12 +28,17 @@ module USaidWat
 
       def initialize(prog)
         @client = cucumber? ? USaidWat::Client::TestRedditor : USaidWat::Client::Redditor
+        Timecop.freeze(Time.parse(ENV['USAIDWAT_CURRENT_TIME'])) if cucumber_time?
       end
 
       protected
 
       def cucumber?
         ENV['USAIDWAT_ENV'] == 'cucumber'
+      end
+
+      def cucumber_time?
+        cucumber? && !ENV['USAIDWAT_CURRENT_TIME'].nil?
       end
 
       def quit(message, code=:ok)

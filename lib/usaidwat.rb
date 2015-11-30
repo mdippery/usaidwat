@@ -1,5 +1,5 @@
 require "usaidwat/algo"
 require "usaidwat/application"
-require "usaidwat/formatter"
 require "usaidwat/client"
+require "usaidwat/formatter"
 require "usaidwat/version"
