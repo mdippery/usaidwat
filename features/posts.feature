@@ -250,17 +250,17 @@ Feature: Show posts
     When I run `usaidwat posts tally mipadi`
     Then it should pass with:
       """
-      apple         1
-      Clojure       1
-      django        1
-      Games         2
-      movies        1
-      programming   2
-      short         1
-      swift         1
-      technology    1
-      vim           2
-      webdev       10
+      apple          1
+      Clojure        1
+      django         1
+      Games          2
+      movies         1
+      programming    2
+      short          1
+      swift          3
+      technology     1
+      vim            2
+      webdev        10
       """
 
   Scenario: Sort posts
@@ -269,17 +269,17 @@ Feature: Show posts
     When I run `usaidwat posts tally -c mipadi`
     Then it should pass with:
       """
-      webdev       10
-      Games         2
-      programming   2
-      vim           2
-      apple         1
-      Clojure       1
-      django        1
-      movies        1
-      short         1
-      swift         1
-      technology    1
+      webdev        10
+      swift          3
+      Games          2
+      programming    2
+      vim            2
+      apple          1
+      Clojure        1
+      django         1
+      movies         1
+      short          1
+      technology     1
       """
 
   Scenario: Tally posts when user has no submissions

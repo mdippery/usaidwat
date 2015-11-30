@@ -129,6 +129,7 @@ module USaidWat
     end
 
     class Posts < Command
+      include CountCommand
       include FilterCommand
 
       def initialize(prog)
@@ -179,7 +180,17 @@ module USaidWat
       end
 
       def process_tally(options, args)
-        puts "usaidwat submissions tally #{options} #{args}"
+        raise ArgumentError.new('You must specify a username') if args.empty?
+        raise ArgumentError.new('You cannot specify a subreddit when tallying comments') if args.count > 1
+        username = args.first
+
+        redditor = client.new(username)
+        quit "#{redditor.username} has no posts." if redditor.posts.empty?
+        partition_data = partition(redditor.posts, options['count'])
+        formatter = USaidWat::CLI::TallyFormatter.new
+        print formatter.format(partition_data)
+      rescue USaidWat::Client::NoSuchUserError
+        quit "No such user: #{username}", :no_such_user
       end
     end
 

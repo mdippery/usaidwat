@@ -45,6 +45,10 @@ module USaidWat
 
       def posts
         user.posts
+      rescue NoMethodError
+        raise NoSuchUserError, username
+      rescue TypeError
+        raise ReachabilityError, "Reddit unreachable"
       end
 
       private
