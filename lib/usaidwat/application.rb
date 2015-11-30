@@ -206,12 +206,8 @@ module USaidWat
         redditor = client.new(username)
         quit "#{redditor.username} has no comments." if redditor.comments.empty?
         partition_data = partition(redditor.comments, options['count'])
-        longest_subreddit = partition_data.longest
-        subreddits = partition_data.counts
-        subreddits.each do |subreddit_count|
-          subreddit, tally = subreddit_count
-          printf "%-*s  %3d\n", longest_subreddit, subreddit, tally
-        end
+        formatter = USaidWat::CLI::TallyFormatter.new
+        print formatter.format(partition_data)
       rescue USaidWat::Client::NoSuchUserError
         quit "No such user: #{username}", :no_such_user
       end

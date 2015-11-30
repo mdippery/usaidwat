@@ -268,5 +268,29 @@ EXPECTED
         end
       end
     end
+
+    describe TallyFormatter do
+      before(:all) do
+        Struct.new('PartitionData', :longest, :counts)
+      end
+
+      let (:formatter) { TallyFormatter.new }
+
+      describe '#format' do
+        it 'should format partitioned data' do
+          longest_subreddit = 'writing'.length
+          count_data = [['apple', 5], ['Bass', 1], ['Python', 3], ['writing', 10]]
+          partition = Struct::PartitionData.new(longest_subreddit, count_data)
+          expected = <<-EOS
+apple      5
+Bass       1
+Python     3
+writing   10
+EOS
+          actual = formatter.format(partition)
+          expect(actual).to eq(expected)
+        end
+      end
+    end
   end
 end
