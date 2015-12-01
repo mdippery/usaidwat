@@ -6,7 +6,7 @@ module USaidWat
     describe FilterCommand do
       before(:all) do
         Struct.new('Redditor', :username)
-        Struct.new('Comment', :subreddit, :body)
+        Struct.new('Comment', :subreddit, :body) unless Struct::const_defined? 'Comment'
       end
 
       let (:stub) { Class.new { include FilterCommand }.new }

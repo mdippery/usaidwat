@@ -7,7 +7,7 @@ module USaidWat
   module Application
     describe CountCommand do
       before(:all) do
-        Struct.new('Comment', :subreddit)
+        Struct.new('Comment', :subreddit, :body)
       end
 
       let (:stub) { Class.new { include CountCommand }.new }
