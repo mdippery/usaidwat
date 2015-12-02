@@ -16,8 +16,7 @@ To list a Redditor's comments, use the @log@ subcommand:
 
 bc. $ usaidwat log mipadi
 
-To list a count of subreddits in which a user has posted, use the @tally@
-subcommand:
+To list a count of subreddits in which a user has posted, use the @tally@ subcommand:
 
 bc. $ usaidwat tally mipadi
 
@@ -48,3 +47,9 @@ All the comments for the given subreddit will be printed.
 h2(#testing). Testing
 
 Test suites can be run with RSpec and Cucumber.
+
+h2(#development). Development
+
+The repository has been configured to use "jq":https://stedolan.github.io/jq/ to generate pretty diffs for the @.json@ files in @fixtures/features@. To use these prettier diffs, install jq, then run this:
+
+bc. $ git config diff.json.textconv "jq '.'"
