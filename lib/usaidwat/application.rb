@@ -81,7 +81,7 @@ module USaidWat
           c.alias :l
           c.option 'date', '--date FORMAT', 'Show dates in "absolute" or "relative" format'
           c.option 'grep', '--grep STRING', 'Show only comments matching STRING'
-          c.option 'limit', '-n LIMIT', 'Only show n comments'
+          c.option 'limit', '--limit LIMIT', '-n LIMIT', 'Only show n comments'
           c.option 'oneline', '--oneline', 'Output log in a more compact form'
           c.option 'raw', '--raw', 'Print raw comment bodies'
 
