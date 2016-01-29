@@ -19,6 +19,23 @@ module USaidWat
         end
       end
 
+      describe "#transform_html_entities" do
+        it "transforms &amp; to &" do
+          s = "this &amp; that"
+          expect(s.transform_html_entities).to eq("this & that")
+        end
+
+        it "transform &lt; to <" do
+          s = "chocolate &lt; vanilla"
+          expect(s.transform_html_entities).to eq("chocolate < vanilla")
+        end
+
+        it "transforms &gt; to >" do
+          s = "cats &gt; dogs"
+          expect(s.transform_html_entities).to eq("cats > dogs")
+        end
+      end
+
       describe "#pluralize" do
         it "should not append an 's' to a singular noun" do
           s = "dog"

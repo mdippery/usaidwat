@@ -154,7 +154,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
@@ -194,7 +194,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
@@ -234,7 +234,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, &amp;
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.

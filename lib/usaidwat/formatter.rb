@@ -48,7 +48,7 @@ module USaidWat
         out.write("\n\n\n") unless @count == 0
         out.write("#{post.subreddit}\n".color(:green))
         out.write("#{post_link(post)}\n".color(:yellow))
-        out.write("#{post.title.strip.truncate(cols)}\n".color(:magenta))
+        out.write("#{post.title.strip.transform_html_entities.truncate(cols)}\n".color(:magenta))
         out.write("#{post_date(post)}".color(:blue))
         @count += 1
         out.rewind
@@ -73,7 +73,7 @@ module USaidWat
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
-        out.write("#{comment.link_title.strip.truncate(cols)}\n".color(:magenta))
+        out.write("#{comment.link_title.strip.transform_html_entities.truncate(cols)}\n".color(:magenta))
         out.write("#{comment_date(comment)}".color(:blue))
         out.write(" \u2022 ".color(:cyan))
         out.write(sprintf("%+d\n", comment_karma(comment)).color(:blue))
@@ -128,7 +128,7 @@ module USaidWat
         out = StringIO.new
         subreddit = comment.subreddit
         cols -= subreddit.length + 1
-        title = comment.link_title.strip.truncate(cols)
+        title = comment.link_title.strip.transform_html_entities.truncate(cols)
         key = "#{subreddit} #{title}"
         if !seen?(key)
           out.write("#{subreddit}".color(:green))

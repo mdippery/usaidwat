@@ -231,6 +231,21 @@ EXPECTED
           lines = s.split("\n")
           expect(lines[-1]).to eq("It has two lines.")
         end
+
+        it "should format HTML entities in post titles" do
+          comment = double("first comment")
+          expect(comment).to receive(:subreddit).twice.and_return("guitars")
+          expect(comment).to receive(:link_id).and_return("t3_13f783")
+          expect(comment).to receive(:id).and_return("c73qhxi")
+          expect(comment).to receive(:created_utc).and_return(1433378314.0)
+          expect(comment).to receive(:ups).and_return(12)
+          expect(comment).to receive(:downs).and_return(1)
+          expect(comment).to receive(:link_title).and_return("[GEAR] My 06 Fender EJ Strat, an R&amp;D prototype sold at NAMM")
+          expect(comment).to receive(:body).and_return("Lorem ipsum")
+          s = formatter.format(comment).delete_ansi_color_codes
+          lines = s.split("\n")
+          expect(lines[2]).to eq("[GEAR] My 06 Fender EJ Strat, an R&D prototype sold at NAMM")
+        end
       end
     end
 
@@ -251,6 +266,15 @@ EXPECTED
           expect(comment).to receive(:subreddit).and_return("programming")
           expect(comment).to receive(:link_title).and_return("Why Brit Ruby 2013 was cancelled and why this is not ok - Gist")
           expected = "programming Why Brit Ruby 2013 was cancelled and why this is not ok - Gist\n"
+          actual = formatter.format(comment).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+
+        it "should format HTML entities in titles" do
+          comment = double("comment")
+          expect(comment).to receive(:subreddit).and_return("guitars")
+          expect(comment).to receive(:link_title).and_return("[GEAR] My 06 Fender EJ Strat, an R&amp;D prototype sold at NAMM")
+          expected = "guitars [GEAR] My 06 Fender EJ Strat, an R&D prototype sold at NAMM\n"
           actual = formatter.format(comment).delete_ansi_color_codes
           expect(actual).to eq(expected)
         end

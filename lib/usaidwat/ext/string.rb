@@ -16,4 +16,8 @@ class String
   def highlight(pattern)
     gsub(/#{pattern}/i) { |m| Rainbow(m).red }
   end
+
+  def transform_html_entities
+    gsub(/&gt;/, '>').gsub(/&lt;/, '<').gsub(/&amp;/, '&')
+  end
 end
