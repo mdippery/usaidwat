@@ -50,6 +50,7 @@ module USaidWat
         out.write("#{post_link(post)}\n".color(:yellow))
         out.write("#{post.title.strip.transform_html_entities.truncate(cols)}\n".color(:magenta))
         out.write("#{post_date(post)}".color(:blue))
+        out.write("\n#{post.url}") unless post.url.end_with?(post.permalink)
         @count += 1
         out.rewind
         out.read

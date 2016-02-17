@@ -17,7 +17,7 @@ module USaidWat
     end
 
     class MockSubmission
-      attr_reader :subreddit, :title, :created_utc, :permalink
+      attr_reader :subreddit, :title, :created_utc, :permalink, :url
 
       def initialize(dict)
         data = dict['data']
@@ -25,6 +25,7 @@ module USaidWat
         @title = data['title']
         @created_utc = data['created_utc']
         @permalink = data['permalink']
+        @url = data['url']
       end
     end
 

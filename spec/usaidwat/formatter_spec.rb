@@ -103,9 +103,30 @@ module USaidWat
         it "should return a string containing the formatted post" do
           post = double("post")
           expect(post).to receive(:subreddit).and_return("Games")
-          expect(post).to receive(:permalink).and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
+          expect(post).to receive(:permalink).twice.and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
           expect(post).to receive(:title).and_return("The Xbox One Is Garbage And The Future Is Bullshit")
           expect(post).to receive(:created_utc).and_return(1444928064)
+          expect(post).to receive(:url).twice.and_return("http://adequateman.deadspin.com/the-xbox-one-is-garbage-and-the-future-is-bullshit-1736054579")
+          expected = <<-EXPECTED
+Games
+https://www.reddit.com/r/Games/comments/3ovldc
+The Xbox One Is Garbage And The Future Is Bullshit
+about 1 month ago
+http://adequateman.deadspin.com/the-xbox-one-is-garbage-and-the-future-is-bullshit-1736054579
+EXPECTED
+          expected = expected.strip
+          actual = formatter.format(post).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+
+        it "should not include the URL if it is the same as the permalink" do
+          permalink = "/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/"
+          post = double("post")
+          expect(post).to receive(:subreddit).and_return("Games")
+          expect(post).to receive(:permalink).twice.and_return(permalink)
+          expect(post).to receive(:title).and_return("The Xbox One Is Garbage And The Future Is Bullshit")
+          expect(post).to receive(:created_utc).and_return(1444928064)
+          expect(post).to receive(:url).and_return("https://www.reddit.com#{permalink}")
           expected = <<-EXPECTED
 Games
 https://www.reddit.com/r/Games/comments/3ovldc
@@ -120,14 +141,16 @@ EXPECTED
         it "should print two spaces between posts" do
           post1 = double("first post")
           expect(post1).to receive(:subreddit).and_return("Games")
-          expect(post1).to receive(:permalink).and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
+          expect(post1).to receive(:permalink).twice.and_return("/r/Games/comments/3ovldc/the_xbox_one_is_garbage_and_the_future_is_bullshit/")
           expect(post1).to receive(:title).and_return("The Xbox One Is Garbage And The Future Is Bullshit")
           expect(post1).to receive(:created_utc).and_return(1444928064)
+          expect(post1).to receive(:url).twice.and_return("http://adequateman.deadspin.com/the-xbox-one-is-garbage-and-the-future-is-bullshit-1736054579")
           post2 = double("second post")
           expect(post2).to receive(:subreddit).and_return("technology")
-          expect(post2).to receive(:permalink).and_return("/r/technology/comments/3o0vrh/mozilla_lays_out_a_proposed_set_of_rules_for/")
+          expect(post2).to receive(:permalink).twice.and_return("/r/technology/comments/3o0vrh/mozilla_lays_out_a_proposed_set_of_rules_for/")
           expect(post2).to receive(:title).and_return("Mozilla lays out a proposed set of rules for content blockers")
           expect(post2).to receive(:created_utc).and_return(1444340278)
+          expect(post2).to receive(:url).twice.and_return("https://blog.mozilla.org/blog/2015/10/07/proposed-principles-for-content-blocking/")
           s = formatter.format(post1)
           s = formatter.format(post2)
           lines = s.split("\n")
@@ -140,14 +163,16 @@ EXPECTED
         it "should truncate titles to 80 characters" do
           post = double("post")
           expect(post).to receive(:subreddit).and_return("webdev")
-          expect(post).to receive(:permalink).and_return("/r/webdev/comments/29og3m/sick_of_ruby_dynamic_typing_side_effects_and/")
+          expect(post).to receive(:permalink).twice.and_return("/r/webdev/comments/29og3m/sick_of_ruby_dynamic_typing_side_effects_and/")
           expect(post).to receive(:title).and_return("Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming")
           expect(post).to receive(:created_utc).and_return(1404331670)
+          expect(post).to receive(:url).twice.and_return("https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/")
           expected = <<-EXPECTED
 webdev
 https://www.reddit.com/r/webdev/comments/29og3m
 Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
 about a year ago
+https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/
 EXPECTED
           expected = expected.strip
           actual = formatter.format(post).delete_ansi_color_codes
