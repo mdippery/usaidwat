@@ -112,9 +112,9 @@ module USaidWat
           if relative_dates?
             d.ago
           else
-            d_part = d.strftime("%-d %b %Y")
+            d_part = d.strftime("%a, %-d %b %Y")
             t_part = d.strftime("%l:%M %p").strip
-            "#{d_part} #{t_part}"
+            "#{d_part}, #{t_part}"
           end
         end
 

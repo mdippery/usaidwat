@@ -65,7 +65,7 @@ Feature: Browse comments
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
       Heisenbug: a software bug that seems to disappear or alter its behavior when one
-      1 Dec 2012 12:14 PM • +1
+      Sat, 1 Dec 2012, 12:14 PM • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
 
@@ -73,7 +73,7 @@ Feature: Browse comments
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
       NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
-      30 Nov 2012 4:44 PM • +2
+      Fri, 30 Nov 2012, 4:44 PM • +2
 
       It has a fare when the lights are off.
 
@@ -81,7 +81,7 @@ Feature: Browse comments
       worldnews
       http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
       Palestinians win upgraded UN status by wide margin
-      30 Nov 2012 10:09 AM • +1
+      Fri, 30 Nov 2012, 10:09 AM • +1
 
       The Judgment of Solomon Accords.
       """
