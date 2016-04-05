@@ -318,6 +318,21 @@ EXPECTED
       end
     end
 
+    describe CompactPostFormatter do
+      let (:formatter) { CompactPostFormatter.new }
+
+      describe '#format' do
+        it 'should return a string containing the formatted comment' do
+          post = double('post')
+          expect(post).to receive(:subreddit).and_return('programming')
+          expect(post).to receive(:title).and_return('Why Brit Ruby 2013 was cancelled and why this is not ok - Gist')
+          expected = "programming Why Brit Ruby 2013 was cancelled and why this is not ok - Gist\n"
+          actual = formatter.format(post).delete_ansi_color_codes
+          expect(actual).to eq(expected)
+        end
+      end
+    end
+
     describe TallyFormatter do
       before(:all) do
         Struct.new('PartitionData', :longest, :counts)

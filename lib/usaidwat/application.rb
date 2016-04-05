@@ -140,6 +140,7 @@ module USaidWat
 
           c.command(:log) do |s|
             s.description "Show a user's submitted posts"
+            s.option 'oneline', '--oneline', 'Output log in a more compact form'
             s.action do |args, options|
               process_log(options, args)
             end
@@ -162,6 +163,7 @@ module USaidWat
 
       def process_log(options, args)
         raise ArgumentError.new('You must specify a username') if args.empty?
+        oneline = !!options['oneline']
         username = args.shift
         subreddits = args.subreddits
 
@@ -174,7 +176,7 @@ module USaidWat
         quit res.value if res.left?
         posts = res.value
 
-        formatter = USaidWat::CLI::PostFormatter.new
+        formatter = (oneline ? USaidWat::CLI::CompactPostFormatter : USaidWat::CLI::PostFormatter).new
         page
         posts.each { |p| print formatter.format(p) }
       end

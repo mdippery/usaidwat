@@ -184,6 +184,38 @@ Feature: Show posts
       http://www.infoq.com/news/2014/05/facebook-mvc-flux
       """
 
+  Scenario: List posts in a compact form
+    Given the Reddit service returns posts for the user "mipadi"
+    When I run `usaidwat posts log --oneline mipadi`
+    Then it should pass with:
+      """
+      short Science Says Being Short Makes You Depressed
+      Games The Xbox One Is Garbage And The Future Is Bullshit
+      technology Mozilla lays out a proposed set of rules for content blockers
+      apple Mozilla lays out a set of proposed rules for content blocking
+      vim Vim setup for Markdown
+      django Deploy Django projects using git push
+      webdev The Future of Web Design is Hidden in the History of Architecture
+      swift Does Swift make native app development easier?
+      webdev Microservices in Clojure
+      movies Interstellar's true black hole would have been too confusing for audience
+      webdev Major security alert as 40,000 MongoDB databases left unsecured on the in
+      vim Why does my shell prompt disappear when I install and use vim 7.4 (on CentOS
+      swift Swift for CLI tools
+      Games Chief Executive of Rovio, Maker of Angry Birds Game, to Step Down
+      webdev You have ruined HTML
+      swift A few thoughts on Swift
+      webdev Sick of Ruby, dynamic typing, side effects, and basically object-oriented
+      webdev Vim for people who think things like Vim are weird and hard
+      webdev The emperor’s new clothes were built with Node.js
+      webdev Clojure, or how to put the spark back into your relationship with program
+      Clojure Clojure: A Retrospective
+      programming Fresh perspectives: Learning new languages after you know (quite) a 
+      webdev I created a tool for sampling Reddit users' karma (link and comment)
+      programming Erlang and code style: Musings on mostly defensive programming style
+      webdev Facebook: MVC Does Not Scale, Use Flux Instead
+      """
+
   Scenario: List posts when user has no submissions
     Given the Reddit service returns posts for the user "blank"
     And time is frozen at Nov 19, 2015 11:22 AM

@@ -67,6 +67,20 @@ module USaidWat
       end
     end
 
+    class CompactPostFormatter < BaseFormatter
+      def format(post)
+        cols = tty.width
+        out = StringIO.new
+        subreddit = post.subreddit
+        cols -= subreddit.length + 1
+        title = post.title.strip.transform_html_entities.truncate(cols)
+        out.write(subreddit.color(:green))
+        out.write(" #{title}\n")
+        out.rewind
+        out.read
+      end
+    end
+
     class CommentFormatter < BaseFormatter
       def format(comment)
         cols = tty.width
