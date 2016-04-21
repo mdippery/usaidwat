@@ -1,3 +1,5 @@
+require 'usaidwat/either'
+
 module USaidWat
   module Application
     module FilterCommand
