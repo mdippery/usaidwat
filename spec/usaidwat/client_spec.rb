@@ -126,6 +126,46 @@ module USaidWat
         end
       end
 
+      context "when Reddit requests timeout" do
+        before(:each) do
+          WebMock.disable_net_connect!
+          WebMock.reset!
+          stub_request(:get, "http://www.reddit.com/user/mipadi/comments.json?after=&limit=100").to_timeout
+          stub_request(:get, "http://www.reddit.com/user/mipadi/about.json").to_timeout
+          stub_request(:get, "http://www.reddit.com/user/mipadi/submitted.json?after=&limit=25").to_timeout
+        end
+
+        describe "#posts" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.comments }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
+        end
+
+        describe "#link_karma" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.link_karma }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
+        end
+
+        describe "#comment_karma" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.comment_karma }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
+        end
+
+        describe "#created_at" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.created_at }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
+        end
+
+        describe "#age" do
+          it "raises 'Reddit unreachable' error" do
+            expect { redditor.age }.to raise_error(ReachabilityError, /Reddit unreachable/)
+          end
+        end
+      end
+
       context "when Reddit is down" do
         before(:each) do
           WebMock.disable_net_connect!

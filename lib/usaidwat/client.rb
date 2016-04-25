@@ -19,7 +19,7 @@ module USaidWat
         user.comments(100)
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError
+      rescue TypeError, Net::HTTP::Persistent::Error
         raise ReachabilityError, "Reddit unreachable"
       end
 
@@ -47,7 +47,7 @@ module USaidWat
         user.posts
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError
+      rescue TypeError, Net::HTTP::Persistent::Error
         raise ReachabilityError, "Reddit unreachable"
       end
 
@@ -61,7 +61,7 @@ module USaidWat
         user.about[key]
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError
+      rescue TypeError, Net::HTTP::Persistent::Error
         raise ReachabilityError, "Reddit unreachable"
       end
     end
