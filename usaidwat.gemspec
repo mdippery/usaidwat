@@ -39,5 +39,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('cucumber', '~> 2.0')
   gem.add_development_dependency('rspec', '~> 3.2')
   gem.add_development_dependency('timecop', '~> 0.8.0')
-  gem.add_development_dependency('webmock', '~> 1.21')
+  gem.add_development_dependency('webmock', '~> 2.0')
 end
