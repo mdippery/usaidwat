@@ -48,7 +48,7 @@ module USaidWat
         out.write("\n\n\n") unless @count == 0
         out.write("#{post.subreddit}\n".color(:green))
         out.write("#{post_link(post)}\n".color(:yellow))
-        out.write("#{post.title.strip.transform_html_entities.truncate(cols)}\n".color(:magenta))
+        out.write("#{post.title.strip.unescape_html.truncate(cols)}\n".color(:magenta))
         out.write("#{post_date(post)}".color(:blue))
         out.write("\n#{post.url}") unless post.url.end_with?(post.permalink)
         @count += 1
@@ -73,7 +73,7 @@ module USaidWat
         out = StringIO.new
         subreddit = post.subreddit
         cols -= subreddit.length + 1
-        title = post.title.strip.transform_html_entities.truncate(cols)
+        title = post.title.strip.unescape_html.truncate(cols)
         out.write(subreddit.color(:green))
         out.write(" #{title}\n")
         out.rewind
@@ -88,7 +88,7 @@ module USaidWat
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
-        out.write("#{comment.link_title.strip.transform_html_entities.truncate(cols)}\n".color(:magenta))
+        out.write("#{comment.link_title.strip.unescape_html.truncate(cols)}\n".color(:magenta))
         out.write("#{comment_date(comment)}".color(:blue))
         out.write(" \u2022 ".color(:cyan))
         out.write(sprintf("%+d\n", comment_karma(comment)).color(:blue))
@@ -107,7 +107,7 @@ module USaidWat
         end
 
         def comment_body(comment)
-          body = comment.body.strip
+          body = comment.body.strip.unescape_html
           body = markdown.render(body) unless raw?
           if pattern?
             body.highlight(pattern)
@@ -143,7 +143,7 @@ module USaidWat
         out = StringIO.new
         subreddit = comment.subreddit
         cols -= subreddit.length + 1
-        title = comment.link_title.strip.transform_html_entities.truncate(cols)
+        title = comment.link_title.strip.unescape_html.truncate(cols)
         key = "#{subreddit} #{title}"
         if !seen?(key)
           out.write("#{subreddit}".color(:green))

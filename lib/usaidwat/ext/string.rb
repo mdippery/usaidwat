@@ -17,7 +17,7 @@ class String
     gsub(/#{pattern}/i) { |m| Rainbow(m).red }
   end
 
-  def transform_html_entities
+  def unescape_html
     gsub(/&gt;/, '>').gsub(/&lt;/, '<').gsub(/&amp;/, '&')
   end
 end

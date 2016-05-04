@@ -19,20 +19,20 @@ module USaidWat
         end
       end
 
-      describe "#transform_html_entities" do
+      describe "#unescape_html" do
         it "transforms &amp; to &" do
           s = "this &amp; that"
-          expect(s.transform_html_entities).to eq("this & that")
+          expect(s.unescape_html).to eq("this & that")
         end
 
         it "transform &lt; to <" do
           s = "chocolate &lt; vanilla"
-          expect(s.transform_html_entities).to eq("chocolate < vanilla")
+          expect(s.unescape_html).to eq("chocolate < vanilla")
         end
 
         it "transforms &gt; to >" do
           s = "cats &gt; dogs"
-          expect(s.transform_html_entities).to eq("cats > dogs")
+          expect(s.unescape_html).to eq("cats > dogs")
         end
       end
 
