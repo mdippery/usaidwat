@@ -1,5 +1,6 @@
 require 'snooby'
 require 'usaidwat/service'
+require 'usaidwat/ext/snooby'
 require 'usaidwat/ext/time'
 
 module USaidWat
