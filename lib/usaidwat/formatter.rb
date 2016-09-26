@@ -12,7 +12,15 @@ Rainbow.enabled = true unless ENV['USAIDWAT_ENV'] == 'cucumber'
 
 module USaidWat
   module CLI
+    module TTYFormatter
+      def tty
+        @tty ||= Ttycaca::Terminal.new
+      end
+    end
+
     class BaseFormatter
+      include TTYFormatter
+
       def initialize(options = {})
         @options = options
         @count = 0
@@ -32,12 +40,6 @@ module USaidWat
 
       def relative_dates?
         @options[:date_format].nil? || @options[:date_format].to_sym != :absolute
-      end
-
-      protected
-
-      def tty
-        @tty ||= Ttycaca::Terminal.new
       end
     end
 
@@ -181,6 +183,35 @@ module USaidWat
         end
         out.rewind
         out.read
+      end
+    end
+
+    class TimelineFormatter
+      include TTYFormatter
+
+      def format(comment_data)
+        out = StringIO.new
+        out.write(' ')
+        (0..23).each { |h| out.write(sprintf '%3s', h) }
+        out.write("\n")
+
+        comment_data.each_with_index do |day, i|
+          out.write(day_map(i))
+          day.each do |hour|
+            mark = hour > 0 ? '*' : ' '
+            out.write(sprintf "%3s", mark)
+          end
+          out.write("\n")
+        end
+
+        out.rewind
+        out.read
+      end
+
+      private
+
+      def day_map(i)
+        return %W{S M T W T F S}[i]
       end
     end
   end
