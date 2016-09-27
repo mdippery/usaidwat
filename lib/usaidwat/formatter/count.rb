@@ -1,6 +1,8 @@
 module USaidWat
   module CLI
-    class TallyFormatter < BaseFormatter
+    class TallyFormatter
+      include TTYFormatter
+
       def format(partition_data)
         out = StringIO.new
         longest_subreddit = partition_data.longest
