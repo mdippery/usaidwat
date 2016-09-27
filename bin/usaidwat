@@ -5,7 +5,9 @@ require 'usaidwat'
 require 'usaidwat/ext/mercenary'
 
 Mercenary.program(:usaidwat) do |p|
-  p.version USaidWat::VERSION
+  version = USaidWat::VERSION
+  version += " (#{USaidWat::commit_hash})" if USaidWat::VERSION.end_with?('.dev')
+  p.version version
   p.description 'Answers the age-old question, "Where does a Redditor comment the most?"'
   p.syntax 'usaidwat <command> [options] <args>'
 
