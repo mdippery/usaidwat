@@ -17,6 +17,8 @@ module USaidWat
         redditor = client.new(username)
         comments = redditor.comments
 
+        quit "#{username} has no comments." if comments.empty?
+
         buckets = comments_by_days_and_hours(comments)
         times = Array.new(7) { Array.new(24, 0) }
         buckets.each do |v|

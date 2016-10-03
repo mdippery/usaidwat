@@ -19,6 +19,14 @@ Feature: Show timeline of comments
       S                                      *  *                              
       """
 
+  Scenario: Show timeline data for a user with no comments
+    Given the Reddit service returns comments for the user "blank"
+    When I run `usaidwat timeline blank`
+    Then it should pass with:
+      """
+      blank has no comments.
+      """
+
   Scenario: Show timeline data without specifying a user
     Given the Reddit service returns comments for the user "mipadi"
     When I run `usaidwat timeline testuser`
