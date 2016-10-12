@@ -12,7 +12,7 @@ module USaidWat
       end
     end
 
-    describe MockUser do
+    describe USaidWat::Thing::User do
       let (:user) { MockService.new.user("mipadi") }
 
       describe "#comments" do
@@ -26,7 +26,7 @@ module USaidWat
       end
     end
 
-    describe MockComment do
+    describe USaidWat::Thing::Comment do
       let (:comment) { MockService.new.user("mipadi").comments(100).first }
 
       describe "#subreddit" do

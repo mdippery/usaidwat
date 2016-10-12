@@ -9,6 +9,7 @@ require "usaidwat/algo"
 require "usaidwat/client"
 require "usaidwat/command"
 require "usaidwat/formatter"
+require "usaidwat/thing"
 require "usaidwat/version"
 
 require_all "usaidwat/commands"
