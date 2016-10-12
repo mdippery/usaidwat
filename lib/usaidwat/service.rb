@@ -30,8 +30,11 @@ module USaidWat
     end
 
     class MockUser
-      def initialize(username)
+      def initialize(username, user_data, comment_data, post_data)
         @username = username
+        @user_data = user_data
+        @comment_data = comment_data
+        @post_data = post_data
       end
 
       def about
@@ -46,30 +49,35 @@ module USaidWat
         post_data['children'].map { |d| MockSubmission.new(d) }
       end
 
-      private
-
-      def user_data
-        load_data("user_#{@username}.json")['data']
-      end
-
-      def comment_data
-        load_data("#{@username}.json")['data']
-      end
-
-      def post_data
-        load_data("submissions_#{@username}.json")['data']
-      end
-
-      def load_data(data_file)
-        path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", data_file)
-        raise USaidWat::Client::NoSuchUserError, @username unless File.exists?(path)
-        JSON.parse(IO.read(path))
+      def method_missing(symbol, *args, &block)
+        if symbol.to_s =~ /_data$/
+          begin
+            res = instance_variable_get("@#{symbol}")
+            raise USaidWat::Client::NoSuchUserError, @username if res.nil?
+            res['data']
+          rescue NameError
+            super
+          end
+        else
+          super
+        end
       end
     end
 
     class MockService
       def user(username)
-        MockUser.new(username)
+        MockUser.new(username,
+                     load_data("user_#{username}.json"),
+                     load_data("#{username}.json"),
+                     load_data("submissions_#{username}.json"))
+      end
+
+      private
+
+      def load_data(data_file)
+        path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", data_file)
+        return nil unless File.exists?(path)
+        JSON.parse(IO.read(path))
       end
     end
   end

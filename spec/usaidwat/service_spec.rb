@@ -13,7 +13,7 @@ module USaidWat
     end
 
     describe MockUser do
-      let (:user) { MockUser.new("mipadi") }
+      let (:user) { MockService.new.user("mipadi") }
 
       describe "#comments" do
         it "should return an array of comments" do
@@ -27,7 +27,7 @@ module USaidWat
     end
 
     describe MockComment do
-      let (:comment) { MockUser.new("mipadi").comments(100).first }
+      let (:comment) { MockService.new.user("mipadi").comments(100).first }
 
       describe "#subreddit" do
         it "should return a string denoting what subreddit it belongs to" do
