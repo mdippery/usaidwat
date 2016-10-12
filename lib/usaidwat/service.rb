@@ -35,20 +35,30 @@ module USaidWat
       end
 
       def about
-        load_data("user_#{@username}.json")['data']
+        user_data
       end
 
       def comments(n)
-        json = load_data("#{@username}.json")
-        json['data']['children'].map { |d| MockComment.new(d) }
+        comment_data['children'].map { |d| MockComment.new(d) }
       end
 
       def posts
-        json = load_data("submissions_#{@username}.json")
-        json['data']['children'].map { |d| MockSubmission.new(d) }
+        post_data['children'].map { |d| MockSubmission.new(d) }
       end
 
       private
+
+      def user_data
+        load_data("user_#{@username}.json")['data']
+      end
+
+      def comment_data
+        load_data("#{@username}.json")['data']
+      end
+
+      def post_data
+        load_data("submissions_#{@username}.json")['data']
+      end
 
       def load_data(data_file)
         path = File.join(File.dirname(__FILE__), "..", "..", "features", "fixtures", data_file)
