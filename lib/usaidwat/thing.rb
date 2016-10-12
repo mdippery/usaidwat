@@ -24,7 +24,8 @@ module USaidWat
         if symbol.to_s =~ /_data$/
           begin
             res = instance_variable_get("@#{symbol}")
-            raise USaidWat::Client::NoSuchUserError, @username if res.nil?
+            raise USaidWat::Client::NoSuchUserError, @username if res == :no_such_user
+            raise USaidWat::Client::ReachabilityError if res == :server_error
             res['data']
           rescue NameError
             super

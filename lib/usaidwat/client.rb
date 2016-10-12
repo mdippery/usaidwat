@@ -1,6 +1,4 @@
-require 'snooby'
 require 'usaidwat/service'
-require 'usaidwat/ext/snooby'
 require 'usaidwat/ext/time'
 
 module USaidWat
@@ -20,7 +18,7 @@ module USaidWat
         user.comments(100)
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError, Net::HTTP::Persistent::Error
+      rescue RuntimeError
         raise ReachabilityError, "Reddit unreachable"
       end
 
@@ -48,7 +46,7 @@ module USaidWat
         user.posts
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError, Net::HTTP::Persistent::Error
+      rescue RuntimeError
         raise ReachabilityError, "Reddit unreachable"
       end
 
@@ -62,14 +60,14 @@ module USaidWat
         user.about[key]
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue TypeError, Net::HTTP::Persistent::Error
+      rescue RuntimeError
         raise ReachabilityError, "Reddit unreachable"
       end
     end
 
     class Redditor < BaseRedditor
       def initialize(username)
-        @service = Snooby::Client.new("usaidwat v#{USaidWat::VERSION}")
+        @service = USaidWat::Service::RedditService.new
         super
       end
     end
