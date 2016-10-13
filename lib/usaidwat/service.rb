@@ -4,16 +4,17 @@ module USaidWat
   module Service
     class RedditService
       def user(username)
-        data = {}
-        %w{about comments submitted}.each do |page|
-          url = "https://www.reddit.com/user/#{username}/#{page}.json"
-          url += '?limit=100' if ['comments', 'submitted'].include?(page)
-          data[page.to_sym] = get(url)
-        end
+        data = %w{about comments submitted}.reduce({}) { |memo, obj| memo.update(obj.to_sym =>  get_page(username, obj)) }
         USaidWat::Thing::User.new(username, data[:about], data[:comments], data[:submitted])
       end
 
       private
+
+      def get_page(username, page)
+        url = "https://www.reddit.com/user/#{username}/#{page}.json"
+        url += '?limit=100' if ['comments', 'submitted'].include?(page)
+        get(url)
+      end
 
       def get(uri)
         hdrs = {'User-Agent' => "usaidwat v#{USaidWat::VERSION}"}
