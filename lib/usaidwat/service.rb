@@ -3,8 +3,6 @@ require 'requests'
 module USaidWat
   module Service
     class RedditService
-      USER_AGENT = "usaidwat v#{USaidWat::VERSION}"
-
       def user(username)
         data = {}
         %w{about comments submitted}.each do |page|
@@ -17,7 +15,7 @@ module USaidWat
       private
 
       def get(uri)
-        hdrs = {'User-Agent' => USER_AGENT}
+        hdrs = {'User-Agent' => "usaidwat v#{USaidWat::VERSION}"}
         Requests.request('GET', uri, :headers => hdrs).json
       rescue Requests::Error => e
         case e.response.code.to_i
