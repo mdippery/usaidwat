@@ -1,4 +1,4 @@
-require 'unirest'
+require 'requests'
 
 module USaidWat
   module Service
@@ -9,15 +9,22 @@ module USaidWat
         data = {}
         %w{about comments submitted}.each do |page|
           url = "https://www.reddit.com/user/#{username}/#{page}.json"
-          hdrs = {'User-Agent' => USER_AGENT}
-          r = Unirest.get(url, :headers => hdrs)
-          data[page.to_sym] = case r.code
-                              when 404 then :no_such_user
-                              when 500 then :server_error
-                              else          r.body
-                              end
+          data[page.to_sym] = get(url)
         end
         USaidWat::Thing::User.new(username, data[:about], data[:comments], data[:submitted])
+      end
+
+      private
+
+      def get(uri)
+        hdrs = {'User-Agent' => USER_AGENT}
+        Requests.request('GET', uri, :headers => hdrs).json
+      rescue Requests::Error => e
+        case e.response.code.to_i
+        when 404 then :no_such_user
+        when 500 then :server_error
+        else          :nil
+        end
       end
     end
 

@@ -31,9 +31,9 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('downterm', '~> 0.1.5')
   gem.add_runtime_dependency('mercenary', '~> 0.3.5', '!= 0.3.6')
   gem.add_runtime_dependency('rainbow', '~> 2.0')
+  gem.add_runtime_dependency('requests', '~> 1.0')
   gem.add_runtime_dependency('sysexits', '~> 1.2')
   gem.add_runtime_dependency('ttycaca', '~> 1.0')
-  gem.add_runtime_dependency('unirest', '~> 1.1')
 
   gem.add_development_dependency('aruba', '~> 0.9')
   gem.add_development_dependency('cucumber', '~> 2.0')
