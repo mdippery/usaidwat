@@ -7,6 +7,7 @@ module USaidWat
         data = {}
         %w{about comments submitted}.each do |page|
           url = "https://www.reddit.com/user/#{username}/#{page}.json"
+          url += '?limit=100' if ['comments', 'submitted'].include?(page)
           data[page.to_sym] = get(url)
         end
         USaidWat::Thing::User.new(username, data[:about], data[:comments], data[:submitted])
