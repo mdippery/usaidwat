@@ -31,9 +31,15 @@ task :release => [:tag, :build] do
   system "gem", "push", GEM
 end
 
+desc "Visualize dependencies"
+task :viz do
+  system "bundle", "viz"
+end
+
 desc "Clean built products"
 task :clean do
   rm Dir.glob("*.gem"), :verbose => true
+  rm 'gem_graph.png', :verbose => true
 end
 
 task :default => :build
