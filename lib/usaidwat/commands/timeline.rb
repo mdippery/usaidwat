@@ -35,7 +35,7 @@ module USaidWat
       private
 
       def comments_by_days_and_hours(comments)
-        comments.map { |c| [Time.at(c.created_utc).wday, Time.at(c.created_utc).hour] }
+        comments.map { |c| [c.created_utc.wday, c.created_utc.hour] }
       end
     end
   end

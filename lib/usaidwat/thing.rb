@@ -1,5 +1,11 @@
 module USaidWat
   module Thing
+    module Timestampable
+      def created_utc
+        Time.at(@created_utc)
+      end
+    end
+
     class User
       def initialize(username, user_data, comment_data, post_data)
         @username = username
@@ -37,7 +43,9 @@ module USaidWat
     end
 
     class Comment
-      attr_reader :subreddit, :body, :id, :link_id, :created_utc, :link_title, :ups, :downs
+      include Timestampable
+
+      attr_reader :subreddit, :body, :id, :link_id, :link_title, :ups, :downs
 
       def initialize(dict)
         data = dict['data']
@@ -53,7 +61,9 @@ module USaidWat
     end
 
     class Submission
-      attr_reader :subreddit, :title, :created_utc, :permalink, :url
+      include Timestampable
+
+      attr_reader :subreddit, :title, :permalink, :url
 
       def initialize(dict)
         data = dict['data']

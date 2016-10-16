@@ -22,7 +22,7 @@ module USaidWat
       end
 
       def post_date(post)
-        Time.at(post.created_utc).ago
+        post.created_utc.ago
       end
     end
 

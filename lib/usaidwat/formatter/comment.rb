@@ -42,7 +42,7 @@ module USaidWat
       end
 
       def comment_date(comment)
-        d = DateTime.strptime(comment.created_utc.to_s, "%s").to_time.localtime
+        d = comment.created_utc.localtime
         if relative_dates?
           d.ago
         else
