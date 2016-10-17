@@ -6,6 +6,14 @@ module USaidWat
       end
     end
 
+    module HashBackedIvars
+      def method_missing(symbol, *args, &block)
+        res = @data[symbol.to_s]
+        return res unless res.nil?
+        super
+      end
+    end
+
     class User
       def initialize(username, user_data, comment_data, post_data)
         @username = username
@@ -44,34 +52,21 @@ module USaidWat
 
     class Comment
       include Timestampable
-
-      attr_reader :subreddit, :body, :id, :link_id, :link_title, :ups, :downs
+      include HashBackedIvars
 
       def initialize(dict)
-        data = dict['data']
-        @subreddit = data['subreddit']
-        @body = data['body']
-        @id = data['id']
-        @link_id = data['link_id']
-        @created_utc = data['created_utc']
-        @link_title = data['link_title']
-        @ups = data['ups']
-        @downs = data['downs']
+        @data = dict['data']
+        @created_utc = @data['created_utc']
       end
     end
 
     class Submission
       include Timestampable
-
-      attr_reader :subreddit, :title, :permalink, :url
+      include HashBackedIvars
 
       def initialize(dict)
-        data = dict['data']
-        @subreddit = data['subreddit']
-        @title = data['title']
-        @created_utc = data['created_utc']
-        @permalink = data['permalink']
-        @url = data['url']
+        @data = dict['data']
+        @created_utc = @data['created_utc']
       end
     end
   end
