@@ -24,7 +24,7 @@ module USaidWat
 
       def about
         raise USaidWat::Client::NoSuchUserError, @username if @user_data == :no_such_user
-        raise USaidWat::Client::ReachabilityError, "Reddit unreachable" if @user_data == :server_error
+        raise USaidWat::Client::ReachabilityError if @user_data == :server_error
         @about ||= About.new(@user_data)
       end
 
@@ -41,7 +41,7 @@ module USaidWat
           begin
             res = instance_variable_get("@#{symbol}")
             raise USaidWat::Client::NoSuchUserError, @username if res == :no_such_user
-            raise USaidWat::Client::ReachabilityError, "Reddit unreachable" if res == :server_error
+            raise USaidWat::Client::ReachabilityError if res == :server_error
             res['data']
           rescue NameError
             super

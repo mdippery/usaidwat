@@ -3,7 +3,11 @@ require 'usaidwat/ext/time'
 
 module USaidWat
   module Client
-    class ReachabilityError < RuntimeError; end
+    class ReachabilityError < RuntimeError
+      def initialize(msg = nil)
+        super(msg || 'Reddit unreachable')
+      end
+    end
 
     class NoSuchUserError < StandardError; end
 
@@ -19,7 +23,7 @@ module USaidWat
       rescue NoMethodError
         raise NoSuchUserError, username
       rescue RuntimeError
-        raise ReachabilityError, "Reddit unreachable"
+        raise ReachabilityError
       end
 
       def link_karma
@@ -47,7 +51,7 @@ module USaidWat
       rescue NoMethodError
         raise NoSuchUserError, username
       rescue RuntimeError
-        raise ReachabilityError, "Reddit unreachable"
+        raise ReachabilityError
       end
 
       private
