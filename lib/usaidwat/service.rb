@@ -19,6 +19,8 @@ module USaidWat
       def get(uri)
         hdrs = {'User-Agent' => "usaidwat v#{USaidWat::VERSION}"}
         Requests.request('GET', uri, :headers => hdrs).json
+      rescue Timeout::Error
+        :server_error
       rescue Requests::Error => e
         case e.response.code.to_i
         when 404 then :no_such_user

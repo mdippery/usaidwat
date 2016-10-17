@@ -23,15 +23,15 @@ module USaidWat
       end
 
       def link_karma
-        about('link_karma')
+        about.link_karma
       end
 
       def comment_karma
-        about('comment_karma')
+        about.comment_karma
       end
 
       def created_at
-        Time.at(about('created_utc'))
+        about.created_utc
       end
 
       def age
@@ -56,12 +56,10 @@ module USaidWat
         @service.user(username)
       end
 
-      def about(key)
-        user.about[key]
+      def about
+        user.about
       rescue NoMethodError
         raise NoSuchUserError, username
-      rescue RuntimeError
-        raise ReachabilityError, "Reddit unreachable"
       end
     end
 

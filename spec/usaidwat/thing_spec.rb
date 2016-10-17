@@ -10,23 +10,8 @@ module USaidWat
       let(:user) { User.new('mipadi', user_data, comment_data, post_data) }
 
       describe '#about' do
-        let(:about) { user.about }
-
-        it "returns the user's username" do
-          expect(about['name']).to eq('mipadi')
-        end
-
-        it "returns the user's link karma" do
-          expect(about['link_karma']).to eq(4892)
-        end
-
-        it "returns the user's comment karma" do
-          expect(about['comment_karma']).to eq(33440)
-        end
-
-        it "returns the date the user created their account" do
-          expect(about['created_utc']).to eq(1207004126)
-          expect(Time.at(about['created_utc'])).to eq(Time.new(2008, 3, 31, 15, 55, 26, '-07:00'))
+        it "should return an object detailing the user's info" do
+          expect(user.about).to be_kind_of(About)
         end
       end
 
@@ -40,6 +25,24 @@ module USaidWat
         it 'returns 25 posts' do
           expect(user.posts.count).to eq(25)
         end
+      end
+    end
+
+    describe About do
+      let(:data) { JSON.parse(IO.read('features/fixtures/user_mipadi.json')) }
+      let(:about) { About.new(data) }
+
+      it "should return the user's creation date" do
+        expected = Time.new(2008, 3, 31, 15, 55, 26, '-07:00')
+        expect(about.created_utc).to eq(expected)
+      end
+
+      it "should return the user's link karma" do
+        expect(about.link_karma).to eq(4892)
+      end
+
+      it "should return the user's comment karma" do
+        expect(about.comment_karma).to eq(33440)
       end
     end
 

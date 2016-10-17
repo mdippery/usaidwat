@@ -132,7 +132,7 @@ module USaidWat
           WebMock.reset!
           stub_request(:get, "https://www.reddit.com/user/mipadi/comments.json?limit=100").to_timeout
           stub_request(:get, "https://www.reddit.com/user/mipadi/about.json").to_timeout
-          stub_request(:get, "https://www.reddit.com/user/mipadi/submitted.json").to_timeout
+          stub_request(:get, "https://www.reddit.com/user/mipadi/submitted.json?limit=100").to_timeout
         end
 
         describe "#posts" do

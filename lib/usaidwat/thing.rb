@@ -23,7 +23,9 @@ module USaidWat
       end
 
       def about
-        user_data
+        raise USaidWat::Client::NoSuchUserError, @username if @user_data == :no_such_user
+        raise USaidWat::Client::ReachabilityError, "Reddit unreachable" if @user_data == :server_error
+        @about ||= About.new(@user_data)
       end
 
       def comments(n)
@@ -39,7 +41,7 @@ module USaidWat
           begin
             res = instance_variable_get("@#{symbol}")
             raise USaidWat::Client::NoSuchUserError, @username if res == :no_such_user
-            raise USaidWat::Client::ReachabilityError if res == :server_error
+            raise USaidWat::Client::ReachabilityError, "Reddit unreachable" if res == :server_error
             res['data']
           rescue NameError
             super
@@ -47,6 +49,16 @@ module USaidWat
         else
           super
         end
+      end
+    end
+
+    class About
+      include Timestampable
+      include HashBackedIvars
+
+      def initialize(dict)
+        @data = dict['data']
+        @created_utc = @data['created_utc']
       end
     end
 
