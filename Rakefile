@@ -31,6 +31,12 @@ task :release => [:tag, :build] do
   system "gem", "push", GEM
 end
 
+desc "Run the test suite"
+task :test do
+  system "bundle", "exec", "rspec"
+  system "bundle", "exec", "cucumber", "-f", "progress"
+end
+
 desc "Clean built products"
 task :clean do
   rm Dir.glob("*.gem"), :verbose => true
