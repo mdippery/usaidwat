@@ -7,34 +7,36 @@ GEM     = "usaidwat-#{USaidWat::VERSION}.gem"
 
 desc "Build usaidwat.gem"
 task :build => :perms do
-  system "gem", "build", GEMSPEC
+  sh "gem", "build", GEMSPEC
 end
 
 desc "Ensure correct permissions for usaidwat.gem"
 task :perms do
-  system "chmod", "-R", "a+rX", *`git ls-files`.chomp.split("\n")
+  sh "chmod", "-R", "a+rX", *`git ls-files`.chomp.split("\n")
 end
 
 desc "Tag the latest version of usaidwat"
 task :tag do
-  system "git", "tag", "-s", "-m", "usaidwat v#{USaidWat::VERSION}", "v#{USaidWat::VERSION}"
+  sh "git", "tag", "-s", "-m", "usaidwat v#{USaidWat::VERSION}", "v#{USaidWat::VERSION}"
 end
 
 desc "Install usaidwat.gem"
 task :install => :build do
-  system "gem", "install", GEM
+  sh "gem", "install", GEM
 end
 
 desc "Push gem to RubyGems"
 task :release => [:tag, :build] do
   fail 'Cannot release a dev version' if USaidWat::VERSION.end_with?('dev')
-  system "gem", "push", GEM
+  sh "gem", "push", GEM
 end
 
 desc "Run the test suite"
 task :test do
-  system "bundle", "exec", "rspec"
-  system "bundle", "exec", "cucumber", "-f", "progress"
+  sh %{bundle exec rspec} do |ok, _|
+    fail if !ok
+    sh 'bundle', 'exec', 'cucumber', '-f', 'progress'
+  end
 end
 
 desc "Clean built products"
