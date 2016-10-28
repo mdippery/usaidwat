@@ -32,6 +32,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('mercenary', '~> 0.3.5', '!= 0.3.6')
   gem.add_runtime_dependency('rainbow', '~> 3.0')
   gem.add_runtime_dependency('requests', '~> 1.0')
+  gem.add_runtime_dependency('sentimental', '~> 1.4')
   gem.add_runtime_dependency('sysexits', '~> 1.2')
   gem.add_runtime_dependency('ttycaca', '~> 1.0')
 
