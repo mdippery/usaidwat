@@ -1,6 +1,8 @@
+require 'rainbow'
 require 'redcarpet'
 require 'redcarpet/render_strip'
 require 'sentimental'
+require 'usaidwat/ext/string'
 
 module USaidWat
   module Application
@@ -23,11 +25,35 @@ module USaidWat
         comments = redditor.comments.map { |c| renderer.render(c.body) }
         all_comments = comments.join("\n")
 
+        sentiments = Hash.new(0)
+
         analyzer = Sentimental.new
         analyzer.load_defaults
 
-        comments.each do |c|
-          printf "%.2f\n", analyzer.score(c)
+        page
+        comments.each_with_index do |c, i|
+          puts unless i == 0
+          score = analyzer.score(c)
+          sentiment = analyzer.sentiment(c)
+          sentiments[sentiment] += 1
+          score_label = Rainbow(sprintf("[%.2f]", score)).yellow
+          puts "#{c.chomp} #{smiley(sentiment)} #{score_label}"
+        end
+
+        puts
+        [:positive, :negative, :neutral].each do |s|
+          c = sentiments[s]
+          puts "#{c} #{s} #{'comment'.pluralize(c)}"
+        end
+      end
+
+      private
+
+      def smiley(sentiment)
+        case sentiment
+        when :neutral  then Rainbow(':-|').black.bright
+        when :positive then Rainbow(':-)').green
+        when :negative then Rainbow(':-(').red
         end
       end
     end
