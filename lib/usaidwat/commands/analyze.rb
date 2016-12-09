@@ -53,11 +53,15 @@ module USaidWat
       end
 
       def smiley(sentiment)
-        case sentiment
-        when :neutral  then Rainbow(':-|').black.bright
-        when :positive then Rainbow(':-)').green
-        when :negative then Rainbow(':-(').red
-        end
+        smiley_map[sentiment]
+      end
+
+      def smiley_map
+        @smiley_map ||= {
+          :neutral  => Rainbow(':-|').black.bright,
+          :positive => Rainbow(':-)').green,
+          :negative => Rainbow(':-(').red,
+        }
       end
     end
   end
