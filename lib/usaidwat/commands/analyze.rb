@@ -21,8 +21,7 @@ module USaidWat
         username = args.shift
 
         redditor = client.new(username)
-        renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
-        comments = redditor.comments.map { |c| renderer.render(c.body) }
+        comments = redditor.comments.map { |c| markdown.render(c.body) }
         all_comments = comments.join("\n")
 
         sentiments = Hash.new(0)
@@ -48,6 +47,10 @@ module USaidWat
       end
 
       private
+
+      def markdown
+        @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+      end
 
       def smiley(sentiment)
         case sentiment
