@@ -42,7 +42,7 @@ module USaidWat
         puts
         [:positive, :negative, :neutral].each do |s|
           c = sentiments[s]
-          puts "#{c} #{s} #{'comment'.pluralize(c)}"
+          printf "%3d %s %s\n", c, s, 'comment'.pluralize(c)
         end
       end
 
