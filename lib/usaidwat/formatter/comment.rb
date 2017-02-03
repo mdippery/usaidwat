@@ -77,7 +77,7 @@ module USaidWat
       private
 
       def comments
-        @comments ||= Set.new
+        @comments ||= ::Set.new
       end
 
       def mark_seen(comment)
