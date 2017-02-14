@@ -7,7 +7,7 @@ module USaidWat
         out.write("\n\n") unless @count == 0
         out.write("#{comment.subreddit}\n".color(:green))
         out.write("#{comment_link(comment)}\n".color(:yellow))
-        out.write("#{comment.link_title.strip.unescape_html.truncate(cols)}\n".color(:magenta))
+        out.write("#{comment.link_title.strip.unescape_html}\n".color(:magenta))
         out.write("#{comment_date(comment)}".color(:blue))
         out.write(" \u2022 ".color(:cyan))
         out.write(sprintf("%+d\n", comment_karma(comment)).color(:blue))
