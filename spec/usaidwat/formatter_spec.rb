@@ -159,25 +159,6 @@ EXPECTED
           expect(lines[2]).to eq('')
           expect(lines[3]).not_to eq('')
         end
-
-        it "should truncate titles to 80 characters" do
-          post = double("post")
-          expect(post).to receive(:subreddit).and_return("webdev")
-          expect(post).to receive(:permalink).twice.and_return("/r/webdev/comments/29og3m/sick_of_ruby_dynamic_typing_side_effects_and/")
-          expect(post).to receive(:title).and_return("Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming")
-          expect(post).to receive(:created_utc).and_return(Time.at(1404331670))
-          expect(post).to receive(:url).twice.and_return("https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/")
-          expected = <<-EXPECTED
-webdev
-https://www.reddit.com/r/webdev/comments/29og3m
-Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
-about a year ago
-https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/
-EXPECTED
-          expected = expected.strip
-          actual = formatter.format(post).delete_ansi_color_codes
-          expect(actual).to eq(expected)
-        end
       end
     end
 

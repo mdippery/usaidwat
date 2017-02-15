@@ -124,7 +124,7 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/29og3m
-      Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
+      Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming
       about a year ago
       https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/
 
@@ -198,21 +198,21 @@ Feature: Show posts
       webdev The Future of Web Design is Hidden in the History of Architecture
       swift Does Swift make native app development easier?
       webdev Microservices in Clojure
-      movies Interstellar's true black hole would have been too confusing for audience
-      webdev Major security alert as 40,000 MongoDB databases left unsecured on the in
-      vim Why does my shell prompt disappear when I install and use vim 7.4 (on CentOS
+      movies Interstellar's true black hole would have been too confusing for audiences
+      webdev Major security alert as 40,000 MongoDB databases left unsecured on the internet
+      vim Why does my shell prompt disappear when I install and use vim 7.4 (on CentOS 6)?
       swift Swift for CLI tools
       Games Chief Executive of Rovio, Maker of Angry Birds Game, to Step Down
       webdev You have ruined HTML
       swift A few thoughts on Swift
-      webdev Sick of Ruby, dynamic typing, side effects, and basically object-oriented
+      webdev Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming
       webdev Vim for people who think things like Vim are weird and hard
       webdev The emperor’s new clothes were built with Node.js
-      webdev Clojure, or how to put the spark back into your relationship with program
+      webdev Clojure, or how to put the spark back into your relationship with programming
       Clojure Clojure: A Retrospective
-      programming Fresh perspectives: Learning new languages after you know (quite) a 
+      programming Fresh perspectives: Learning new languages after you know (quite) a few
       webdev I created a tool for sampling Reddit users' karma (link and comment)
-      programming Erlang and code style: Musings on mostly defensive programming style
+      programming Erlang and code style: Musings on mostly defensive programming styles
       webdev Facebook: MVC Does Not Scale, Use Flux Instead
       """
 
@@ -261,7 +261,7 @@ Feature: Show posts
 
       webdev
       https://www.reddit.com/r/webdev/comments/29og3m
-      Sick of Ruby, dynamic typing, side effects, and basically object-oriented progra
+      Sick of Ruby, dynamic typing, side effects, and basically object-oriented programming
       about a year ago
       https://blog.abevoelker.com/sick-of-ruby-dynamic-typing-side-effects-object-oriented-programming/
 

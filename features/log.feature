@@ -12,7 +12,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -20,7 +20,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
-      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       over 2 years ago • +2
 
       It has a fare when the lights are off.
@@ -42,7 +42,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -50,7 +50,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
-      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       over 2 years ago • +2
 
       It has a fare when the lights are off.
@@ -64,7 +64,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       Sat, 1 Dec 2012, 12:14 PM • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -72,7 +72,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
-      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       Fri, 30 Nov 2012, 4:44 PM • +2
 
       It has a fare when the lights are off.
@@ -94,7 +94,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -102,7 +102,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
-      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       over 2 years ago • +2
 
       It has a fare when the lights are off.
@@ -124,7 +124,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -132,7 +132,7 @@ Feature: Browse comments
 
       nyc
       http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
-      NYC taxi roof lights get overhaul -  A light simply will mean the cab is availab
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       over 2 years ago • +2
 
       It has a fare when the lights are *off.*
@@ -154,7 +154,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
@@ -164,7 +164,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +1
 
       I went to a public school.
@@ -180,7 +180,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
@@ -194,7 +194,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
@@ -204,7 +204,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +1
 
       I went to a public school.
@@ -220,7 +220,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
@@ -234,7 +234,7 @@ Feature: Browse comments
       """
       Games
       http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
-      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
       That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
@@ -244,7 +244,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +1
 
       I went to a public school.
@@ -260,7 +260,7 @@ Feature: Browse comments
 
       books
       http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
-      I was saddened hearing this story on the Takeaway this morning- "Is literature n
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
       Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
@@ -272,8 +272,8 @@ Feature: Browse comments
     When I run `usaidwat log --oneline mipadi`
     Then it should pass with:
       """
-      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
-      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
+      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       worldnews Palestinians win upgraded UN status by wide margin
       """
 
@@ -283,8 +283,8 @@ Feature: Browse comments
     When I run `usaidwat log --oneline -n 2 mipadi`
     Then it should pass with:
       """
-      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
-      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
+      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       """
 
   Scenario: One-line comments should be collapsed into unique titles
@@ -293,79 +293,79 @@ Feature: Browse comments
     When I run `usaidwat log --oneline mipadi`
     Then it should pass with exactly:
       """
-      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavio
-      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is ava
+      wikipedia Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      nyc NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
       worldnews Palestinians win upgraded UN status by wide margin
-      AskReddit Do colleges actually teach students how to think critically? Or even t
-      AskReddit I'm from Tennessee and most of our jokes are geared toward Mississippi
-      AskReddit Today I was going 80mph in a 55 when an unmarked police car pulled up 
-      AskReddit Why should I pay for a college degree when all of the information they
+      AskReddit Do colleges actually teach students how to think critically? Or even to think/question at all?
+      AskReddit I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
+      AskReddit Today I was going 80mph in a 55 when an unmarked police car pulled up next to me. Rather than pull me over, the officer simply mouthed "SLOW DOWN" and drove away. Reddit, when has the law made you crap your pants and then immediately made you day?
+      AskReddit Why should I pay for a college degree when all of the information they will teach me is probably available for free on the web?  Why not set up some sort of accreditation program where people just take tests and get a degree?
       apple iTunes 11 finally available for download - The Verge
-      Games The True Story of Battlefield 3, the Battlefield Franchise, Its Community,
-      AskReddit Professors/Students of Reddit- What are your feelings towards shit Pro
-      books I was saddened hearing this story on the Takeaway this morning- "Is litera
-      AskReddit My friends give me crap about not watching "good" movies. Such as I've
+      Games The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
+      AskReddit Professors/Students of Reddit- What are your feelings towards shit Professors?
+      books I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
+      AskReddit My friends give me crap about not watching "good" movies. Such as I've never seen any of the James Bonds movies. Reddit what movies do I need to see before I die?
       AskReddit Reddit, what is the worst thing about your city?
       AskReddit What is it like to own a decommissioned police car?
-      AskReddit When Microsoft was found guilty of violating antitrust law by bundling
+      AskReddit When Microsoft was found guilty of violating antitrust law by bundling Internet Explorer with Windows, how was the average user supposed to download a browser to begin with if IE wasn't there?
       django I need a little help understanding billing and payment
       programming Why software engineers are vastly undervalued
       AskReddit Is Germany racist?
-      apple Report: Apple bumps Android from top spot in U.S. smartphone market on str
-      AskReddit I got stood up by a girl for the first date. I have to go to work tomm
+      apple Report: Apple bumps Android from top spot in U.S. smartphone market on strength of iPhone 5
+      AskReddit I got stood up by a girl for the first date. I have to go to work tommorrow with her. How should I handle it?
       AskReddit How much does 'life' costs in your country/city/area?
       programming Apple's proposal for modules in C(++) [PDF slides]
-      AskReddit Half of my facebook newsfeed is of people posting this quoted copyrigh
-      AskReddit I'm lying in my warm bed with my fiance as my jetpack while Redditing 
-      AskReddit I found out tonight that my dad's great grandfather was a Civil War PO
-      AskReddit This morning on the way home from walking my dogs I shit myself. What'
+      AskReddit Half of my facebook newsfeed is of people posting this quoted copyright protection statement to supposedly keep facebook from using their data. Am I right in assuming that this completely pointless?
+      AskReddit I'm lying in my warm bed with my fiance as my jetpack while Redditing and am perfectly, blissfully content. So tell me Reddit, what are some of your moments of contentment where you realized "hey, life doesn't suck."?
+      AskReddit I found out tonight that my dad's great grandfather was a Civil War POW.  He was a union soldier from NY by way of MI, held captive by the confederate army in City Center at Richmond, VA and released at the end of the war.  Reddit what have you found in your family's history that has surprised you?
+      AskReddit This morning on the way home from walking my dogs I shit myself. What's the most embarrassing kid thing you've done as an adult?
       AskReddit Is it just me or do women have less genuine friendships than men?
       programming RubyMonk
-      AskReddit How many government officials would have to die in an accident or atta
+      AskReddit How many government officials would have to die in an accident or attack, before a common citizen would be appointed or elected to the office of the United States?
       programming The X.Org CodingStyle
-      AskReddit How would you stop people from pushing others into oncoming subways? C
-      worldnews How Israeli Drone Pilots Made Their Life-and-Death Choices Over Gaza -
-      AskReddit This entire semester I thought my TA was a girl named Kayla...it's a b
-      AskReddit Why is it that mathematical "illiteracy" is ok, but being unable to re
+      AskReddit How would you stop people from pushing others into oncoming subways? Create something.
+      worldnews How Israeli Drone Pilots Made Their Life-and-Death Choices Over Gaza - “When you see a target, all you want to do is attack.  But it’s not that simple.”
+      AskReddit This entire semester I thought my TA was a girl named Kayla...it's a boy named Caleb. My prof just forwarded him an e-mail where I referred to my TA "Kayla" and now I want to crawl into a hole and die. Has anything similar ever happened to you Reddit?
+      AskReddit Why is it that mathematical "illiteracy" is ok, but being unable to read or write is unacceptable?
       AskReddit What's your brand of cigarette, and why?
-      AskReddit Accomplished Adults of Reddit: Honestly, is it more important to do wh
-      AskReddit I m a nutritionist. I often over hear people talk about nutrition like
+      AskReddit Accomplished Adults of Reddit: Honestly, is it more important to do what you love, even if it means making little money or is it more important to do something you may enjoy less, but will make lots of money from?
+      AskReddit I m a nutritionist. I often over hear people talk about nutrition like they are an expert, but they couldn't be farther from the truth. Reddit, what are some things in your profession that the lay person gets wrong?
       personalfinance What's the most expensive mistake you ever made financially?
-      AskReddit I want to quit college and enlist in the Air Force. Am I throwing away
-      AskReddit Reddit, my boyfriend is abroad for a year. I'm trying to subtly work f
-      AskReddit Why is everyone naming Israel as the "aggressor"?? Am I missing someth
+      AskReddit I want to quit college and enlist in the Air Force. Am I throwing away my future?
+      AskReddit Reddit, my boyfriend is abroad for a year. I'm trying to subtly work fake slang into our conversations with the hope of convincing him to use it when he gets back in the US. Give me your suggestions!
+      AskReddit Why is everyone naming Israel as the "aggressor"?? Am I missing something?
       programming Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
       battlefield3 Can't argue with those rules..
-      AskReddit Who thinks "Mens Gift Ideas" are always super lame? Men of reddit what
+      AskReddit Who thinks "Mens Gift Ideas" are always super lame? Men of reddit what lame "guy" gifts are you tired of receiving? How would you edit these lists your wives, mothers, sisters are reading?
       redditcasual Submissions for new clan tag...
       programming How To Package Your Python Code - The Right Way…
       programming Hounded By Recruiters, Coders Put Themselves Up For Auction - Forbes
       photography Do you travel? If so, what camera do you use/prefer?
-      AskReddit I want to go to college for music even though it's not the most financ
-      AskReddit Reddit, what popular opinions about films do you think the complete op
-      AskReddit If someone writes "Should of" instead of "Should have", I immediately 
-      AskReddit I'm A Mixed Race Teen (Black Dad, White Mum) And I Constantly Get Peop
-      AskReddit Do the James Bond films features occur in any sort of chronological or
+      AskReddit I want to go to college for music even though it's not the most financially stable. Is it better to study your passion rather than a more financially stable option?
+      AskReddit Reddit, what popular opinions about films do you think the complete opposite of?
+      AskReddit If someone writes "Should of" instead of "Should have", I immediately read the rest of the post like it's a retarded person speaking. Yet I can't do anything about it. What other small annoyances are so widespread that it's beyond fixing?
+      AskReddit I'm A Mixed Race Teen (Black Dad, White Mum) And I Constantly Get People Incorrectly Guessing What My Ethnicity Is. Does This Happen To Anyone Else? If So, What Is Your Ethnicity And What Do People Guess You Are?
+      AskReddit Do the James Bond films features occur in any sort of chronological order? How severe are any continuity breaks?
       apple iMessage down?
-      AskReddit Reddit, how old were you when you officially moved out? I'm 24 and fee
+      AskReddit Reddit, how old were you when you officially moved out? I'm 24 and feel like a total loser...
       AskReddit Guys, what do girls wear that you absolutely can't stand?
-      AskReddit Looking into getting Windows 8 (Don't really like the looks of it from
-      AskReddit My stepdaughter is acting (sexually) inappropriately around me - what 
+      AskReddit Looking into getting Windows 8 (Don't really like the looks of it from what I've seen in screenshots, but I figured I'd give it a chance).  Should I go 32-bit or 64-bit?  Why?
+      AskReddit My stepdaughter is acting (sexually) inappropriately around me - what actions should I take?
       programming FizzBuzz Still Works
       AskReddit Reddit, what is your most expensive mistake?
       AskReddit Were you a part of the Occupy Wall Street movement?
-      AskReddit I'm coming up on my 6th year free from cocaine.  Anybody else had or h
+      AskReddit I'm coming up on my 6th year free from cocaine.  Anybody else had or have a significant milestone this year?
       programming UserManager.isUserAGoat() -- Oh you silly goat
-      AskReddit in regards to choosing a future career, should salary or enjoy-ability
-      AskReddit Guy I like asks me out to have coffee; gives me tips on how to get a b
+      AskReddit in regards to choosing a future career, should salary or enjoy-ability be a more important deciding factor?
+      AskReddit Guy I like asks me out to have coffee; gives me tips on how to get a boyfriend. Reddit, when did you realize that you have been friendzoned?
       AskReddit Men of Reddit: How much pressure is there for you guys to look good?
       AskReddit Reddit, what custom ringtone do you use?
-      AskReddit Reddit: A lot of talk happens here about taxing the rich at a higher p
-      AskReddit I'm dropping out of college and joining the workforce for a while, hav
+      AskReddit Reddit: A lot of talk happens here about taxing the rich at a higher percentage and is generally approved of. But how high should it actually be?
+      AskReddit I'm dropping out of college and joining the workforce for a while, have you dropped out and if so, how did it go?
       AskReddit What ever happened to the cent sign (¢)?
-      AskReddit I ask you this reddit, what is your most prized possession in this wor
-      AskReddit Reddit seems to hate Papa Johns and Chik-Fil-A with a passion. What ar
-      AskReddit Men of Reddit: Do you get turned off when a girl says she is a feminis
+      AskReddit I ask you this reddit, what is your most prized possession in this world. Doesn't necessarily have to be expensive, just important to you.
+      AskReddit Reddit seems to hate Papa Johns and Chik-Fil-A with a passion. What are some businesses that we love?
+      AskReddit Men of Reddit: Do you get turned off when a girl says she is a feminist?
       """
 
   Scenario: Search for a specific comment
@@ -376,7 +376,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -390,7 +390,7 @@ Feature: Browse comments
       """
       wikipedia
       http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
-      Heisenbug: a software bug that seems to disappear or alter its behavior when one
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
@@ -445,7 +445,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
-      Do colleges actually teach students how to think critically? Or even to think/qu
+      Do colleges actually teach students how to think critically? Or even to think/question at all?
       over 2 years ago • +1
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
@@ -453,7 +453,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
-      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       over 2 years ago • +1
 
       You're from New Jersey? Which exit?
@@ -461,7 +461,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
-      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me
+      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me. Rather than pull me over, the officer simply mouthed "SLOW DOWN" and drove away. Reddit, when has the law made you crap your pants and then immediately made you day?
       over 2 years ago • +1
 
       You didn't slow down for very long though, did you?
@@ -475,7 +475,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
-      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       over 2 years ago • +1
 
       You're from New Jersey? Which exit?
@@ -489,7 +489,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
-      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       over 2 years ago • +1
 
       You're from New Jersey? Which exit?
@@ -503,7 +503,7 @@ Feature: Browse comments
       """
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/141kt9/z/c795rwz
-      Do colleges actually teach students how to think critically? Or even to think/qu
+      Do colleges actually teach students how to think critically? Or even to think/question at all?
       over 2 years ago • +1
 
       I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
@@ -511,7 +511,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140t5c/z/c795nw3
-      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alaba
+      I'm from Tennessee and most of our jokes are geared toward Mississippi and Alabama. Where are you from, and who are your jokes geared toward?
       over 2 years ago • +1
 
       You're from New Jersey? Which exit?
@@ -519,7 +519,7 @@ Feature: Browse comments
 
       AskReddit
       http://www.reddit.com/r/AskReddit/comments/140h3z/z/c795muo
-      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me
+      Today I was going 80mph in a 55 when an unmarked police car pulled up next to me. Rather than pull me over, the officer simply mouthed "SLOW DOWN" and drove away. Reddit, when has the law made you crap your pants and then immediately made you day?
       over 2 years ago • +1
 
       You didn't slow down for very long though, did you?
