@@ -7,7 +7,7 @@ module USaidWat
         out.write("\n\n\n") unless @count == 0
         out.write("#{post.subreddit}\n".color(:green))
         out.write("#{post_link(post)}\n".color(:yellow))
-        out.write("#{post.title.strip.unescape_html.truncate(cols)}\n".color(:magenta))
+        out.write("#{post.title.strip.unescape_html}\n".color(:magenta))
         out.write("#{post_date(post)}".color(:blue))
         out.write("\n#{post.url}") unless post.url.end_with?(post.permalink)
         @count += 1
