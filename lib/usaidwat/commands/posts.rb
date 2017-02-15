@@ -55,6 +55,7 @@ module USaidWat
         posts = res.value
 
         formatter = (oneline ? USaidWat::CLI::CompactPostFormatter : USaidWat::CLI::PostFormatter).new
+        ENV['LESS'] = 'RS' if oneline
         page
         posts.each { |p| print formatter.format(p) }
       end

@@ -56,6 +56,7 @@ module USaidWat
       def list_comments(comments, options = {})
         oneline = options[:oneline]
         formatter = (oneline ? USaidWat::CLI::CompactCommentFormatter : USaidWat::CLI::CommentFormatter).new(options)
+        ENV['LESS'] = 'RS' if options[:oneline]
         page
         comments.each { |c| print formatter.format(c) }
       end

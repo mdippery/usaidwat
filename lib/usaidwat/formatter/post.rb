@@ -32,7 +32,7 @@ module USaidWat
         out = StringIO.new
         subreddit = post.subreddit
         cols -= subreddit.length + 1
-        title = post.title.strip.unescape_html.truncate(cols)
+        title = post.title.strip.unescape_html
         out.write(subreddit.color(:green))
         out.write(" #{title}\n")
         out.rewind

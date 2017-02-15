@@ -63,7 +63,7 @@ module USaidWat
         out = StringIO.new
         subreddit = comment.subreddit
         cols -= subreddit.length + 1
-        title = comment.link_title.strip.unescape_html.truncate(cols)
+        title = comment.link_title.strip.unescape_html
         key = "#{subreddit} #{title}"
         if !seen?(key)
           out.write("#{subreddit}".color(:green))
