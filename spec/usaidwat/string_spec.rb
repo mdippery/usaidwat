@@ -4,21 +4,6 @@ require 'spec_helper'
 module USaidWat
   module Ext
     describe String do
-      describe "#truncate" do
-        it "truncates strings longer than the given width to the width" do
-          n = 80
-          s = "-" * n * 2
-          expect(s.truncate(n).length).to eq(n)
-        end
-
-        it "does not change strings shorter than the given width" do
-          n = 80
-          s = "string"
-          expect(s.truncate(n).length).to eq(s.length)
-          expect(s.truncate(n).length).to be < n
-        end
-      end
-
       describe "#unescape_html" do
         it "transforms &amp; to &" do
           s = "this &amp; that"
