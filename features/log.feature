@@ -452,7 +452,7 @@ Feature: Browse comments
     When I run `usaidwat log --grep='oogabooga' mipadi programming wikipedia AskReddit`
     Then it should pass with:
       """
-      mipadi has no comments matching /oogabooga/ in /r/programming, /r/wikipedia, or /r/AskReddit.
+      mipadi has no comments matching /oogabooga/ in /r/programming, /r/wikipedia, or /r/askreddit.
       """
 
   Scenario: List all comments for a user that does not exist

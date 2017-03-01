@@ -34,7 +34,7 @@ module USaidWat
         comments = redditor.comments
 
         res = filter_entries('comments', redditor, comments, subreddits) >>
-              lambda { |r| grep_entries('comments', redditor, r.value, options['grep']) } >>
+              lambda { |r| grep_entries('comments', redditor, r.value, options['grep'], subreddits) } >>
               lambda { |r| limit_entries('comments', redditor, r.value, options['limit']) } >>
               lambda { |r| ensure_entries('comments', redditor, r.value) }
 

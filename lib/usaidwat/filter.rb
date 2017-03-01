@@ -13,11 +13,16 @@ module USaidWat
         end
       end
 
-      def grep_entries(noun, redditor, entries, grep)
+      def grep_entries(noun, redditor, entries, grep, subreddits = [])
         return USaidWat::Right.new(entries) if grep.nil?
         entries = entries.select { |e| e.body =~ /#{grep}/i }
         if entries.empty?
-          msg = "#{redditor.username} has no #{noun} matching /#{grep}/."
+          msg = "#{redditor.username} has no #{noun} matching /#{grep}/"
+          unless subreddits.empty?
+            prefixed_subs = subreddits.map(&:prefix_subreddit)
+            msg += " in " + prefixed_subs.or_join
+          end
+          msg += "."
           USaidWat::Left.new(msg)
         else
           USaidWat::Right.new(entries)
