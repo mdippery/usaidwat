@@ -16,4 +16,9 @@ class String
   def unescape_html
     gsub(/&gt;/, '>').gsub(/&lt;/, '<').gsub(/&amp;/, '&')
   end
+
+  def prefix_subreddit
+    return self if length == 0
+    '/r/' + self
+  end
 end

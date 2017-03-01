@@ -4,6 +4,17 @@ require 'spec_helper'
 module USaidWat
   module Ext
     describe String do
+      describe "#prefix_subreddit" do
+        it "should add /r/ to the beginning of strings" do
+          s = "wikipedia"
+          expect(s.prefix_subreddit).to eq("/r/wikipedia")
+        end
+
+        it "should return an empty string if the string itself is empty" do
+          expect(''.prefix_subreddit).to eq('')
+        end
+      end
+
       describe "#unescape_html" do
         it "transforms &amp; to &" do
           s = "this &amp; that"
