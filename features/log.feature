@@ -396,6 +396,20 @@ Feature: Browse comments
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
       """
 
+  Scenario: Search for a specific comment in a specific subreddit
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='heisenbug' mipadi wikipedia`
+    Then it should pass with:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      over 2 years ago • +1
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      """
+
   Scenario: Search for a specific comment with no matches
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM
@@ -403,6 +417,42 @@ Feature: Browse comments
     Then it should pass with:
       """
       mipadi has no comments matching /oogabooga/.
+      """
+
+  Scenario: Search for a specific comment in a specific subreddit with no matches
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='oogabooga' mipadi wikipedia`
+    Then it should pass with:
+      """
+      mipadi has no comments matching /oogabooga/ in /r/wikipedia.
+      """
+
+  Scenario: Search for a specific comment in a specific subreddit that does not exist in that subreddit but exists elsewhere
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='heisenbug' mipadi programming`
+    Then it should pass with:
+      """
+      mipadi has no comments matching /heisenbug/ in /r/programming.
+      """
+
+  Scenario: Search for a specific comment in two subreddits with no matches
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='oogabooga' mipadi programming wikipedia`
+    Then it should pass with:
+      """
+      mipadi has no comments matching /oogabooga/ in /r/programming or /r/wikipedia.
+      """
+
+  Scenario: Search for a specific comment in three subreddits with no matches
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Jun 24, 2015 11:05 AM
+    When I run `usaidwat log --grep='oogabooga' mipadi programming wikipedia AskReddit`
+    Then it should pass with:
+      """
+      mipadi has no comments matching /oogabooga/ in /r/programming, /r/wikipedia, or /r/AskReddit.
       """
 
   Scenario: List all comments for a user that does not exist
