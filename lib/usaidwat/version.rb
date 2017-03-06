@@ -1,5 +1,5 @@
 module USaidWat
-  VERSION = "1.5.1.dev"
+  VERSION = "1.5.1"
 
   def self.commit_hash
     spec = Gem.loaded_specs['usaidwat']
