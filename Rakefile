@@ -43,4 +43,9 @@ task :clean do
   rm Dir.glob("*.gem"), :verbose => true
 end
 
+desc "Show current version number"
+task :version do
+  puts USaidWat::VERSION
+end
+
 task :default => :build
