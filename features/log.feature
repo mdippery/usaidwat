@@ -410,6 +410,509 @@ Feature: Browse comments
       Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
       """
 
+  Scenario: Exclude a subreddit
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Apr 10, 2017 12:08 PM
+    When I run `usaidwat log -- mipadi -AskReddit`
+    Then it should pass with exactly:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      over 4 years ago • +1
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+
+
+      nyc
+      http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
+      over 4 years ago • +2
+
+      It has a fare when the lights are off.
+
+
+      worldnews
+      http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
+      Palestinians win upgraded UN status by wide margin
+      over 4 years ago • +1
+
+      The Judgment of Solomon Accords.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78zb9q
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +1
+
+      I just got rid of the ones "in the cloud". I don't want to lose the play counts on the old (protected) files, and I don't use the iTunes Match service anyway.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78zas6
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +1
+
+      Let's just say I'm writing checks my body can't cash.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78qp8s
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +3
+
+      Is there anything wrong with just deleting them? I get a warning about their being deleted from iCloud, but I don't really care because these duplicates tend to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS as much as 8 years ago, and in some cases I've changed the ID3 tags which seems to confuse iTunes to no end. Or maybe it's because they're the old protected AAC files, I dunno.)
+
+      Edit: Ah yes, it appears to happen for protected AAC files.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78p6wa
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +28
+
+      Oh cool, it even duplicated my songs <http://i.imgur.com/8BSE9.png>—for free!
+
+
+      Games
+      http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
+      over 4 years ago • +2
+
+      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+
+      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
+      over 4 years ago • +1
+
+      I went to a public school.
+
+
+      django
+      http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
+      I need a little help understanding billing and payment
+      over 4 years ago • +2
+
+      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
+      over 4 years ago • +11
+
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13ug2x/z/c77msa1
+      Why software engineers are vastly undervalued
+      over 4 years ago • +4
+
+      A conductor just collects your tickets.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/13vgrv/z/c77ksqn
+      Report: Apple bumps Android from top spot in U.S. smartphone market on strength of iPhone 5
+      over 4 years ago • +13
+
+      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in /r/technology" list.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c77jtox
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • +1
+
+      I am aware of that. I think that only underscores my point.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c77jjo6
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • +1
+
+      Well, yes; I'm just pointing out that OS X led to a resurgence in interest and usage of Objective-C, years before the iPhone.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c776z4r
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • +1
+
+      OS X wasn't out yet in 1999, so most Objective-C programmers would've been from the NeXTSTEP days.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c772epw
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • +3
+
+      Objective-C's clunky import system is due to its need to be backwards-compatible with C.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c772dux
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • +7
+
+      Anyone who wrote software for OS X (or NeXTSTEP, even) had used Objective-C before the iPhone. ;)
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13t868/z/c7729jt
+      Apple's proposal for modules in C(++) [PDF slides]
+      over 4 years ago • -3
+
+      u mad bro?
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13rnu0/z/c77071r
+      RubyMonk
+      over 4 years ago • +3
+
+      Proggit: Where knowledge is made up and the karma points don't matter!
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13rnu0/z/c7706ho
+      RubyMonk
+      over 4 years ago • +5
+
+      I took the wink to mean that the comment was tongue-in-cheek. (The site's owners may have asked for a comment from Matz himself, and that's what he gave as a joke.)
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13pp8j/z/c76gi00
+      The X.Org CodingStyle
+      over 4 years ago • +2
+
+      Exactly. You can make a "tabs for indentation, spaces for alignment" rule, but some dingback invariably screws it up (uses tabs for both or something like that), which inevitably makes the alignment/indentation wrong for everyone but him. (This is especially true on open source projects, where it's hard to tell Random J. Contributor to uses "tabs for indentation, spaces for alignment"). Using spaces for everything is just easier, and it's not really a that big of a deal if indents aren't in your preferred size. (Prefer 8-space tabs to 4-space tabs? Too bad, you can live with 4-space tabs?)
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13pp8j/z/c76gg04
+      The X.Org CodingStyle
+      over 4 years ago • +3
+
+      It is pretty unreadable, but that's not the X.Org coding style. X.Org would do:
+
+          static int
+          nameofthefunction(int arg1,
+                            int arg2,
+                            int arg3);
+
+
+      worldnews
+      http://www.reddit.com/r/worldnews/comments/13mdw2/z/c758qos
+      How Israeli Drone Pilots Made Their Life-and-Death Choices Over Gaza - “When you see a target, all you want to do is attack.  But it’s not that simple.”
+      over 4 years ago • -3
+
+      Since when did Wired start publishing PR pieces for the Israeli military?
+
+
+      personalfinance
+      http://www.reddit.com/r/personalfinance/comments/13iea3/z/c74b9j1
+      What's the most expensive mistake you ever made financially?
+      over 4 years ago • +2
+
+      It's not just money for a piece of paper. If you're serious about writing, studying it puts you in contact with serious writers, lets you focus on your craft, and provides valuable networking opportunities. And a lot of MFA programs are funded.
+
+      It's not necessarily the most pragmatic option (especially not now), and sure, you can write without it, but it's about far more than the degree itself.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f783/z/c740nlq
+      Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
+      over 4 years ago • +1
+
+      Not different at all. Implying that they didn't bother to ask anyone is the consequence of being ignorant about the situation.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f783/z/c73zda5
+      Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
+      over 4 years ago • +1
+
+      Neither. It's not uncommon, though, for the promotional material and even the speaker lineup for programming conventions to be aimed at heterosexual white males. I don't think that the organizers are actually racist or sexist or homophobic; rather, I think they're in a field were most people are straight white males, and fail to realize that not everyone is like them.
+
+      This article <http://devblog.avdi.org/2012/11/19/on-britruby/> has a provocative analysis. The key point (and obviously I agree with the blogger) is this:
+
+          "I fully believe them when they say that they set out to create a diverse conference. However, I think some implicit bias crept into their selection process.
+          
+          …
+          
+          I’m not accusing the BritRuby organizers of being racist, sexist, or misogynistic. And I don’t think anyone else involved in this conversation is accusing them of those things either, despite misguided claims to the contrary. But I don’t think it’s farfetched to suggest that in their process for coming up with names to invite, their brain VMs might have been over-optimized for the common case: white dudes."
+
+
+      battlefield3
+      http://www.reddit.com/r/battlefield3/comments/13d64e/z/c73vgqr
+      Can't argue with those rules..
+      over 4 years ago • +1
+
+      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of play time on it), but you inspired me to give it another try.
+
+
+      redditcasual
+      http://www.reddit.com/r/redditcasual/comments/13fxv8/z/c73rp5l
+      Submissions for new clan tag...
+      over 4 years ago • +1
+
+      RDDT was used a lot back in the Black Ops days.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f4tu/z/c73r5l1
+      How To Package Your Python Code - The Right Way…
+      over 4 years ago • +2
+
+      Python is a little bit like a Reese's Peanut Butter Cup: there's no right way to package Python code.
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f8y8/z/c73r0ok
+      Hounded By Recruiters, Coders Put Themselves Up For Auction - Forbes
+      over 4 years ago • +3
+
+      I get at least one email per week, sometimes from a rep at the company, and sometimes just from a random recruiter. I'm not even on LinkedIn—these are from people who happen to find me on Stack Overflow or GitHub. During some periods, I even get 2-4 emails per week. (I've actually stopped responding to them, because it's become a bit burdensome to write back.)
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f783/z/c73qhxi
+      Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
+      over 4 years ago • +11
+
+      Welcome to the wonderful world of Python drama!
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/13f783/z/c73qhq1
+      Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
+      over 4 years ago • +2
+
+          "Turns out, a lot of the prominent Rubyists are white guys and all of the ones who said they'd like to come were, indeed, white guys."
+
+      I do have to wonder if they even bothered to ask anyone who wasn't white and male.
+
+
+      photography
+      http://www.reddit.com/r/photography/comments/13fsog/z/c73qesj
+      Do you travel? If so, what camera do you use/prefer?
+      over 4 years ago • +1
+
+      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is great, but it has a fixed lens, so if need something with zoom or a certain kind of lens, I take the EP-3.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/13erfl/z/c73e3re
+      iMessage down?
+      over 4 years ago • +3
+
+      Reporting in from New York. I can't message another person who lives in New York, so it could just be regional. Who knows.
+
+
+      battlefield3
+      http://www.reddit.com/r/battlefield3/comments/13d64e/z/c72wwhw
+      Can't argue with those rules..
+      over 4 years ago • +16
+
+      I'm still burned that one time I was tearing up an admin (and other people) with the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the "rules".
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/138od3/z/c71xla4
+      FizzBuzz Still Works
+      over 4 years ago • +2
+
+      Haskell and Erlang are two languages that don't use `%` as a modulus operator (Haskell just doesn't, and in Erlang `%` is the comment sigil).
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/136mxi/z/c71ecky
+      UserManager.isUserAGoat() -- Oh you silly goat
+      over 4 years ago • +9
+
+      Of course, why else would they have the function?
+
+
+      programming
+      http://www.reddit.com/r/programming/comments/136mxi/z/c71davt
+      UserManager.isUserAGoat() -- Oh you silly goat
+      over 4 years ago • +6
+
+      Or if they just lit the computer on fire manually, I suppose.
+      """
+
+  Scenario: Exclude multiple subreddits
+    Given the Reddit service returns comments for the user "mipadi"
+    And time is frozen at Apr 10, 2017 12:08 PM
+    When I run `usaidwat log -- mipadi -AskReddit -programming`
+    Then it should pass with exactly:
+      """
+      wikipedia
+      http://www.reddit.com/r/wikipedia/comments/142t4w/z/c79peed
+      Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
+      over 4 years ago • +1
+
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+
+
+      nyc
+      http://www.reddit.com/r/nyc/comments/141zqc/z/c79dxg6
+      NYC taxi roof lights get overhaul -  A light simply will mean the cab is available. No light will mean it's not.
+      over 4 years ago • +2
+
+      It has a fare when the lights are off.
+
+
+      worldnews
+      http://www.reddit.com/r/worldnews/comments/140mra/z/c797jq4
+      Palestinians win upgraded UN status by wide margin
+      over 4 years ago • +1
+
+      The Judgment of Solomon Accords.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78zb9q
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +1
+
+      I just got rid of the ones "in the cloud". I don't want to lose the play counts on the old (protected) files, and I don't use the iTunes Match service anyway.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78zas6
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +1
+
+      Let's just say I'm writing checks my body can't cash.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78qp8s
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +3
+
+      Is there anything wrong with just deleting them? I get a warning about their being deleted from iCloud, but I don't really care because these duplicates tend to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS as much as 8 years ago, and in some cases I've changed the ID3 tags which seems to confuse iTunes to no end. Or maybe it's because they're the old protected AAC files, I dunno.)
+
+      Edit: Ah yes, it appears to happen for protected AAC files.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/1405el/z/c78p6wa
+      iTunes 11 finally available for download - The Verge
+      over 4 years ago • +28
+
+      Oh cool, it even duplicated my songs <http://i.imgur.com/8BSE9.png>—for free!
+
+
+      Games
+      http://www.reddit.com/r/Games/comments/13xc2o/z/c784qj8
+      The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
+      over 4 years ago • +2
+
+      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+
+      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77stm8
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
+      over 4 years ago • +1
+
+      I went to a public school.
+
+
+      django
+      http://www.reddit.com/r/django/comments/13p9ez/z/c77n56i
+      I need a little help understanding billing and payment
+      over 4 years ago • +2
+
+      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+
+
+      books
+      http://www.reddit.com/r/books/comments/13vijv/z/c77n2hg
+      I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
+      over 4 years ago • +11
+
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/13vgrv/z/c77ksqn
+      Report: Apple bumps Android from top spot in U.S. smartphone market on strength of iPhone 5
+      over 4 years ago • +13
+
+      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in /r/technology" list.
+
+
+      worldnews
+      http://www.reddit.com/r/worldnews/comments/13mdw2/z/c758qos
+      How Israeli Drone Pilots Made Their Life-and-Death Choices Over Gaza - “When you see a target, all you want to do is attack.  But it’s not that simple.”
+      over 4 years ago • -3
+
+      Since when did Wired start publishing PR pieces for the Israeli military?
+
+
+      personalfinance
+      http://www.reddit.com/r/personalfinance/comments/13iea3/z/c74b9j1
+      What's the most expensive mistake you ever made financially?
+      over 4 years ago • +2
+
+      It's not just money for a piece of paper. If you're serious about writing, studying it puts you in contact with serious writers, lets you focus on your craft, and provides valuable networking opportunities. And a lot of MFA programs are funded.
+
+      It's not necessarily the most pragmatic option (especially not now), and sure, you can write without it, but it's about far more than the degree itself.
+
+
+      battlefield3
+      http://www.reddit.com/r/battlefield3/comments/13d64e/z/c73vgqr
+      Can't argue with those rules..
+      over 4 years ago • +1
+
+      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of play time on it), but you inspired me to give it another try.
+
+
+      redditcasual
+      http://www.reddit.com/r/redditcasual/comments/13fxv8/z/c73rp5l
+      Submissions for new clan tag...
+      over 4 years ago • +1
+
+      RDDT was used a lot back in the Black Ops days.
+
+
+      photography
+      http://www.reddit.com/r/photography/comments/13fsog/z/c73qesj
+      Do you travel? If so, what camera do you use/prefer?
+      over 4 years ago • +1
+
+      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is great, but it has a fixed lens, so if need something with zoom or a certain kind of lens, I take the EP-3.
+
+
+      apple
+      http://www.reddit.com/r/apple/comments/13erfl/z/c73e3re
+      iMessage down?
+      over 4 years ago • +3
+
+      Reporting in from New York. I can't message another person who lives in New York, so it could just be regional. Who knows.
+
+
+      battlefield3
+      http://www.reddit.com/r/battlefield3/comments/13d64e/z/c72wwhw
+      Can't argue with those rules..
+      over 4 years ago • +16
+
+      I'm still burned that one time I was tearing up an admin (and other people) with the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the "rules".
+      """
+
   Scenario: Search for a specific comment with no matches
     Given the Reddit service returns comments for the user "mipadi"
     And time is frozen at Jun 24, 2015 11:05 AM

@@ -28,12 +28,13 @@ module USaidWat
       def process(options, args)
         raise ArgumentError.new('You must specify a username') if args.empty?
         username = args.shift
-        subreddits = args.subreddits
+        subreddits = args.subreddits.reject { |s| s.start_with?('-') }
+        exclude_subreddits = args.subreddits.select { |s| s.start_with?('-') }.map { |e| e.sub(/^-/, '') }
 
         redditor = client.new(username)
         comments = redditor.comments
 
-        res = filter_entries('comments', redditor, comments, subreddits) >>
+        res = filter_entries('comments', redditor, comments, subreddits, exclude_subreddits) >>
               lambda { |r| grep_entries('comments', redditor, r.value, options['grep'], subreddits) } >>
               lambda { |r| limit_entries('comments', redditor, r.value, options['limit']) } >>
               lambda { |r| ensure_entries('comments', redditor, r.value) }

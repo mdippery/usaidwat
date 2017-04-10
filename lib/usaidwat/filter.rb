@@ -3,11 +3,14 @@ require 'usaidwat/either'
 module USaidWat
   module Application
     module FilterCommand
-      def filter_entries(noun, redditor, entries, subreddits)
-        return USaidWat::Right.new(entries) if subreddits.empty?
-        entries = entries.find_all { |e| subreddits.include?(e.subreddit.downcase) }
+      def filter_entries(noun, redditor, entries, subreddits, excluded_subreddits = [])
+        return USaidWat::Right.new(entries) if subreddits.empty? && excluded_subreddits.empty?
+        entries = entries.select { |e| subreddits.include?(e.subreddit.downcase) } unless subreddits.empty?
+        entries = entries.reject { |e| excluded_subreddits.include?(e.subreddit.downcase) }
         if entries.empty?
-          USaidWat::Left.new("No #{noun} by #{redditor.username} for #{subreddits.join(', ')}.")
+          msg = "No #{noun} by #{redditor.username}"
+          msg += " for #{subreddits.join(', ')}." unless subreddits.empty?
+          USaidWat::Left.new(msg)
         else
           USaidWat::Right.new(entries)
         end
