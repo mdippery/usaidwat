@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 1.9.3'
 
-  gem.add_runtime_dependency('downterm', '~> 0.1.5')
+  gem.add_runtime_dependency('downterm', '~> 0.1.7')
   gem.add_runtime_dependency('mercenary', '~> 0.3.5', '!= 0.3.6')
   gem.add_runtime_dependency('rainbow', '~> 3.0')
   gem.add_runtime_dependency('requests', '~> 1.0')
