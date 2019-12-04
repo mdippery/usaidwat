@@ -644,11 +644,11 @@ Feature: Browse comments
 
       This article <http://devblog.avdi.org/2012/11/19/on-britruby/> has a provocative analysis. The key point (and obviously I agree with the blogger) is this:
 
-          "I fully believe them when they say that they set out to create a diverse conference. However, I think some implicit bias crept into their selection process.
-          
-          …
-          
-          I’m not accusing the BritRuby organizers of being racist, sexist, or misogynistic. And I don’t think anyone else involved in this conversation is accusing them of those things either, despite misguided claims to the contrary. But I don’t think it’s farfetched to suggest that in their process for coming up with names to invite, their brain VMs might have been over-optimized for the common case: white dudes."
+          | I fully believe them when they say that they set out to create a diverse conference. However, I think some implicit bias crept into their selection process.
+          | 
+          | …
+          | 
+          | I’m not accusing the BritRuby organizers of being racist, sexist, or misogynistic. And I don’t think anyone else involved in this conversation is accusing them of those things either, despite misguided claims to the contrary. But I don’t think it’s farfetched to suggest that in their process for coming up with names to invite, their brain VMs might have been over-optimized for the common case: white dudes.
 
 
       battlefield3
@@ -696,7 +696,7 @@ Feature: Browse comments
       Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
       over 4 years ago • +2
 
-          "Turns out, a lot of the prominent Rubyists are white guys and all of the ones who said they'd like to come were, indeed, white guys."
+          | Turns out, a lot of the prominent Rubyists are white guys and all of the ones who said they'd like to come were, indeed, white guys.
 
       I do have to wonder if they even bothered to ask anyone who wasn't white and male.
 
