@@ -13,11 +13,7 @@ module USaidWat
           c.option 'count', '-c', '--count', 'Sort output by number of comments'
 
           c.action do |args, options|
-            begin
-              process(options, args)
-            rescue ArgumentError => e
-              quit e.message, :usage
-            end
+            dispatch_process(:process, options, args)
           end
         end
         super

@@ -13,18 +13,14 @@ module USaidWat
       def initialize(prog)
         prog.command(:posts) do |c|
           c.action do |args, options|
-            process(options, args)
+            dispatch_process(:process, options, args)
           end
 
           c.command(:log) do |s|
             s.description "Show a user's submitted posts"
             s.option 'oneline', '--oneline', 'Output log in a more compact form'
             s.action do |args, options|
-              begin
-                process_log(options, args)
-              rescue ArgumentError => e
-                quit e.message, :usage
-              end
+              dispatch_process(:process_log, options, args)
             end
           end
 
@@ -32,11 +28,7 @@ module USaidWat
             s.description "Tally a user's posts by subreddit"
             s.option 'count', '-c', '--count', 'Sort output by number of comments'
             s.action do |args, options|
-              begin
-                process_tally(options, args)
-              rescue ArgumentError => e
-                quit e.message, :usage
-              end
+              dispatch_process(:process_tally, options, args)
             end
           end
         end

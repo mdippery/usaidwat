@@ -36,6 +36,12 @@ module USaidWat
 
       protected
 
+      def dispatch_process(process, method, arg)
+        send(process, method, arg)
+      rescue ArgumentError => e
+        quit e.message, :usage
+      end
+
       def cucumber?
         ENV['USAIDWAT_ENV'] == 'cucumber'
       end

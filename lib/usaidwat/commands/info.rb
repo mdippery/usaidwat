@@ -7,11 +7,7 @@ module USaidWat
       def initialize(prog)
         prog.command(:info) do |c|
           c.action do |args, options|
-            begin
-              process(options, args)
-            rescue ArgumentError => e
-              quit e.message, :usage
-            end
+            dispatch_process(:process, options, args)
           end
         end
         super
