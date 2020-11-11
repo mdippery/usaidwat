@@ -36,7 +36,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('ttycaca', '~> 1.0')
 
   gem.add_development_dependency('aruba', '>= 0.9', '< 2.0')
-  gem.add_development_dependency('cucumber', '~> 3.0')
+  gem.add_development_dependency('cucumber', '> 3.0', '< 6.0')
   gem.add_development_dependency('rspec', '~> 3.2')
   gem.add_development_dependency('timecop', '~> 0.9.0')
   gem.add_development_dependency('webmock', '~> 3.0')
