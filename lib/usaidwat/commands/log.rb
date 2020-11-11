@@ -19,7 +19,11 @@ module USaidWat
           c.option 'raw', '--raw', 'Print raw comment bodies'
 
           c.action do |args, options|
-            process(options, args)
+            begin
+              process(options, args)
+            rescue ArgumentError => e
+              quit e.message, :usage
+            end
           end
         end
         super
