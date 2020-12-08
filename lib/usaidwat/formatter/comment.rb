@@ -1,3 +1,7 @@
+require 'word_wrap'
+require 'word_wrap/core_ext'
+
+
 module USaidWat
   module CLI
     class CommentFormatter < BaseFormatter
@@ -27,13 +31,11 @@ module USaidWat
       end
 
       def comment_body(comment)
+        cols = tty.width
         body = comment.body.strip.unescape_html
         body = markdown.render(body) unless raw?
-        if pattern?
-          body.highlight(pattern)
-        else
-          body
-        end
+        body = body.highlight(pattern) if pattern?
+        body.wrap(cols).chomp
       end
 
       def comment_link(comment)

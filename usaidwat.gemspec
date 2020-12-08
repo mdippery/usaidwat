@@ -34,6 +34,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('requests', '~> 1.0')
   gem.add_runtime_dependency('sysexits', '~> 1.2')
   gem.add_runtime_dependency('ttycaca', '~> 1.0')
+  gem.add_runtime_dependency('word_wrap', '~> 1.0')
 
   gem.add_development_dependency('aruba', '>= 0.9', '< 2.0')
   gem.add_development_dependency('cucumber', '> 3.0', '< 6.0')

@@ -15,7 +15,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -45,7 +47,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -67,7 +71,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       Sat, 1 Dec 2012, 12:14 PM • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -97,7 +103,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -127,7 +135,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -157,9 +167,14 @@ Feature: Browse comments
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
-      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+      That's exactly how I feel. There are times when I have a ton of fun playing
+      BF3…but it always feels like it has so much more potential to be an awesome
+      game.
 
-      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+      And that feeling comes even when the game isn't completely fucking frustrating
+      because some admin is kicking you for using some arbitrary weapon he doesn't
+      like, or switching you to the losing team because he doesn't like getting his
+      ass kicked. Or when the game is simply crashing.
 
 
       books
@@ -175,7 +190,9 @@ Feature: Browse comments
       I need a little help understanding billing and payment
       over 2 years ago • +2
 
-      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+      I have a lot of experience working with Satchmo. I don't recommend it. It's
+      over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely
+      updated anymore.
 
 
       books
@@ -183,7 +200,10 @@ Feature: Browse comments
       I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
-      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like
+      all of the stuff I read in high school, but I got to read great things like
+      Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare,
+      King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
 
   Scenario: List comments for multiple subreddits separated by commas
@@ -197,9 +217,14 @@ Feature: Browse comments
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
-      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+      That's exactly how I feel. There are times when I have a ton of fun playing
+      BF3…but it always feels like it has so much more potential to be an awesome
+      game.
 
-      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+      And that feeling comes even when the game isn't completely fucking frustrating
+      because some admin is kicking you for using some arbitrary weapon he doesn't
+      like, or switching you to the losing team because he doesn't like getting his
+      ass kicked. Or when the game is simply crashing.
 
 
       books
@@ -215,7 +240,9 @@ Feature: Browse comments
       I need a little help understanding billing and payment
       over 2 years ago • +2
 
-      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+      I have a lot of experience working with Satchmo. I don't recommend it. It's
+      over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely
+      updated anymore.
 
 
       books
@@ -223,7 +250,10 @@ Feature: Browse comments
       I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
-      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like
+      all of the stuff I read in high school, but I got to read great things like
+      Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare,
+      King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
 
   Scenario: List comments for multiple subreddits separated by commas
@@ -237,9 +267,14 @@ Feature: Browse comments
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 2 years ago • +2
 
-      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+      That's exactly how I feel. There are times when I have a ton of fun playing
+      BF3…but it always feels like it has so much more potential to be an awesome
+      game.
 
-      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+      And that feeling comes even when the game isn't completely fucking frustrating
+      because some admin is kicking you for using some arbitrary weapon he doesn't
+      like, or switching you to the losing team because he doesn't like getting his
+      ass kicked. Or when the game is simply crashing.
 
 
       books
@@ -255,7 +290,9 @@ Feature: Browse comments
       I need a little help understanding billing and payment
       over 2 years ago • +2
 
-      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+      I have a lot of experience working with Satchmo. I don't recommend it. It's
+      over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely
+      updated anymore.
 
 
       books
@@ -263,7 +300,10 @@ Feature: Browse comments
       I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 2 years ago • +11
 
-      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like
+      all of the stuff I read in high school, but I got to read great things like
+      Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare,
+      King Arthur, A Doll's House, Death of a Salesman, and probably more.
       """
 
   Scenario: Output comments on one line
@@ -379,7 +419,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
       """
 
   Scenario: Search for a specific comment with wrong case
@@ -393,7 +435,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
       """
 
   Scenario: Search for a specific comment in a specific subreddit
@@ -407,7 +451,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 2 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
       """
 
   Scenario: Exclude a subreddit
@@ -421,7 +467,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 4 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -445,7 +493,8 @@ Feature: Browse comments
       iTunes 11 finally available for download - The Verge
       over 4 years ago • +1
 
-      I just got rid of the ones "in the cloud". I don't want to lose the play counts on the old (protected) files, and I don't use the iTunes Match service anyway.
+      I just got rid of the ones "in the cloud". I don't want to lose the play counts
+      on the old (protected) files, and I don't use the iTunes Match service anyway.
 
 
       apple
@@ -461,7 +510,12 @@ Feature: Browse comments
       iTunes 11 finally available for download - The Verge
       over 4 years ago • +3
 
-      Is there anything wrong with just deleting them? I get a warning about their being deleted from iCloud, but I don't really care because these duplicates tend to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS as much as 8 years ago, and in some cases I've changed the ID3 tags which seems to confuse iTunes to no end. Or maybe it's because they're the old protected AAC files, I dunno.)
+      Is there anything wrong with just deleting them? I get a warning about their
+      being deleted from iCloud, but I don't really care because these duplicates tend
+      to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS
+      as much as 8 years ago, and in some cases I've changed the ID3 tags which seems
+      to confuse iTunes to no end. Or maybe it's because they're the old protected AAC
+      files, I dunno.)
 
       Edit: Ah yes, it appears to happen for protected AAC files.
 
@@ -479,9 +533,14 @@ Feature: Browse comments
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 4 years ago • +2
 
-      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+      That's exactly how I feel. There are times when I have a ton of fun playing
+      BF3…but it always feels like it has so much more potential to be an awesome
+      game.
 
-      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+      And that feeling comes even when the game isn't completely fucking frustrating
+      because some admin is kicking you for using some arbitrary weapon he doesn't
+      like, or switching you to the losing team because he doesn't like getting his
+      ass kicked. Or when the game is simply crashing.
 
 
       books
@@ -497,7 +556,9 @@ Feature: Browse comments
       I need a little help understanding billing and payment
       over 4 years ago • +2
 
-      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+      I have a lot of experience working with Satchmo. I don't recommend it. It's
+      over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely
+      updated anymore.
 
 
       books
@@ -505,7 +566,10 @@ Feature: Browse comments
       I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 4 years ago • +11
 
-      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like
+      all of the stuff I read in high school, but I got to read great things like
+      Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare,
+      King Arthur, A Doll's House, Death of a Salesman, and probably more.
 
 
       programming
@@ -521,7 +585,8 @@ Feature: Browse comments
       Report: Apple bumps Android from top spot in U.S. smartphone market on strength of iPhone 5
       over 4 years ago • +13
 
-      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in /r/technology" list.
+      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in
+      /r/technology" list.
 
 
       programming
@@ -537,7 +602,8 @@ Feature: Browse comments
       Apple's proposal for modules in C(++) [PDF slides]
       over 4 years ago • +1
 
-      Well, yes; I'm just pointing out that OS X led to a resurgence in interest and usage of Objective-C, years before the iPhone.
+      Well, yes; I'm just pointing out that OS X led to a resurgence in interest and
+      usage of Objective-C, years before the iPhone.
 
 
       programming
@@ -545,7 +611,8 @@ Feature: Browse comments
       Apple's proposal for modules in C(++) [PDF slides]
       over 4 years ago • +1
 
-      OS X wasn't out yet in 1999, so most Objective-C programmers would've been from the NeXTSTEP days.
+      OS X wasn't out yet in 1999, so most Objective-C programmers would've been from
+      the NeXTSTEP days.
 
 
       programming
@@ -553,7 +620,8 @@ Feature: Browse comments
       Apple's proposal for modules in C(++) [PDF slides]
       over 4 years ago • +3
 
-      Objective-C's clunky import system is due to its need to be backwards-compatible with C.
+      Objective-C's clunky import system is due to its need to be
+      backwards-compatible with C.
 
 
       programming
@@ -561,7 +629,8 @@ Feature: Browse comments
       Apple's proposal for modules in C(++) [PDF slides]
       over 4 years ago • +7
 
-      Anyone who wrote software for OS X (or NeXTSTEP, even) had used Objective-C before the iPhone. ;)
+      Anyone who wrote software for OS X (or NeXTSTEP, even) had used Objective-C
+      before the iPhone. ;)
 
 
       programming
@@ -585,7 +654,9 @@ Feature: Browse comments
       RubyMonk
       over 4 years ago • +5
 
-      I took the wink to mean that the comment was tongue-in-cheek. (The site's owners may have asked for a comment from Matz himself, and that's what he gave as a joke.)
+      I took the wink to mean that the comment was tongue-in-cheek. (The site's owners
+      may have asked for a comment from Matz himself, and that's what he gave as a
+      joke.)
 
 
       programming
@@ -593,7 +664,14 @@ Feature: Browse comments
       The X.Org CodingStyle
       over 4 years ago • +2
 
-      Exactly. You can make a "tabs for indentation, spaces for alignment" rule, but some dingback invariably screws it up (uses tabs for both or something like that), which inevitably makes the alignment/indentation wrong for everyone but him. (This is especially true on open source projects, where it's hard to tell Random J. Contributor to uses "tabs for indentation, spaces for alignment"). Using spaces for everything is just easier, and it's not really a that big of a deal if indents aren't in your preferred size. (Prefer 8-space tabs to 4-space tabs? Too bad, you can live with 4-space tabs?)
+      Exactly. You can make a "tabs for indentation, spaces for alignment" rule, but
+      some dingback invariably screws it up (uses tabs for both or something like
+      that), which inevitably makes the alignment/indentation wrong for everyone but
+      him. (This is especially true on open source projects, where it's hard to tell
+      Random J. Contributor to uses "tabs for indentation, spaces for alignment").
+      Using spaces for everything is just easier, and it's not really a that big of a
+      deal if indents aren't in your preferred size. (Prefer 8-space tabs to 4-space
+      tabs? Too bad, you can live with 4-space tabs?)
 
 
       programming
@@ -622,9 +700,13 @@ Feature: Browse comments
       What's the most expensive mistake you ever made financially?
       over 4 years ago • +2
 
-      It's not just money for a piece of paper. If you're serious about writing, studying it puts you in contact with serious writers, lets you focus on your craft, and provides valuable networking opportunities. And a lot of MFA programs are funded.
+      It's not just money for a piece of paper. If you're serious about writing,
+      studying it puts you in contact with serious writers, lets you focus on your
+      craft, and provides valuable networking opportunities. And a lot of MFA programs
+      are funded.
 
-      It's not necessarily the most pragmatic option (especially not now), and sure, you can write without it, but it's about far more than the degree itself.
+      It's not necessarily the most pragmatic option (especially not now), and sure,
+      you can write without it, but it's about far more than the degree itself.
 
 
       programming
@@ -632,7 +714,8 @@ Feature: Browse comments
       Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
       over 4 years ago • +1
 
-      Not different at all. Implying that they didn't bother to ask anyone is the consequence of being ignorant about the situation.
+      Not different at all. Implying that they didn't bother to ask anyone is the
+      consequence of being ignorant about the situation.
 
 
       programming
@@ -640,15 +723,27 @@ Feature: Browse comments
       Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
       over 4 years ago • +1
 
-      Neither. It's not uncommon, though, for the promotional material and even the speaker lineup for programming conventions to be aimed at heterosexual white males. I don't think that the organizers are actually racist or sexist or homophobic; rather, I think they're in a field were most people are straight white males, and fail to realize that not everyone is like them.
+      Neither. It's not uncommon, though, for the promotional material and even the
+      speaker lineup for programming conventions to be aimed at heterosexual white
+      males. I don't think that the organizers are actually racist or sexist or
+      homophobic; rather, I think they're in a field were most people are straight
+      white males, and fail to realize that not everyone is like them.
 
-      This article <http://devblog.avdi.org/2012/11/19/on-britruby/> has a provocative analysis. The key point (and obviously I agree with the blogger) is this:
+      This article <http://devblog.avdi.org/2012/11/19/on-britruby/> has a provocative
+      analysis. The key point (and obviously I agree with the blogger) is this:
 
-          | I fully believe them when they say that they set out to create a diverse conference. However, I think some implicit bias crept into their selection process.
+          | I fully believe them when they say that they set out to create a diverse
+          | conference. However, I think some implicit bias crept into their
+          | selection process.
           | 
           | …
           | 
-          | I’m not accusing the BritRuby organizers of being racist, sexist, or misogynistic. And I don’t think anyone else involved in this conversation is accusing them of those things either, despite misguided claims to the contrary. But I don’t think it’s farfetched to suggest that in their process for coming up with names to invite, their brain VMs might have been over-optimized for the common case: white dudes.
+          | I’m not accusing the BritRuby organizers of being racist, sexist, or
+          | misogynistic. And I don’t think anyone else involved in this conversation is
+          | accusing them of those things either, despite misguided claims to the
+          | contrary. But I don’t think it’s farfetched to suggest that in their
+          | process for coming up with names to invite, their brain VMs might have
+          | been over-optimized for the common case: white dudes.
 
 
       battlefield3
@@ -656,7 +751,8 @@ Feature: Browse comments
       Can't argue with those rules..
       over 4 years ago • +1
 
-      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of play time on it), but you inspired me to give it another try.
+      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of
+      play time on it), but you inspired me to give it another try.
 
 
       redditcasual
@@ -672,7 +768,8 @@ Feature: Browse comments
       How To Package Your Python Code - The Right Way…
       over 4 years ago • +2
 
-      Python is a little bit like a Reese's Peanut Butter Cup: there's no right way to package Python code.
+      Python is a little bit like a Reese's Peanut Butter Cup: there's no right way to
+      package Python code.
 
 
       programming
@@ -680,7 +777,11 @@ Feature: Browse comments
       Hounded By Recruiters, Coders Put Themselves Up For Auction - Forbes
       over 4 years ago • +3
 
-      I get at least one email per week, sometimes from a rep at the company, and sometimes just from a random recruiter. I'm not even on LinkedIn—these are from people who happen to find me on Stack Overflow or GitHub. During some periods, I even get 2-4 emails per week. (I've actually stopped responding to them, because it's become a bit burdensome to write back.)
+      I get at least one email per week, sometimes from a rep at the company, and
+      sometimes just from a random recruiter. I'm not even on LinkedIn—these are from
+      people who happen to find me on Stack Overflow or GitHub. During some periods,
+      I even get 2-4 emails per week. (I've actually stopped responding to them,
+      because it's become a bit burdensome to write back.)
 
 
       programming
@@ -696,9 +797,11 @@ Feature: Browse comments
       Why Brit Ruby 2013 was cancelled and why this is not ok — Gist
       over 4 years ago • +2
 
-          | Turns out, a lot of the prominent Rubyists are white guys and all of the ones who said they'd like to come were, indeed, white guys.
+        | Turns out, a lot of the prominent Rubyists are white guys and all of the
+        | ones who said they'd like to come were, indeed, white guys.
 
-      I do have to wonder if they even bothered to ask anyone who wasn't white and male.
+      I do have to wonder if they even bothered to ask anyone who wasn't white and
+      male.
 
 
       photography
@@ -706,7 +809,9 @@ Feature: Browse comments
       Do you travel? If so, what camera do you use/prefer?
       over 4 years ago • +1
 
-      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is great, but it has a fixed lens, so if need something with zoom or a certain kind of lens, I take the EP-3.
+      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is
+      great, but it has a fixed lens, so if need something with zoom or a certain kind
+      of lens, I take the EP-3.
 
 
       apple
@@ -714,7 +819,8 @@ Feature: Browse comments
       iMessage down?
       over 4 years ago • +3
 
-      Reporting in from New York. I can't message another person who lives in New York, so it could just be regional. Who knows.
+      Reporting in from New York. I can't message another person who lives in New
+      York, so it could just be regional. Who knows.
 
 
       battlefield3
@@ -722,7 +828,10 @@ Feature: Browse comments
       Can't argue with those rules..
       over 4 years ago • +16
 
-      I'm still burned that one time I was tearing up an admin (and other people) with the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the "rules".
+      I'm still burned that one time I was tearing up an admin (and other people) with
+      the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to
+      tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the
+      "rules".
 
 
       programming
@@ -730,7 +839,8 @@ Feature: Browse comments
       FizzBuzz Still Works
       over 4 years ago • +2
 
-      Haskell and Erlang are two languages that don't use `%` as a modulus operator (Haskell just doesn't, and in Erlang `%` is the comment sigil).
+      Haskell and Erlang are two languages that don't use `%` as a modulus operator
+      (Haskell just doesn't, and in Erlang `%` is the comment sigil).
 
 
       programming
@@ -760,7 +870,9 @@ Feature: Browse comments
       Heisenbug: a software bug that seems to disappear or alter its behavior when one attempts to study it
       over 4 years ago • +1
 
-      Yep. My first experience with a Heisenbug occurred in a C++ program, and disappeared when I tried to print a variable with printf (only to reappear when that call was removed).
+      Yep. My first experience with a Heisenbug occurred in a C++ program, and
+      disappeared when I tried to print a variable with printf (only to reappear when
+      that call was removed).
 
 
       nyc
@@ -784,7 +896,8 @@ Feature: Browse comments
       iTunes 11 finally available for download - The Verge
       over 4 years ago • +1
 
-      I just got rid of the ones "in the cloud". I don't want to lose the play counts on the old (protected) files, and I don't use the iTunes Match service anyway.
+      I just got rid of the ones "in the cloud". I don't want to lose the play counts
+      on the old (protected) files, and I don't use the iTunes Match service anyway.
 
 
       apple
@@ -800,7 +913,12 @@ Feature: Browse comments
       iTunes 11 finally available for download - The Verge
       over 4 years ago • +3
 
-      Is there anything wrong with just deleting them? I get a warning about their being deleted from iCloud, but I don't really care because these duplicates tend to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS as much as 8 years ago, and in some cases I've changed the ID3 tags which seems to confuse iTunes to no end. Or maybe it's because they're the old protected AAC files, I dunno.)
+      Is there anything wrong with just deleting them? I get a warning about their
+      being deleted from iCloud, but I don't really care because these duplicates tend
+      to mess with syncing on my iPhone anyway. (They're tracks I downloaded from iTMS
+      as much as 8 years ago, and in some cases I've changed the ID3 tags which seems
+      to confuse iTunes to no end. Or maybe it's because they're the old protected AAC
+      files, I dunno.)
 
       Edit: Ah yes, it appears to happen for protected AAC files.
 
@@ -818,9 +936,14 @@ Feature: Browse comments
       The True Story of Battlefield 3, the Battlefield Franchise, Its Community, & EA/DICE
       over 4 years ago • +2
 
-      That's exactly how I feel. There are times when I have a ton of fun playing BF3…but it always feels like it has so much more potential to be an awesome game.
+      That's exactly how I feel. There are times when I have a ton of fun playing
+      BF3…but it always feels like it has so much more potential to be an awesome
+      game.
 
-      And that feeling comes even when the game isn't completely fucking frustrating because some admin is kicking you for using some arbitrary weapon he doesn't like, or switching you to the losing team because he doesn't like getting his ass kicked. Or when the game is simply crashing.
+      And that feeling comes even when the game isn't completely fucking frustrating
+      because some admin is kicking you for using some arbitrary weapon he doesn't
+      like, or switching you to the losing team because he doesn't like getting his
+      ass kicked. Or when the game is simply crashing.
 
 
       books
@@ -836,7 +959,9 @@ Feature: Browse comments
       I need a little help understanding billing and payment
       over 4 years ago • +2
 
-      I have a lot of experience working with Satchmo. I don't recommend it. It's over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely updated anymore.
+      I have a lot of experience working with Satchmo. I don't recommend it. It's
+      over-engineered, hard to adapt to your own needs, and, while buggy, it's rarely
+      updated anymore.
 
 
       books
@@ -844,7 +969,10 @@ Feature: Browse comments
       I was saddened hearing this story on the Takeaway this morning- "Is literature necessary?" discussing the new common core standards dictating that 70% of reading be non-fiction.
       over 4 years ago • +11
 
-      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like all of the stuff I read in high school, but I got to read great things like Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare, King Arthur, A Doll's House, Death of a Salesman, and probably more.
+      Yeah, I'm disappointed that some people only enjoyed two books. I didn't like
+      all of the stuff I read in high school, but I got to read great things like
+      Animal Farm, 1984, Night, Raisin in the Sun, The Glass Menagerie, Shakespeare,
+      King Arthur, A Doll's House, Death of a Salesman, and probably more.
 
 
       apple
@@ -852,7 +980,8 @@ Feature: Browse comments
       Report: Apple bumps Android from top spot in U.S. smartphone market on strength of iPhone 5
       over 4 years ago • +13
 
-      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in /r/technology" list.
+      I foresee this being on the "Things That Didn't Get More Than 2 Upvotes in
+      /r/technology" list.
 
 
       worldnews
@@ -868,9 +997,13 @@ Feature: Browse comments
       What's the most expensive mistake you ever made financially?
       over 4 years ago • +2
 
-      It's not just money for a piece of paper. If you're serious about writing, studying it puts you in contact with serious writers, lets you focus on your craft, and provides valuable networking opportunities. And a lot of MFA programs are funded.
+      It's not just money for a piece of paper. If you're serious about writing,
+      studying it puts you in contact with serious writers, lets you focus on your
+      craft, and provides valuable networking opportunities. And a lot of MFA programs
+      are funded.
 
-      It's not necessarily the most pragmatic option (especially not now), and sure, you can write without it, but it's about far more than the degree itself.
+      It's not necessarily the most pragmatic option (especially not now), and sure,
+      you can write without it, but it's about far more than the degree itself.
 
 
       battlefield3
@@ -878,7 +1011,8 @@ Feature: Browse comments
       Can't argue with those rules..
       over 4 years ago • +1
 
-      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of play time on it), but you inspired me to give it another try.
+      I haven't used the AK-74M since I unlocked other weapons (I only have 1h5m of
+      play time on it), but you inspired me to give it another try.
 
 
       redditcasual
@@ -894,7 +1028,9 @@ Feature: Browse comments
       Do you travel? If so, what camera do you use/prefer?
       over 4 years ago • +1
 
-      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is great, but it has a fixed lens, so if need something with zoom or a certain kind of lens, I take the EP-3.
+      I usually take my Olympus EP-3 and/or my Fujifilm FinePix X100. The X100 is
+      great, but it has a fixed lens, so if need something with zoom or a certain kind
+      of lens, I take the EP-3.
 
 
       apple
@@ -902,7 +1038,8 @@ Feature: Browse comments
       iMessage down?
       over 4 years ago • +3
 
-      Reporting in from New York. I can't message another person who lives in New York, so it could just be regional. Who knows.
+      Reporting in from New York. I can't message another person who lives in New
+      York, so it could just be regional. Who knows.
 
 
       battlefield3
@@ -910,7 +1047,8 @@ Feature: Browse comments
       Can't argue with those rules..
       over 4 years ago • +16
 
-      I'm still burned that one time I was tearing up an admin (and other people) with the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the "rules".
+      I'm still burned that one time I was tearing up an admin (and other people) with
+      the M39, and I got kicked for "being a n00b" (yes, the guy sent me a message to tell me that). Thing was, the M39 wasn't even listed as a banned weapon in the "rules".
       """
 
   Scenario: Search for a specific comment with no matches
@@ -1001,7 +1139,10 @@ Feature: Browse comments
       Do colleges actually teach students how to think critically? Or even to think/question at all?
       over 2 years ago • +1
 
-      I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
+      I think it depends on where you go and what you study, but yes, I think they do
+      teach you to think critically, especially in humanities courses and seminars.
+      Maybe it's just because I went to a small, private liberal arts college rather
+      than a huge school, but critical thinking was definitely a part of my education.
 
 
       AskReddit
@@ -1059,7 +1200,10 @@ Feature: Browse comments
       Do colleges actually teach students how to think critically? Or even to think/question at all?
       over 2 years ago • +1
 
-      I think it depends on where you go and what you study, but yes, I think they do teach you to think critically, especially in humanities courses and seminars. Maybe it's just because I went to a small, private liberal arts college rather than a huge school, but critical thinking was definitely a part of my education.
+      I think it depends on where you go and what you study, but yes, I think they do
+      teach you to think critically, especially in humanities courses and seminars.
+      Maybe it's just because I went to a small, private liberal arts college rather
+      than a huge school, but critical thinking was definitely a part of my education.
 
 
       AskReddit
