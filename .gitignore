@@ -1,5 +1,6 @@
+*.gem
 .bundle/
+/gem_graph.png
 Gemfile.lock
 pkg/
 tmp/
-*.gem
