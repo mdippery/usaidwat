@@ -1,3 +1,7 @@
+**The Ruby version of this tool is no longer actively developed. For the newest, actively-developed version of this tool, download the Rust implementation "usaidwat":https://crates.io/crates/usaidwat from crates.io.**
+
+<hr>
+
 h1(#usaidwat). usaidwat
 
 Are you a Redditor? Do you use Ruby? Do you want to view the subreddits in which a particular user commonly posts? If you answered "yes" to all three of these questions, then *usaidwat* is the gem for you!
