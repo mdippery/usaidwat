@@ -1,4 +1,4 @@
-**The Ruby version of this tool is no longer actively developed. For the newest, actively-developed version of this tool, download the Rust implementation "usaidwat":https://crates.io/crates/usaidwat from crates.io.**
+**The Ruby version of this tool is no longer actively developed. For the newest, actively-developed version of this tool, download the Rust implementation "usaidwat":https://github.com/mdippery/usaidwat-next from crates.io.**
 
 <hr>
 
